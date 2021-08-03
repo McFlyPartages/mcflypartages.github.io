@@ -4,7 +4,7 @@ theme = "hugo-theme-bootstrap"
 copyright = "Copyright Site © 2018-{year} Anthony FLEURY. Theme © 2016-{year} Razon Yang. All Rights Reserved."
 
 # Multilingual mode
-defaultContentLanguage = "en"
+defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = true
 
 # Pagination
