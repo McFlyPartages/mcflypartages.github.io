@@ -6,7 +6,7 @@ copyright = "Copyright Site © 2018-{year} Anthony FLEURY. Theme © 2016-{year} 
 # Multilingual mode
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = true
-disableLanguages = ["en", "zh-cn","zh-tw"]
+disableLanguages = ["en", "zh-cn" ,"zh-tw"]
 
 # Pagination
 paginate = 5
