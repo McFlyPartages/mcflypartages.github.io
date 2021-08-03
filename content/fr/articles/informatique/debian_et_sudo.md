@@ -3,7 +3,7 @@ title = "Debian 10 et sudo"
 subtitle = "Retrouver le sudo"
 description = "Retrouver le sudo"
 date = 2021-06-30
-#images = ["images/articles_vierge_1.png"]
+#images = ["images/articles_vierge.png"]
 author = "McFly"
 
 draft = true

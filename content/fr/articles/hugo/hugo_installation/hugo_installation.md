@@ -3,7 +3,7 @@ title = "Hugo : partie 1"
 subtitle = "Installation"
 description = "Deployer sur GitHub Pages"
 date = 2021-06-30
-#images = ["images/articles_vierge_1.png"]
+#images = ["images/articles_vierge.png"]
 author = "McFly"
 
 draft = true

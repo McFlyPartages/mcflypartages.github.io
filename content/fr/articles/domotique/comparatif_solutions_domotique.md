@@ -3,7 +3,7 @@ title = "Comparatif des Solutions Domotiques"
 subtitle = "Avis personnel"
 description = "Avis personnel"
 date = 2021-06-30T16:12:54+02:00
-#images = ["images/articles_vierge_1.png"]
+#images = ["images/articles_vierge.png"]
 author = "McFly"
 
 draft = true

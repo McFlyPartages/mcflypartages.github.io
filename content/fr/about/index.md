@@ -6,7 +6,7 @@ title = "À propos"
 subtitle = "McFly"
 description = "Présentation de l'auteur du Blog"
 date = 2021-08-02
-#images = ["images/articles_vierge_1.png"]
+#images = ["images/articles_vierge.png"]
 author = "McFly"
 
 featured = false

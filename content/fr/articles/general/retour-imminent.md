@@ -3,7 +3,7 @@ title = "Retour Imminent"
 subtitle = ""
 description = "Retour du Site"
 date = 2021-08-02
-images = ["images/articles_vierge_1.png"]
+images = ["images/articles_vierge.png"]
 author = "McFly"
 
 draft = false
