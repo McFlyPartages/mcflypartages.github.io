@@ -1,10 +1,17 @@
 [[main]]
-  name = "Dropdown"
-  identifier = "dropdown"
-  pre = '<i class="fas fa-fw fa-chevron-circle-down"></i>'
-[[main]]
-  id = "github"
-  parent = "dropdown"
-  name = "Github"
-  url = "https://github.com/razonyang/hugo-theme-bootstrap"
-  pre = '<i class="fab fa-fw fa-github"></i>'
+  name = "Archives"
+  identifier = "archives"
+  pre = '<i class="fas fa-fw fa-file-archive"></i>'
+    url = "archives"
+# [[main]]
+#   id = "Facebook"
+#   parent = "suivez-moi"
+#   name = "Github"
+#   url = "https://github.com/razonyang/hugo-theme-bootstrap"
+#   pre = '<i class="fab fa-fw fa-github"></i>'
+# [[main]]
+#   id = "GitHub"
+#   parent = "suivez-moi"
+#   name = "Gitlab"
+#   url = "https://github.com/razonyang/hugo-theme-bootstrap"
+#   pre = '<i class="fab fa-fw fa-github"></i>'

@@ -1,8 +1,8 @@
-name = "Razon Yang"
-# avatar = "images/profile.png" # Avatar image. Default to "images/profile.webp".
-bio = "Gopher, PHPer, Full Stack Engineer."
-company = "Null"
-location = "Earth"
+name = "Anthony alias McFly"
+avatar = "images/tux_marin.png" # Avatar image. Default to "images/profile.webp".
+bio = "Simplement passionné, Fondateur et Président de HACF."
+company = "https://hacf.fr"
+location = "Finistère"
 # about = "https://domain.tld" # The external about page. The internal about page will be used if not set.
 
 [params]

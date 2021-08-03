@@ -3,11 +3,11 @@
 # titleSeparator = "|" # Title separator. Default to "-".
 
 description = "An extreme fast, responsive and feature-rich blog theme for Hugo"
-keywords = "Hugo, Bootstrap, Blog Theme"
-# images = ["site-feature-image.jpg"]
+keywords = "Domotique, Home Assistant, Linux, Serveur, Mémos"
+images = ["images/logo.png"]
 
-# logo = "images/logo.png" # Logo image. Default to "images/logo.webp".
-brand = "BOOTSTRAP"
+logo = "images/logo.png" # Logo image. Default to "images/logo.webp".
+brand = "McFlyPartages.fr"
 # menusPosition = "left" # Menus position: right(default), left or center.
 
 palette = "blue" # Default palette. Optional.
@@ -17,18 +17,18 @@ palette = "blue" # Default palette. Optional.
 # color = "dark" # light, dark or dynamic. Default to dynamic.
 
 # fullWidth = true # Full width.
-# fixedHeader = false # Turn on/off fixed header.
+fixedHeader = true # Turn on/off fixed header.
 
-# dateFormat = "Jan 2, 2006"
+dateFormat = "2 Jan, 2006"
 
 # Google Adsense
 googleAdsense = ""
 
 # math = true # Enable math globally.
-# toc = false # Disable TOC globally.
-# breadcrumb = false # Disable breadcrumb
+toc = true # Disable TOC globally.
+breadcrumb = true # Disable breadcrumb
 
-# poweredBy = false # Whether to show powered by.
+poweredBy = true # Whether to show powered by.
 
 # featuredPostCount = 10 # The number of featured posts shown in sidebar. Turn off by setting it to false.
 # recentPostCount = 10 # The number of recent posts shown in sidebar. Turn off by setting it to false.
@@ -71,13 +71,13 @@ titleCase = true # Capitalized title.
   shenma = ""
 
 [creativeCommons]
-  # by = true # Credit must be given to you, the creator.
-  # nc = true # Only noncommercial use of your work is permitted.
-  # nd = true # No derivatives or adaptations of your work are permitted.
-  # sa = true # Adaptations must be shared under the same terms.
+  by = true # Credit must be given to you, the creator.
+  nc = true # Only noncommercial use of your work is permitted.
+  nd = true # No derivatives or adaptations of your work are permitted.
+  sa = true # Adaptations must be shared under the same terms.
 
 [utterances]
-  repo = "razonyang/hugo-theme-bootstrap-comments" # Replace with your repository.
+  #repo = "razonyang/hugo-theme-bootstrap-comments" # Replace with your repository.
   #issueTerm = "pathname" # pathname, url, title, og:title
   #label = "comment"
   theme = "github-dark" # github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark.
@@ -96,8 +96,8 @@ titleCase = true # Capitalized title.
     # useExtendedSearch = true
 
 [reward]
-  alipay = "images/reward/alipay.png"
-  wechat = "images/reward/wechat.png"
+  #alipay = "images/reward/alipay.png"
+  #wechat = "images/reward/wechat.png"
 
 #[share]
   #addThis = "" # AddThis pubid.
