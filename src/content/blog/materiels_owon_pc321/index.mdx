@@ -1,0 +1,87 @@
+---
+draft: true
+title: Owon PC321 - Mesurer la consommation des appareils consommateurs d'energie (jusqu'a 500A)
+description: "Mesurer la consommation de ses appareils les plus energivor n'est pas evident. Le Owon PC321-Z permet de mesurer des appareils jusqu'a 500A et le tout en Zigbee."
+pubDate: 05/07/2024
+#heroImage: './ha_addon_store.png'
+categories: 
+- Materiels
+- Domotique
+- Home Assistant
+- Gladys Assistant
+authors: 
+- mcfly
+tags:
+- Gladys Assistant
+- Home Assistant
+- Zigbee2MQTT
+- Materiels
+---
+
+import Alert from "@components/mdx/Alert.astro";
+
+**Tuto réalisé avec :**
+* HAOS 12.2, Core 2024.5
+* Gladys Assistant V4.40
+* Add-on : Zigbee2MQTT v1.37.0
+* Matériels : 
+  * Owon PC321-Z-MU : [Domadoo](https://www.domadoo.fr/fr/peripheriques/6372-owon-compteur-de-consommation-electrique-zigbee-monophasetriphase-80-a-300a.html?domid=66).
+  * Pinces (x3) : 80A [Domadoo](https://www.domadoo.fr/fr/accessoires-electriques/6367-owon-3-pinces-amperemetriques-80a-pour-compteur-de-consommation-owon.html?domid=66), 120A [Domadoo](https://www.domadoo.fr/fr/accessoires-electriques/6369-owon-3-pinces-amperemetriques-120a-pour-compteur-de-consommation-owon.html?domid=66), 200A [Domadoo](https://www.domadoo.fr/fr/accessoires-electriques/6370-owon-3-pinces-amperemetriques-200a-pour-compteur-de-consommation-owon.html?domid=66), 300A [Domadoo](https://www.domadoo.fr/fr/accessoires-electriques/6371-owon-3-pinces-amperemetriques-300a-pour-compteur-de-consommation-owon.html?domid=66), 
+  * [Sonoff Zigbee 3.0 USB Dongle Plus **P**](https://amzn.to/41W8f4W) ou **E** [Domadoo](https://www.domadoo.fr/fr/interface-domotique/6315-sonoff-zbdongle-e-cle-usb-dongle-zigbee-30-antenne-externe-20dbm-v2.html?domid=66), [Amazon](https://amzn.to/4baBRPQ), [Aliexpress](https://s.click.aliexpress.com/e/_Dd4Qrb9)
+
+<Alert type ="warning">Attention, il existe en version Wi-Fi et Zigbee. En Zigbee, il existe encore deux versions, une Tuya et une compâtible avec les systemes domotique, alors ne vous trompez pas. **Suivez les liens ci-dessus**.</Alert>
+
+L'Owon PC321-Z-MU est un compteur de courant monophasé ou triphasé à pince ampèremétrique fonctionnant sur le protocole ZigBee. Il permet de surveiller la consommation électrique d'un appareils jusqu'a 500A. La pince ampèremétrique fonctionne en se clipsant autour de la phase de chaque appareils que vous souhaitez mesurer. Les pinces ampèremétriques convertissent ensuite le courant en un signal pouvant être lu par l'unité principale du PC321-Z.
+
+Le PC321-Z peut mesurer divers paramètres électriques, notamment :
+**De facon globale :**
+* Le courant instantané total (A),
+* La puissance instantanée totale (W),
+* La puissance réactive totale (VAR),
+* L'énergie totale (KWh),
+* L'energie réactive totale (KVArh),
+**De facon individuelle :**
+* La tension instantanée pour chaque pinces (V),
+* Le courant instantané pour chaque pinces (A),
+* L'énergie instantané pour chaque pinces (KWh),
+* L'energie réactive instantanée pour chaque pinces (KVArh),
+* La puissance instantanée pour chaque pinces (W),
+* La puissance réactive instantanée pour chaque pinces (VAr),
+* Le facteur de puissance pour chaque pinces,
+
+**Carateristiques techniques :**
+* Taille boitiers ???????????
+* Taille pince ???????????
+
+Il est bien intégré dans Zigbee2MQTT et est donc compatible avec Home Assistant ou Gladys Assistant.
+
+Passons a son intégration !!!
+
+## Intégration
+### Installation
+<Alert type="danger">**ATTENTION :** Ne jouez pas avec l'electricité, coupez le courant avant toute manipulation dans votre tableau. Couper les disjonteur principal. **Je ne serais en aucun cas reponsable** </Alert>
+
+Le Owon PC 321 ne s'integra pas sur un rail DIN (tableau electrique) il faudra donc le fixer a coté et les pinces devront aller sur les phases des appareils sur lesquels vous souhaitez relever la consommation.
+
+<Alert type="info">Tout depend de ce que l'on veut en faire mais c'est peut etre l'aspect negatif de ce systeme, car ca fait encore un boitier qu'il faudra caler a coité dur tableau et des fils a bien ranger.</Alert>
+
+Pour installer le Owon PC321, vous avez ??????? pour le fixer au mur.
+
+**Triphasé**
+
+Ensuite, pour le branchement en triphasé, il suffit de brancher chaque petit fils noir sur une phase differentes et de clipser les pinces sur chaque phase ou sur un appareils de chaque phase.
+
+**Monophase**
+
+En mono phasé, vous devez brancher les trois fils noires sur une phase et brancher vos pinces sur les appareils de votre choix.
+
+<Alert type="warning">Il faut faire attention au sens du courant lorsque vous branchez votre pince. Le courant doit circuler de ??? vers ????.</Alert>
+
+### Zigbee2MQTT
+Pour l'ajouter dans Zigbee2MQTT, il vous suffitr de passer Zigbee2MQTT en mode appairage et d'appuyer sur le bouton situé a l'arriere du boitier pendant ?? secondes. Il devrait etre automatiquement reconnu.
+
+### Home Assistant
+Une fois ajouté dans Zigbee2MQTT, rendez vous dans `Appareils et services -> MQTT` puis dans les appareils MQTT rechercher le nom que vous lui avez donné. Vous avez l'ensemble des capteurs qui remontent sauf le courant et la qualité de signal qui ne sont pas activés par defaut, a vous de les activer.
+
+### Gladys Assistant
+Dans Gladys, seul l'intensité, la puissance et l'energie totale sont accessible, je viens de faire une demande sur le forum. Actuellement il n'y a donc que peut d'interet.
