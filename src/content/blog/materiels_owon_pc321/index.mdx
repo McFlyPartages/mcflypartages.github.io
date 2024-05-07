@@ -1,7 +1,7 @@
 ---
 draft: true
 title: Owon PC321 - Mesurer la consommation des appareils consommateurs d'energie (jusqu'a 500A)
-description: "Mesurer la consommation de ses appareils les plus energivor n'est pas evident. Le Owon PC321-Z permet de mesurer des appareils jusqu'a 500A et le tout en Zigbee."
+description: "Mesurer la consommation de ses appareils les plus energivor n'est pas evident. Le Owon PC321-Z permet de mesurer des appareils jusqu'a 500A et le tout en Zigbee 3.0."
 pubDate: 05/07/2024
 #heroImage: './ha_addon_store.png'
 categories: 
@@ -51,8 +51,10 @@ Le PC321-Z peut mesurer divers paramètres électriques, notamment :
 * Le facteur de puissance pour chaque pinces,
 
 **Carateristiques techniques :**
-* Taille boitiers ???????????
-* Taille pince ???????????
+* Dimensions boitier : 86 (L) x 86 (L) x 37 (H) mm longueur des fils de phase environ 90 cm.
+* Dimensions pince : ???????????
+* Erreur de mesure : inferieur a 1%
+* Fait routeur pour votre reseau Zigbee.
 
 Il est bien intégré dans Zigbee2MQTT et est donc compatible avec Home Assistant ou Gladys Assistant.
 
@@ -70,11 +72,14 @@ Pour installer le Owon PC321, vous avez ??????? pour le fixer au mur.
 
 **Triphasé**
 
-Ensuite, pour le branchement en triphasé, il suffit de brancher chaque petit fils noir sur une phase differentes et de clipser les pinces sur chaque phase ou sur un appareils de chaque phase.
+Ensuite, pour le branchement en triphasé, il suffit de brancher chaque connecteurs L1, L2 et L3 sur une phase differentes et le connecteur N sur le neutre. Ensuite clipsez les pinces sur chaque phase ou sur un appareils (phases differentes).
+
+![Shema du branchement Owon PC 321 en triphasé](./img/OWON-PC321-branchement-tetra.jpg)
 
 **Monophase**
 
 En mono phasé, vous devez brancher les trois fils noires sur une phase et brancher vos pinces sur les appareils de votre choix.
+![Shema du branchement Owon PC 321 en monophasé](./img/OWON-PC321-branchement-mono.jpg)
 
 <Alert type="warning">Il faut faire attention au sens du courant lorsque vous branchez votre pince. Le courant doit circuler de ??? vers ????.</Alert>
 
