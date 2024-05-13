@@ -9,6 +9,8 @@ Puis editer votre MDX avec les informations suivan,te
 Type disponible `warning`, `success`, `info`, `danger`
 
 ```
+Add Rehype External Link with option `_blank` and icon.
+
 ## 🔥 Features
 
 - ✅ Minimal styling (Tailwind CSS)
