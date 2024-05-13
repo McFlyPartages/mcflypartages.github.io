@@ -8,6 +8,9 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 import { manifest } from './src/utils/manifest';
 
+import rehypeExternalLinks from 'rehype-external-links';
+import { content } from 'googleapis/build/src/apis/content';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'http://mcflypartages.fr/',
@@ -20,6 +23,15 @@ export default defineConfig({
       theme: 'material-theme-palenight',
       wrap: true,
     },
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          content: { type: 'text', value: ' 🔗' },
+          target: { type: 'target', value: '_blank'},
+        }
+      ],
+    ]
   },
   integrations: [
     mdx({
