@@ -3,7 +3,7 @@ draft: false
 title: Ventoy - Créer une clé USB bootable multi ISOs.
 description: "Comment créer une clé USB bootable contenant plusieurs images ISOs avec Ventoy."
 pubDate: 12/11/2023
-heroImage: './brina-blum-Bb_X4JgSqIM-unsplash.jpg'
+heroImage: '.img/brina-blum-Bb_X4JgSqIM-unsplash.jpg'
 categories: 
 - Linux
 authors: 
@@ -49,13 +49,13 @@ sudo bash Ventoy2Disk.sh -i /dev/sdd #a remplacer par votre chemin sans le numer
 ```
 <Alert type="danger">Ceci supprimera toutes les données présentes sur la clé USB, il vous demande par deux fois de confirmer.</Alert>
 
-![Terminal de l'installation de Ventoy sur Ubuntu](./img/ventoy_installation.png)
+![Terminal de l'installation de Ventoy sur Ubuntu](.img/ventoy_installation.png)
 
 Une fois l'installation terminée, il vous suffit de copier vos ISOs directement à la racine de la clé USB.
 
 Lorsque vous allez démarrer depuis la clé USB, il vous sera proposé un écran avec les ISOs que vous avez mis dessus.
 
-![Exemple d'écran d'accueil de Ventoy](./img/ventoy_ecran_accueil.png)
+![Exemple d'écran d'accueil de Ventoy](.img/ventoy_ecran_accueil.png)
 
 ## Mise à jour
 Pour mettre à jour votre clé USB vers la dernière version de Ventoy, il vous suffit de suivre la procédure d'installation, mais en changeant la commande d'installation par :
@@ -64,7 +64,7 @@ sudo bash Ventoy2Disk.sh -u /dev/sdd #a remplacer par votre chemin sans le numer
 ```
 *Normalement, il n'y a pas besoin de supprimer toutes les images ISOs ou autres.*
 
-![Mise à jour de la clé USB bootable Ventoy](./img/ventoy_update.png)
+![Mise à jour de la clé USB bootable Ventoy](.img/ventoy_update.png)
 
 ## Sources
 - [Ventoy](https://www.ventoy.net/)
