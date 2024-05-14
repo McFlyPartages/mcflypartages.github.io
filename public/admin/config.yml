@@ -54,3 +54,38 @@ collections:
         allow_add: true
       - {label: "Liens Affilies", name: "affiliateLink", widget: "boolean", default: false, required: false}
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "short" # Utilisé dans les routes, par exemple, /admin/collections/blog
+    label: "Short" # Utilisé dans l'UI
+    folder: "src/content/short" # Chemin d'accès au dossier dans lequel les documents sont stockés
+    media_folder: '.img'
+    create: true # Permettre aux utilisateurs de créer de nouveaux documents dans cette collection
+    publish: true
+    path: '{{dossier}}/index'
+    extension: "mdx"
+    format: "frontmatter"
+    fields: # Les champs de chaque document, généralement en tête de page
+      - {label: "Brouillon", name: "draft", widget: "boolean", default: true}
+      - { label: "Dossier", name: "dossier", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - {label: "Description", name: "description", widget: "text"}
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", date_format: "MM.DD.YYYY", format: "L"}
+      - { label: "Featured Image", name: "heroImage", widget: "image", choose_url: false, media_folder: ".img", required: false }
+      - label: "Auteur"
+        name: "authors"
+        widget: "list"
+        allow_add: true
+        default: ["mcfly"]
+      - label: "Catégories"
+        name: "categories"
+        widget: "select"
+        max: 3
+        min: 1
+        multiple: true
+        options: ["actus", "shorts"]
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+      - {label: "Liens Affilies", name: "affiliateLink", widget: "boolean", default: false, required: false}
+      - { label: "Body", name: "body", widget: "markdown" }
