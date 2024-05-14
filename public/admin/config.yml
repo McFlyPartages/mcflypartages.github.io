@@ -25,6 +25,7 @@ collections:
     folder: "src/content/blog" # Chemin d'accès au dossier dans lequel les documents sont stockés
     media_folder: '.img'
     create: true # Permettre aux utilisateurs de créer de nouveaux documents dans cette collection
+    publish: true
     path: '{{dossier}}/index'
     extension: "mdx"
     format: "frontmatter"
