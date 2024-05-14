@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Installer HAOS sur Raspberry ou autres SBC.
 description: "Comment installer Home Assistant OS sur Raspberry Pi, Odroid, Tinkerboard, NUC ou autres, de manière simple et rapide. Commençons dans la domotique avec un système Open source, gratuit, international et évolutif avec plus de 1900 intégrations et des centaines d'add-ons."
 pubDate: 12/12/2023
-heroImage: './home-assistant-blue.jpg'
+heroImage: '.img/home-assistant-blue.jpg'
 categories: 
 - Home Assistant
 - Domotique
@@ -41,7 +41,7 @@ Il y a plusieurs moyens d'installer Home Assistant et nous allons en voir deux s
 Dans les deux cas, nous installerons Home Assistant OS qui est la version "Supervised" de Home Assistant.
 
 *Voici un tableau de comparaison des différentes installations de Home Assistant.*
-![Tableau représentant les différentes installations de Home Assistant](./img/ha_tableau_installation.png "Tableau représentant les différentes installations de Home Assistant")
+![Tableau représentant les différentes installations de Home Assistant](.img/ha_tableau_installation.png "Tableau représentant les différentes installations de Home Assistant")
 
 <Alert type="info">**Pour les débutants**, il est préférable de commencer avec Home Assistant OS, afin de vous concentrer sur la domotique pure.</Alert>
 
@@ -59,7 +59,7 @@ Dans les deux cas, nous installerons Home Assistant OS qui est la version "Super
 
 *Le système d'exploitation Home Assistant permet de stocker la plupart des données sur un support de stockage externe (par exemple, un SSD ou un disque dur connecté par USB). Ce disque de données contient non seulement les données de l'utilisateur, mais aussi la plupart des logiciels de Home Assistant (Core, Supervisor, etc.). Cela signifie qu'un disque de données rapide rendra le système global beaucoup plus rapide.*
 
-![Image du Schéma expliquant le support des données en externe.](./img/ha_usbdatadisk.png "Schéma expliquant le support des données en externe.")
+![Image du Schéma expliquant le support des données en externe.](.img/ha_usbdatadisk.png "Schéma expliquant le support des données en externe.")
 
 *La fonction de disque de données peut être utilisée sur une installation existante sans perdre de données : Le système déplacera automatiquement les données existantes vers le disque de données externe. Toutefois, il est recommandé de [créer et de télécharger une sauvegarde](/blog/ha_backups) complète avant de procéder !
 
@@ -69,7 +69,7 @@ Dans les deux cas, nous installerons Home Assistant OS qui est la version "Super
 ### Avec Raspberry Pi Imager
 C'est la méthode la plus simple et j'ai déjà [écrit un article dessus](/blog/raspberry_pi_installer_os/), il vous suffit de sectionner Home Assistant comme OS dans `Select Choose OS`, sélectionnez `Other specific-purpose OS` > `Home assistants and home automation` > `Home Assistant`.
 
-![Sélectionner Home Assistant dans Raspberry Pi Imager](./img/haos_raspberry_pi_imager.gif "Sélectionner Home Assistant dans Raspberry Pi Imager")
+![Sélectionner Home Assistant dans Raspberry Pi Imager](.img/haos_raspberry_pi_imager.gif "Sélectionner Home Assistant dans Raspberry Pi Imager")
 
 ### Avec Balena Etcher
 
@@ -86,13 +86,13 @@ Je n'ai pas parlé de la connexion du Raspberry au Wifi. Ce n'est pas un oubli, 
 
 Rendez-vous, depuis votre navigateur, sur `[http://homeassistant:8123](http://homeassistant:8123)` ou `[homeassistant.local:8123](http://homeassistant.local:8123)` ou alors via `ipdevotremateriel:8123` (récupérable sur votre routeur/box)
 
-![Image d'attente du premier lancement de Home Assistant](./img/installation_prepring_home_assistant.png "Écran d'attente lors du premier lancement de Home Assistant")
+![Image d'attente du premier lancement de Home Assistant](.img/installation_prepring_home_assistant.png "Écran d'attente lors du premier lancement de Home Assistant")
 
 *Il peut falloir 2-3 minutes avant que cette page s'affiche.*
 
 Il faut maintenant patienter quelques minutes, plus ou moins longues, en fonction de votre connexion internet avant de pouvoir lancer la première configuration qui est **commune à toutes les installations**.
 
-[Home Assistant première configuration](./img/home_assistant_premiere_configuration.gif "Home Assistant première configuration")
+[Home Assistant première configuration](.img/home_assistant_premiere_configuration.gif "Home Assistant première configuration")
 
 Une fois la préparation terminée, il va vous demander quelques paramétrages :
 *Sur la première page :*
@@ -100,7 +100,7 @@ Une fois la préparation terminée, il va vous demander quelques paramétrages :
 * Un nom d'utilisateur,
 * Un mot de passe et sa confirmation
 
-![Crétion de l'utilisateur principal de Home Assistant](./img/creation_utilisateur.png "Crétion de l'utilisateur principal de Home Assistant")
+![Crétion de l'utilisateur principal de Home Assistant](.img/creation_utilisateur.png "Crétion de l'utilisateur principal de Home Assistant")
 
 **Cet utilisateur sera l'utilisateur avec tous les droits alors ne pas hésiter à mettre un bon mot de passe.**
 
@@ -111,27 +111,27 @@ Une fois la préparation terminée, il va vous demander quelques paramétrages :
 * Rentrer l'altitude de son domicile ([récupérable ici](https://www.calcmaps.com/fr/map-elevation/)),
 * Choisir le système métrique.
 
-![Définir l'emplacement de votre logement](./img/emplacement_logement.png "Définir l'emplacement de votre logement")
+![Définir l'emplacement de votre logement](.img/emplacement_logement.png "Définir l'emplacement de votre logement")
 
 La troisième vous permet de partager anonymement certaines données, pour aider Home Assistant à améliorer le système.
 
-![Partage des informations anonymes](./img/trackeur.png "Partage des informations anonymes")
+![Partage des informations anonymes](.img/trackeur.png "Partage des informations anonymes")
 
 La quatrième concerne les matériels détectés automatiquement par Home Assistant chez vous.
 Vous pouvez passer cette étape, on y reviendra plus tard. Ils peuvent être retrouvés dans `Paramètres` -> `Appareils et Services`
 
-![Matériels automatiquement détectés par Home Assistant](./img/materiels_auto_detectes.png "Matériels automatiquement détectés par Home Assistant")
+![Matériels automatiquement détectés par Home Assistant](.img/materiels_auto_detectes.png "Matériels automatiquement détectés par Home Assistant")
 
 Vous voilà enfin sur l'interface de Home Assistant.
 
-![Page d'accueil de Home Assistant](./img/ha_ecran_accueil.png)
+![Page d'accueil de Home Assistant](.img/ha_ecran_accueil.png)
 
 ### Activer les paramètres avancés
 
 Le mode avancé vous permet d'avoir plus de contrôle sur votre serveur.
 Cliquer sur votre utilisateur (dans le menu en bas à gauche) puis activer `Mode avancé`.
 
-![Activation des paramètres avancés dans Home Assistant](./img/activer_parametres_avances.gif "Activation des paramètres avancés dans Home Assistant")
+![Activation des paramètres avancés dans Home Assistant](.img/activer_parametres_avances.gif "Activation des paramètres avancés dans Home Assistant")
 
 ### Déplacer ses données vers un support externe
 Pour préserver la carte Micro SD tout en gardant un système rapide, Home Assistant préconise de déplacer les données utilisateur sur un support externe (il peut être interne avec un boitier adapté).
@@ -143,7 +143,7 @@ Pour cela rien de plus simple :
 
 Home Assistant devrait redémarrer.
 
-![Déplacer ses données vers un support externe dans Home Assistant](./img/deplacer_donnees_support_externe.gif "Déplacer ses données vers un support externe dans Home Assistant")
+![Déplacer ses données vers un support externe dans Home Assistant](.img/deplacer_donnees_support_externe.gif "Déplacer ses données vers un support externe dans Home Assistant")
 
 Vos données seront maintenant sur le disque dur et les écritures ne viendront plus abimer votre carte Micro SD.
 

@@ -3,7 +3,7 @@ draft: false
 title: Flatpak - Installez et découvrez les dernières versions de vos applications.
 description: "Comment installer Flatpak sur Ubuntu et accéder à un énorme catalogue d'applications conteneurisées limitant l'accès à votre système."
 pubDate: 12/11/2023
-heroImage: './flatpak-linux-box.webp'
+heroImage: '.img/flatpak-linux-box.webp'
 categories: 
 - Linux
 authors: 
@@ -60,7 +60,7 @@ sudo add-apt-repository ppa:flatpak/stable ## Ajoute le dépôt officiel à votr
 sudo apt update ## Mise à jour de votre liste d'application (en intégrant le nouveau dépôt)
 sudo apt install flatpak ## Installationde Flatpak
 ```
-![Installation Flatpak](./img/installation_flatpak.png)
+![Installation Flatpak](.img/installation_flatpak.png)
 
 Flatpak est installé, vous pouvez dès à présent installer des applications FlatPak via les lignes de commande.
 
@@ -81,7 +81,7 @@ Ajouter le dépot FlatHub
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-![Installation de Gnome Software Flatpak](./img/installation_gnome_plugin_flatpak.png)
+![Installation de Gnome Software Flatpak](.img/installation_gnome_plugin_flatpak.png)
 
 Redemarrer votre système et c'est fini.
 
@@ -106,7 +106,7 @@ flatpak run votre_application
 ## Pour supprimer
 flatpak uninstall --user votre_application ## Le -user permet de supprimer le dossier de l'appli dans le dossier de l'utilisateur.
 ```
-![Installation d'application Flatpak en ligne de commande](./img/installation_application_flatpak_cli.png)
+![Installation d'application Flatpak en ligne de commande](.img/installation_application_flatpak_cli.png)
 
 ## Conclusion.
 Il y a beaucoup d'échange sur internet à propos de l'installation d'applications via Flatpak.

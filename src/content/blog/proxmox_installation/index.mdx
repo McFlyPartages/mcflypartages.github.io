@@ -3,7 +3,7 @@ draft: false
 title: Proxmox - Découvrez le monde de la virtualisation
 description: "Dans cet article, nous allons voir comment installer Proxmox, changer les sources d'entreprise par celles sans souscription et effectuer les mises à jour"
 pubDate: 01/07/2024
-heroImage: './Proxmox-destacada.webp'
+heroImage: '.img/Proxmox-destacada.webp'
 categories: 
 - Proxmox
 - Linux
@@ -59,18 +59,18 @@ Démarrer sur votre clé USB puis sélectionner la distribution Proxmox.
 Une interface graphique s'ouvre, sélectionner `Install (Graphic mode)`
 
 * Accepter la licence avec le bouton `I agree` en bas à droite.
-![Écran de licence Proxmox](./img/proxmox_ecran_licence.png)
+![Écran de licence Proxmox](.img/proxmox_ecran_licence.png)
 * Sélectionnez le disque dur sur lequel vous souhaitez installer Proxmox
 *Personnellement, je débranche tous les disques non utiles pour éviter les erreurs.*
-![Choix du disque dur Proxmox](./img/proxmox_selection_disque_dur.png)
+![Choix du disque dur Proxmox](.img/proxmox_selection_disque_dur.png)
 * Sélectionnez votre Pays, le fuseau Horaire et la langue utilisée sur votre clavier.
-![Paramètres régionaux Proxmox](./img/proxmox_selection_region.png)
+![Paramètres régionaux Proxmox](.img/proxmox_selection_region.png)
 * Saisir un mot de passe solide et un email (*Je pense que c'est pour les notifications si vous configurez un serveur mail, mais pas sûr*),
-![Administration Password Proxmox](./img/proxmox_ecran_mot_de_passe.png)
+![Administration Password Proxmox](.img/proxmox_ecran_mot_de_passe.png)
 * Configurer le Hostname, ainsi que les informations réseaux,
-![Configuration du réseaux Proxmox](./img/proxmox_network_configuration.png)
+![Configuration du réseaux Proxmox](.img/proxmox_network_configuration.png)
 * Vérifier que toutes les informations sont correctes.
-![Récapitulatif Proxmox](./img/proxmox_summary.png)
+![Récapitulatif Proxmox](.img/proxmox_summary.png)
 
 L'installation se lance, il ne vous reste plus qu'à attendre.
 
@@ -79,7 +79,7 @@ L'installation se lance, il ne vous reste plus qu'à attendre.
 Une fois l'installation terminée, vous pouvez vous rendre sur l'interface via l'adresse suivante `https://votre_IP:8006`
 
 Une fois sur l'interface, connectez-vous avec l'utilisateur `root` puis mettez le mot de passe que vous avez saisi pendant l'installation.
-![Interface de Proxmox](./img/proxmox_interface.png)
+![Interface de Proxmox](.img/proxmox_interface.png)
 
 À gauche, vous avez le `Datacenter` avec le ou les `noeuds`, si vous avez plusieurs Proxmox en cluster. Le nœud sur la capture s'appelle `proxgen8`.
 
@@ -94,10 +94,10 @@ Vous avez aussi accès à l'utilisateur connecté et pouvez modifier certains pa
 ### Mise à jour.
 Pour mettre à jour votre Proxmox, vous devez aller dans le nœud, puis dans `Updates`.
 Cliquez sur le bouton `Refresh`, puis sur `Upgrade`.
-![Mise à jour de Proxmox](./img/proxmox_update.png)
+![Mise à jour de Proxmox](.img/proxmox_update.png)
 
 *Lors de votre première installation, vous pouvez avoir un popup vous disant que vous n'avez pas de souscription valide.*
-![Proxmox No Valid Subscription](./img/proxmox_update_no_valid_subscription.png)
+![Proxmox No Valid Subscription](.img/proxmox_update_no_valid_subscription.png)
 
 Nous allons donc changer cela en remplaçant les sources dites "entreprise" par celles sans souscription via un le script post install de Tteck.
 *Pourquoi c'est comme ça par défaut, je ne sais pas, sûrement parce que c'est plus destiné aux professionnels.*
@@ -105,7 +105,7 @@ Nous allons donc changer cela en remplaçant les sources dites "entreprise" par 
 ### Script Post Install TTeck
 Nous allons lancer notre première ligne de commande dans le Shell du nœud en lançant le `script post Install` de [TTeck](https://tteck.github.io/Proxmox/) grâce à un simple copier-coller.
 
-![Script Post Install TTeck](./img/script_post_install_tteck.png)
+![Script Post Install TTeck](.img/script_post_install_tteck.png)
 
 * Copier la ligne ci-dessous
 ```bash
@@ -113,14 +113,14 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pve-i
 ```
 * Rendez-vous dans le shell de votre nœud.
 * Coller la ligne de commande, puis lancer le script avec la touche <span><kbd>ENTRÉE</kbd></span>
-![Lancement du script post install dans un Shell Proxmox](./img/proxmox_tteck_script_post_install.gif)
+![Lancement du script post install dans un Shell Proxmox](.img/proxmox_tteck_script_post_install.gif)
 Je vous laisse suivre les informations à l'écran, mais en gros, vous pouvez cliquer sur `Yes` partout.
 
 Il vous demandera de désactiver la haute disponibilité (si vous avez un seul nœud Proxmox)
-![Script post-install Proxmox désactivation haute disponibilité](./img/script_post_install_tteck_high_availability.png)
+![Script post-install Proxmox désactivation haute disponibilité](.img/script_post_install_tteck_high_availability.png)
 
 À la fin, il vous proposera de mettre à jour Proxmox, sélectionnez `Yes` et ensuite, il vous demandera de redémarrer.
-![Script post-install Proxmox mise à jour](./img/script_post_install_tteck_update.png)
+![Script post-install Proxmox mise à jour](.img/script_post_install_tteck_update.png)
 
 Votre Proxmox est maintenant à jour avec les réglages grand public (sources, etc).
 *Si la mise à jour tourne en rond, vous pouvez quitter puis relancer le script, mais lancer la mise à jour à la fin, ensuite il vous suffit de procéder directement comme indiqué un peu plus haut.*
@@ -135,30 +135,30 @@ La première étape consiste à rapatrier l'image ISO d'installation sur notre P
 * * Sélectionnez `ISO Images` 
 * * Cliquez sur `Upload` et sélectionner votre image.
 Vous remarquerez qu'il est aussi possible de récupérer une image directement via son URL.
-![Ajouter une image ISO a Proxmox 8](./img/proxmox_ajouter_image_iso.gif)
+![Ajouter une image ISO a Proxmox 8](.img/proxmox_ajouter_image_iso.gif)
 
 Maintenant que l'image est sur notre Proxmox, nous allons pouvoir créer une Machine Virtuelle.
 1. Cliquez sur le bouton `Create VM`,
 1. Onglet `General` : Donner un numéro a votre VM dans `VM ID` (facultatif) puis donnez un nom dans `Name`, (*Astuces : Dans mon VM ID, je mets les derniers chiffres de l'IP de la machine pour la retrouver d'un coup d'œil*)
-![Onglet général lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_general.png)
+![Onglet général lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_general.png)
 1. Onglet `OS` : Dans `storage` sélectionnez `local` puis dans `ISO image` recherchez votre image Debian,
-![Onglet OS lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_os.png)
+![Onglet OS lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_os.png)
 1. Onglet `System` : Activez le Qemu Agent (facultatif) qui permet d'avoir la remonter de l'adresse IP si la Qemu Agent est installé dans la distribution (Sinon il peut être installé). `Add TPM` est utile pour une installation de Windows 10/11,
-![Onglet système lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_system.png)
+![Onglet système lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_system.png)
 1. Onglet `Disks` : Laissez par défaut, ajuster l'espace `Disk size (GiB)` à la baisse si vous le souhaiter, car vous ne pourrez pas le baisser plus tard sans avoir de problème, par contre, il est possible de l'augmenter,
-![Onglet disques lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_disks.png)
+![Onglet disques lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_disks.png)
 1. Onglet `CPU` : Adapter le nombre de `Cores` à votre CPU, mais aussi a vos besoins (Peut être modifié ultérieurement à la hausse comme à la baisse),
-![Onglet CPU lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_cpu.png)
+![Onglet CPU lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_cpu.png)
 1. Onglet `Memory` : Idem que le CPU mis pour la mémoire RAM (vous pouvez booster pour l'installation puis diminuer la valeur ensuite),
-![Onglet mémoire lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_memory.png)
+![Onglet mémoire lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_memory.png)
 1. Onglet `Network` : Vous pouvez laisser par défaut sauf si vous disposez de plusieurs interfaces et que vous savez ce que vous faites,
-![Onglet réseau lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_network.png)
+![Onglet réseau lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_network.png)
 1. Onglet `Confirm` : Vous donne un récapitulatif de votre VM,
-![Onglet récapitulatif lors de la création d'une VM sous Proxmox](./img/proxmox_creation_vm_onglet_confirm.png)
+![Onglet récapitulatif lors de la création d'une VM sous Proxmox](.img/proxmox_creation_vm_onglet_confirm.png)
 1. Cliquez sur `Finish` pour lancer la création.
 
 Votre première VM est créée, il vous faut la lancer et ouvrir la console pour suivre les étapes de l'[installation de l'OS Debian 12](/blog/linux_debian_12_installation) cette fois.
-![Lancement d'une VM Proxmox](./img/proxmox_lancement_vm.gif)
+![Lancement d'une VM Proxmox](.img/proxmox_lancement_vm.gif)
 
 ### Ajouter du hardware a votre VM
 Nous avons maintenant notre VM, mais nous aimerions lui connecter une clé Zigbee USB (marche avec d'autres choses). Nous allons donc lier la clé USB à notre VM et **seulement** à celle-ci.
@@ -173,7 +173,7 @@ Donc, pour associer une clé USB à une VM, il faut que votre VM soit éteinte e
 
 <Alert type="info">`Vendor/Device ID` permet de sélectionner un USB par son ID qui est unique, ce qui permet de le changer de port USB sans conséquence. `USB Port` permet de sélectionner un USB par son emplacement sur votre matériel.</Alert>
 
-![Associer un matériel a votre VM](./img/proxmox_ajouter_hardware.gif)
+![Associer un matériel a votre VM](.img/proxmox_ajouter_hardware.gif)
 
 ## Conclusion
 L'avantage d'un système de virtualisation est la possibilité d'utiliser l'ensemble des ressources de votre machine et non pas de la dédier à un seul service ou une seule tâche.

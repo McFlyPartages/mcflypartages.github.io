@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Sauvegarder votre installation automatiquement
 description: "Il est très important de commencer par mettre en place une sauvegarde automatique de votre installation, pour ne pas avoir à tout recommencer. C'est ce que nous allons voir dans cet article"
 pubDate: 12/12/2023
-heroImage: './data-security-445154_1920.jpg'
+heroImage: '.img/data-security-445154_1920.jpg'
 categories: 
 - Home Assistant
 - Domotique
@@ -39,7 +39,7 @@ Pour accéder et déclencher manuellement une sauvegarde, vous devez vous rendre
 * Protéger par un mot de passe (*facultatif*)
 * Cliquer sur CRÉER.
 
-![Créer une sauvegarde manuelle dans Home Assistant](./img/creer_sauvegarde_manuelle_home_assistant.gif "Créer une sauvegarde manuelle dans Home Assistant")
+![Créer une sauvegarde manuelle dans Home Assistant](.img/creer_sauvegarde_manuelle_home_assistant.gif "Créer une sauvegarde manuelle dans Home Assistant")
 
 #### Télécharger une sauvegarde
 Pour rapatrier une sauvegarde sur votre ordinateur (par exemple), il vous suffit de :
@@ -47,12 +47,12 @@ Pour rapatrier une sauvegarde sur votre ordinateur (par exemple), il vous suffit
 * Cliquer sur les trois petits points en bas à droite,
 * Cliquer sur Télécharger la sauvegarde.
 
-![Récupérer une sauvegarde depuis Home Assistant manuellement](./img/telecharger_sauvegarde_home_assistant.gif "Récupérer une sauvegarde depuis Home Assistant manuellement")
+![Récupérer une sauvegarde depuis Home Assistant manuellement](.img/telecharger_sauvegarde_home_assistant.gif "Récupérer une sauvegarde depuis Home Assistant manuellement")
 
 #### Restaurer une sauvegarde
 *Il est possible de restaurer une sauvegarde lors du premier lancement de Home Assistant, ce qui rend très rapide la réinstallation de Home Assistant.*
 
-![Restaurer une sauvegarde lors de la première configuration](./img/restaurer_premiere_configuration.png "Restaurer une sauvegarde lors de la première configuration")
+![Restaurer une sauvegarde lors de la première configuration](.img/restaurer_premiere_configuration.png "Restaurer une sauvegarde lors de la première configuration")
 
 **Depuis une sauvegarde locale**
 * Cliquer sur la sauvegarde,
@@ -77,7 +77,7 @@ Pour supprimer une sauvegarde de Home Assistant, il vous suffit de :
 Le service appelé pour lancer une sauvegarde est `hassio.backup_full`.
 
 Voici l'automatisation depuis L'UI.
-![Automatisations des sauvegardes Home Assistant](./img/automatisation_sauvegarde.png)
+![Automatisations des sauvegardes Home Assistant](.img/automatisation_sauvegarde.png)
 
 Le code `YAML`
 ```yaml
@@ -109,10 +109,10 @@ Ce n'est pas un add-on officiel, il faut donc [ajouter le dépôt dans la page d
 Voici le dépôt : https://github.com/thomasmauerer/hassio-addons
 
 Une fois rechargé (peut-être un F5 sera nécessaire), rechercher `samba backup` puis cliquer sur `INSTALLER`
-![Samba Backup](./img/samba_backup.png)
+![Samba Backup](.img/samba_backup.png)
 
 Une fois installé, passons à la configuration, dont voici un aperçu vide.
-![Aperçu de la configuration de l'add-on Samba Backup](./img/samba_backup_configuration.gif)
+![Aperçu de la configuration de l'add-on Samba Backup](.img/samba_backup_configuration.gif)
 
 * **Host :** Mettre l'adresse IP ou le Hostname de votre stockage,
 * **Share :** Le nom de votre partage sur le réseau,

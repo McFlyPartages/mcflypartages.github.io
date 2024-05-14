@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Installer HAOS avec Proxmox
 description: "Nous allons voir comment installer Home Assistant OS sur Proxmox dans une machine virtuelle (VM)"
 pubDate: 12/12/2023
-heroImage: './proxmox.webp'
+heroImage: '.img/proxmox.webp'
 categories: 
 - Home Assistant
 - Domotique
@@ -45,7 +45,7 @@ Rendez-vous donc sur le [site de tteck](https://tteck.github.io/Proxmox/),
 
 Vous pouvez profiter pour lire le petit résumé vous indiquant que le disque doit avoir au moins 32 GB d'espace.
 
-![Récupération de la commande du script Post Install depuis le site Tteck](./img/tteck_copy_commande.gif "Récupération de la commande du script Post Install depuis le site Tteck")
+![Récupération de la commande du script Post Install depuis le site Tteck](.img/tteck_copy_commande.gif "Récupération de la commande du script Post Install depuis le site Tteck")
 
 * Rendez-vous sur votre serveur Proxmox, puis sur le nœud souhaité (si vous en avez plusieurs),
 * Ouvrir le Shell,
@@ -57,13 +57,13 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/vm/haos-vm.sh)"
 
 Une fenêtre s'ouvre vous demandant si vous souhaitez créer une machine virtuelle (VM) de Home Assistant OS.
 
-![Lancement du script d'installation de Home Assistant sur Proxmox V8](./img/lancement_script_haos_proxmox_v8.gif  "Lancement du script d'installation de Home Assistant sur Proxmox V8")
+![Lancement du script d'installation de Home Assistant sur Proxmox V8](.img/lancement_script_haos_proxmox_v8.gif  "Lancement du script d'installation de Home Assistant sur Proxmox V8")
 
 Pour la suite, nous allons prendre les paramètres par défaut qui sont largement suffisants.
 
 *J'ai sûrement une étape supplémentaire, qui est la sélection du disque pour l'installation, alors ne vous inquiétez pas.*
 
-![Lancement du script d'installation de HAOS par défaut](./img/lancement_script_haos_defaut.gif "Lancement du script d'installation de HAOS par défaut")
+![Lancement du script d'installation de HAOS par défaut](.img/lancement_script_haos_defaut.gif "Lancement du script d'installation de HAOS par défaut")
 
 Voici le résultat sur votre console :
 ```bash
@@ -112,7 +112,7 @@ _**Pour information** Dans la version `advanced`, vous pouvez choisir :_
 Une fois l'installation terminée, vous devriez voir votre VM lancée. Il vous suffit de cliquer dessus pour accéder à son IP via la page Résumé de Proxmox.
 Il vous suffit de saisir cette adresse, suivie du port 8123 pour accéder au premier lancement de Home Assistant ( exemple : http://192.168.10.206:8123 ).
 
-![Le résumé Proxmox de votre VM Home Assistant OS](./img/vm_haos_resume.png "Le résumé Proxmox de votre VM Home Assistant OS")
+![Le résumé Proxmox de votre VM Home Assistant OS](.img/vm_haos_resume.png "Le résumé Proxmox de votre VM Home Assistant OS")
 
 
 La partie configuration étant identique à tous les types d'installation, je vous renvoie vers l'[article sur l'installation de HA OS sur Raspberry Pi](/blog/ha_haos_installation/#Première-configuration)
@@ -128,7 +128,7 @@ Allez dans le nœud, puis sur votre VM.
 * Utiliser les identifiants USB du fabricant et du périphérique,
 * Choisir le périphérique à inclure.
 
-![Ajouter une clé USB a sa VM Home Assistant](./img/ajouter_usb_vm_proxmox_v8.gif)
+![Ajouter une clé USB a sa VM Home Assistant](.img/ajouter_usb_vm_proxmox_v8.gif)
 
 Si votre VM est en route, il faudra la redémarrer pour que votre clé soit prise en compte.
 
@@ -138,7 +138,7 @@ Vous pouvez en ajouter d'autres, mais sachez qu'un périphérique USB ne peut pa
 
 Pour connaitre le chemin de votre clé dans Home Assistant, allez dans `Pramètres` -> `Système` -> `Matériel` puis cliquez sur `TOUT LE MATERIEL` et descendez jusqu'à voir votre matériel.
 
-![Retrouver sa clé USB dans Home Assistant](./img/rechercher_usb_vm_home_assistant.gif) 
+![Retrouver sa clé USB dans Home Assistant](.img/rechercher_usb_vm_home_assistant.gif) 
 **Limitation a quatre USB.**
 
 Une limitation de quatre périphériques peut être outrepassée via la [méthode suivante](https://forum.proxmox.com/threads/limit-for-usb-devices.89774/)

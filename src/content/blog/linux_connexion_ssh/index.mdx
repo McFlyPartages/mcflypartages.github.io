@@ -3,7 +3,7 @@ draft: false
 title: "Connexion SSH - Sécuriser, générer et utiliser les clés"
 description: "Comment installer, sécuriser, générer des clés SSH et se connecter à un serveur depuis Linux"
 pubDate: 12/19/2023
-heroImage: './bash-161382_1920.png'
+heroImage: '.img/bash-161382_1920.png'
 categories: 
 - Linux
 authors: 
@@ -41,12 +41,12 @@ ssh votre_utilisateur@ip-de-votre-serveur
 *Par défaut, cette commande se connectera au port 22 de votre serveur qui est le port par défaut du service SSH.*
 
 Lors de la première connexion au serveur, il vous demandera de valider la clé ECDSA en tapant `yes`
-![Connexion SSH Linux](./img/connexion_ssh_linux.png)
+![Connexion SSH Linux](.img/connexion_ssh_linux.png)
 
 *Si vous vous êtes déjà connecté sur ce serveur (avant une réinstallation par exemple), il vous demandera de supprimer l'ancienne clé via la commande suivante.*
 `ssh-keygen -f "/home/votre_utilisateur/.ssh/known_hosts" -R "XXX.XXX.XXX.XXX"`
 
-![Erreur SSH ECDSA host key has changed](./img/erreur_ssh_cle_existante.png)
+![Erreur SSH ECDSA host key has changed](.img/erreur_ssh_cle_existante.png)
 
 ## Les clés SSH
 
@@ -104,7 +104,7 @@ anthony@McFly-Bureau:~$
 ```
 
 Après avoir affiché les dossiers cachés, regardez dans le dossier `.ssh`.
-![Contenu du dossier SSH](./img/dossier_ssh.png)
+![Contenu du dossier SSH](.img/dossier_ssh.png)
 
 ### Envoyer la clé publique sur le serveur
 **Depuis votre ordinateur**, lancer la commande suivante.

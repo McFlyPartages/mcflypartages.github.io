@@ -3,7 +3,7 @@ draft: false
 title: OpenWRT - Libérer votre Xiaomi AIoT Router AX3600
 description: "OpenWRT est un système d'exploitation open-source prévu pour remplacer l'OS par défaut de certains routeurs grand public. Nous allons l'installer sur le routeur AIoT X3600 de Xiaomi pour se libérer des communications vers le cloud et apporter plus de personnalisation."
 pubDate: 02/08/2024
-heroImage: './openwrt_xiaomi_aiot_x3600.png'
+heroImage: '.img/openwrt_xiaomi_aiot_x3600.png'
 categories:
 - OpenWRT
 - Linux
@@ -66,45 +66,45 @@ Pour le configurer, vous avez deux méthodes :
 #### Avec l'application Mi Wi-Fi
 
 1. Téléchargez et installez l'application Mi Wi fi (Xiaomi Inc),
-![Application Mi Wi-Fi](./img/mi_wifi_app.png)
+![Application Mi Wi-Fi](.img/mi_wifi_app.png)
 1. Branchez votre routeur électriquement, mais aussi en Ethernet, via le port WAN (1er à gauche, mais c'est indiqué en dessous du port), sur votre box opérateur. 
 1. Connectez-vous au Wi-Fi du routeur "Xiaomi_XXXX_XXXX", il n'y a pas de mot de passe (s'il vous en demande, réinitialisez le routeur),
 1. Lancez l'application puis choisissez `Définir un nouveau routeur`. Il devrait se connecter à internet. Cliquez sur suivant,
-![Interface de l'application Mi Wi-Fi](./img/mi_wifi_interface.png)
+![Interface de l'application Mi Wi-Fi](.img/mi_wifi_interface.png)
 1. Il vous demande de sélectionner la région (France), le nom du réseau que vous souhaitez mettre et un mot de passe qui sera aussi le mot de passe admin en laissant la case en dessous cochée. *Faites simple, car ça va changer*,
-![Configuration des informations du routeur via l'interface Mi Wi-Fi](./img/mi_wifi_configuration_routeur.png)
+![Configuration des informations du routeur via l'interface Mi Wi-Fi](.img/mi_wifi_configuration_routeur.png)
 1. Il va ensuite examiner s'il y a des radars autour de vous (législation française) puis il activera la connexion Wi-Fi,
-![Le routeur examine les Radars autour de nous.](./img/mi_wifi_examen_radars.png)
+![Le routeur examine les Radars autour de nous.](.img/mi_wifi_examen_radars.png)
 Une fois terminé, connectez-vous au Wi-Fi puis à l'interface du routeur `http://192.168.31.1` ou `miwifi.com`,
 1. Saisir votre mot de passe admin (configuré plus haut),
 1. Une fois sur l'interface, allez dans `Settings -> Status` et vérifiez la version actuellement installée. (ici 3.0.22).
-![Vérification de la version du firmware du Mi router AIoT AX3600](./img/xiaomi_x3600_status.png)
+![Vérification de la version du firmware du Mi router AIoT AX3600](.img/xiaomi_x3600_status.png)
 
 #### En Ethernet
 1. Branchez votre routeur électriquement, mais aussi en Ethernet, via le port WAN (1er à gauche, mais c'est indiqué en dessous du port), sur votre box opérateur. 
 1. Branchez un câble Ethernet entre votre PC et un port LAN du routeur,
 1. Connectez-vous sur l'interface du routeur `http://192.168.31.1` ou `miwifi.com` depuis votre navigateur,
-![Interface Web du Mi Router - première connexion](./img/premiere_interface_web_mi_router.png)
+![Interface Web du Mi Router - première connexion](.img/premiere_interface_web_mi_router.png)
 1. Saisir un mot de passe pour votre Wi-Fi et la connexion admin,
-![Configuration du routeur](./img/configuration_web_mi_router.png)
+![Configuration du routeur](.img/configuration_web_mi_router.png)
 Un rappel des éléments est affiché.
-![Rappel des éléments de configuration du Mi Router](./img/elements_configurations_mi_router.png)
+![Rappel des éléments de configuration du Mi Router](.img/elements_configurations_mi_router.png)
 Reconnectez-vous à l'interface puis
 1. Allez dans `Settings -> Status` et vérifiez la version actuellement installée. (ici 3.0.22)
-![Vérification de la version du firmware du Mi router AIoT AX3600](./img/xiaomi_x3600_status.png)
+![Vérification de la version du firmware du Mi router AIoT AX3600](.img/xiaomi_x3600_status.png)
 
 ### Revenir à la version 1.0.17
 Pour pouvoir accéder à l'exploit permettant l'accès SSH, il faut retourner sur la version 1.0.17.
 1. Récupérez le firmware 1.0.17 [ici](http://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/r3600/miwifi_r3600_firmware_5da25_1.0.17.bin)(*Firefox m'a affiché une alerte sur ce fichier parce que c'est un `.bin`. Fennec ne m'a annoncé aucune alerte*)
 1. Dans `Settings -> Status` cliquez sur `Update manually`,
 1. Cliquez sur `Select file` et sélectionnez le fichier `miwifi_r3600_firmware_5da25_1.0.17.bin`,
-![Sélectionner le firmware à downgrader depuis l'interface de Mi Wi-Fi](./img/xiaomi_x3600_select_file.png)
+![Sélectionner le firmware à downgrader depuis l'interface de Mi Wi-Fi](.img/xiaomi_x3600_select_file.png)
 1. Cliquez sur `Update now`,
 Une fenêtre s'affiche, vous prévenant que vous allez installer une ancienne version et que vous devez nettoyer toutes les configurations personnalisées avant de continuer.
-![Interface du Mii Router AIoT AX3600](./img/xiaomi_x3600_avertissement_downgrade.png)
+![Interface du Mii Router AIoT AX3600](.img/xiaomi_x3600_avertissement_downgrade.png)
 1. Cochez la case `clear all custom configuration` puis cliquer sur `OK`,
 Le flash vers la version 1.0.17 est en cours.
-![Downgrade du routeur en cours](./img/xiaomi_x3600_downgrade.png)    
+![Downgrade du routeur en cours](.img/xiaomi_x3600_downgrade.png)    
 
 Une fois le retour de la LED bleue sur le routeur, l'update est fini. Votre routeur est réinitialisé.
 
@@ -117,7 +117,7 @@ Ensuite, connectez-vous à l'interface de votre routeur via votre navigateur.
 Une fois connectés, nous allons injecter un code JavaScript depuis le navigateur.
 1. Appuyez sur <kbd>F12</kbd> pour ouvrir la console d'inspection du navigateur, puis cliquez sur l'onglet `Console`
 1. Collez le code suivant et cliquez sur <kbd>entrée</kbd> :
-![Lancement de l'exploit via JavaScript depuis l'interface Web du Mi Routeur](./img/lancement_exploit.png)
+![Lancement de l'exploit via JavaScript depuis l'interface Web du Mi Routeur](.img/lancement_exploit.png)
 
 ```js
 function getSTOK() {
@@ -169,7 +169,7 @@ enableSSH();
 ```
 
 Un popup s'affiche vous demandant de saisir un mot de passe SSH. Mettez un mot de passe avec plus de huit caractères, mais sans caractère spécial, puis validez.
-![Popup demandant de saisir un mot de passe SSH](./img/exploit_demande_password_ssh.png)
+![Popup demandant de saisir un mot de passe SSH](.img/exploit_demande_password_ssh.png)
 
 **Testons maintenant l'accès SSH**
 
@@ -406,14 +406,14 @@ Votre routeur redémarre avec OpenWRT complètement opérationnel.
 
 Rendez-vous sur l'adresse `http:/192.168.1.1` puis connectez-vous sans mots de passe.
 Ensuite, allez mettre un mot de passe solide, cette fois, car lui il va rester soit en passant par le bandeau en haut de l'écran, soit depuis les menus `System -> Administration` onglet `Router Password`.
-![Ajouter un mot de passe fort](./img/openwrt_popup_password.png)
+![Ajouter un mot de passe fort](.img/openwrt_popup_password.png)
 
 <Alert type="warning">Par défaut, l'adresse IP d'OpenWRT est 192.168.1.1, il se peut que votre Box internet soit aussi sur la même réseau et cela va créer des problèmes. Il faut donc changer votre adresse sur OpenWRT pour éviter les incompatibilités. Le mieux est de débrancher le routeur OpenWRT de votre box Internet le temps de faire la manipulation.</Alert>
 
 #### Changer son IP
 Allez dans `Network -> Interfaces` puis dans l'onglet interfaces, éditez l'interface `lan`. Ensuite, dans l'onglet `General Settings` changer l'adresse dans `IPv4 adress` (Ex 192.168.20.1 ici).
 
-![Réglages généraux de l'interface LAN dans OpenWRT](./img/openwrt_interface_lan_general_setting.png)
+![Réglages généraux de l'interface LAN dans OpenWRT](.img/openwrt_interface_lan_general_setting.png)
 
 ### Connexion par Ethernet
 Normalement, à ce stade, vous devriez avoir Internet sur les ports Ethernet de votre routeur, mais toujours pas de Wi-Fi configuré.
@@ -424,7 +424,7 @@ Normalement, à ce stade, vous devriez avoir Internet sur les ports Ethernet de 
 Nous allons ajouter deux interfaces Wi-Fi dans cet article, une 2.4GHz et une 5GHz, libre à vous d'en ajouter d'autres.
 
 Tout se passe dans `Network -> Wireless`
-![Configuration du Wi-Fi dans OpenWRT](./img/openwrt_configuration_wi-fi.png)
+![Configuration du Wi-Fi dans OpenWRT](.img/openwrt_configuration_wi-fi.png)
 
 Vous avez trois bandes radio sur le X3600 :
 * ac/b/g/n : Wi-Fi 5 (5GHz 5300Mbps), 2 (2.4GHz 11Mbps), 3 (2.4GHz 54Mbps), 4 (2.4GHz et 5GHz 288Mbps et 600Mbps)
@@ -434,7 +434,7 @@ Vous avez trois bandes radio sur le X3600 :
 Il suffit donc soit d'ajouter un nouveau réseau sur chaque antenne, soit d'éditer celui présent par défaut nommé `OpenWrt`.
 
 Nous allons éditer celui présent.
-![Configuration du Wi-Fi dans OpenWRT](./img/openwrt_wi-fi_configuration.png)
+![Configuration du Wi-Fi dans OpenWRT](.img/openwrt_wi-fi_configuration.png)
 Il n'y a pas grand-chose à configurer pour que ça marche simplement.
 Dans l'onglet `General Setup` :
 1. Laissez `Access Point` pour le mode,
@@ -442,7 +442,7 @@ Dans l'onglet `General Setup` :
 1. Laisser l'interface `lan` dans Network.
 
 Dans l'onglet `Wireless Security` :
-![Configuration de la clé Wi-Fi dans OpenWRT](./img/openwrt_configuration_cle_wi-fi.png)
+![Configuration de la clé Wi-Fi dans OpenWRT](.img/openwrt_configuration_cle_wi-fi.png)
 1. Choisissez le format de clé qui vous convient le mieux (préférez une des trois affichées en `strongly`),
 1. Dans `Key` saisir votre clé (mot de passe de connexion a votre nouveau Wi-Fi)
 
@@ -454,7 +454,7 @@ Maintenant, vos interfaces étant toujours désactivées, il faut les activer en
 
 Mes nouvelles interfaces Wi-Fi sont présentes. (Pour le tuto, j'ai différencié les deux bandes 5GHz pour que vous puissiez voir qu'elles sont bien présentes).
 
-![Détection des interfaces Wi-Fi nouvellement créés](./img/reseaux_wi-fi.png)
+![Détection des interfaces Wi-Fi nouvellement créés](.img/reseaux_wi-fi.png)
 
 ## Conclusion
  

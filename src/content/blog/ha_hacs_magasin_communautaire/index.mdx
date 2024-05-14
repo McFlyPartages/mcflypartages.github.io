@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Ajout du magasin alternatif communautaire HACS
 description: "Vous ne trouvez pas votre bonheur dans les 2000 intégrations officielles, ou souhaitez simplement ajouter un thème. Installez le magasin communautaire de Home Assistant HACS."
 pubDate: 01/26/2024
-heroImage: './home_assistant_hacs.png'
+heroImage: '.img/home_assistant_hacs.png'
 categories: 
 - Home Assistant
 - Domotique
@@ -48,7 +48,7 @@ Passons maintenant à l'installation du magasin alternatif communautaire HACS (H
 Dans le magasin officiel des modules complémentaires de Home Assistant, il y a deux add-ons pour le SSH, `Terminal & SSH` et `Advanced SSH é Web Terminal`.*:
 À vous de choisir, la procédure est quasi la même avec les deux.
 
-![Add-ons SSH dans Home Assistant](./img/add-ons_ssh_home_assistant.png)
+![Add-ons SSH dans Home Assistant](.img/add-ons_ssh_home_assistant.png)
 *Je vous conseille de ne pas activer le démarrage automatique de l'add-on, **sauf** si vous avez besoin d'un accès permanent en SSH à votre installation. Dans ce cas, configurer un `username` et un `password`*
 
 J'ai pris, pour ce tutoriel, `Terminal & SSH` mais c'est pareil pour `Advanced SSH é Web Terminal`. 
@@ -65,40 +65,40 @@ Si vous avez oublié comment installer un add-on, je vous mets l'[article ici](/
 ```bash
 wget -O - https://get.hacs.xyz | bash -
 ```
-![Installation de HACS depuis l'add-on Terminal & SSH](./img/terminal_ssh_hacs_installation_resultat.png)
+![Installation de HACS depuis l'add-on Terminal & SSH](.img/terminal_ssh_hacs_installation_resultat.png)
 
 L'installation est terminée, passons à la configuration.
 
 ### Configuration
 Pour ajouter et configurer HACS, rendez-vous dans `Paramètres -> Appareils et services` :
 1. Cliquer sur `+ AJOUTER UNE INTEGRATION` et rechercher `HACS`,
-![Intégration HACS depuis Home Assistant](./img/integration_hacs_home_assistant.png)
+![Intégration HACS depuis Home Assistant](.img/integration_hacs_home_assistant.png)
 
 <Alert type="info">Si vous ne trouvez pas HACS, il faudra supprimer le cache de votre navigateur, un simple F5 ne semble pas fonctionner sur les navigateurs. S'il n'apparaît toujours pas, redémarrer Home Assistant</Alert>
 
 1. Cocher toutes les cases commençant par `I know` et à vous de voir si vous souhaitez cocher les options expérimentales (il est possible de les activer plus tard),
 1. Cliquer sur `VALIDER`.
-![Acceptation des termes de HACS](./img/hacs_fenetre_acceptation.png)
+![Acceptation des termes de HACS](.img/hacs_fenetre_acceptation.png)
 
 Une nouvelle fenêtre s'ouvre pour attacher HACS à votre compte Github. 
-![Connexion du compte Github )à HACS](./img/hacs_code_github.png)
+![Connexion du compte Github )à HACS](.img/hacs_code_github.png)
 
 Il vous suffit :
 1. Cliquer sur le lien,
 1. Saisir le code affiché,
-![Code de verification sur GitHub](./img/hacs_github_code.png)
+![Code de verification sur GitHub](.img/hacs_github_code.png)
 1. Cliquer sur `Authorize hacs`
-![Fenêtre d'autorisation de Github](./img/fenetre_authorisation_github.png)
-![Fenêtre de félicitation](./img/fenetre_congratulation_github.png)
+![Fenêtre d'autorisation de Github](.img/fenetre_authorisation_github.png)
+![Fenêtre de félicitation](.img/fenetre_congratulation_github.png)
 Une fois l'écran de félicitation, retourner sur Home Assistant et sélectionner ou non, une pièce pour HACS.
-![Fenêtre de sélection de pièces Home Assistant](./img/selection_piece_home_assistant.png)
+![Fenêtre de sélection de pièces Home Assistant](.img/selection_piece_home_assistant.png)
 
 
 Vous devriez voir apparaitre HACS dans votre menu latéral. Cliquez dessus et à vous les intégrations, les thèmes personnalisés.
 
 #### Astuces
 Si vous voulez activer les options expérimentales et l'App-Deamon ou peaufiner les réglages de HACS, il vous suffit de vous rendre dans `Paramètres -> Appareils et services` de cliquer sur HACS et sur `CONFIGURER`.
-![Configuration de HACS](./img/hacs_reglages.png)
+![Configuration de HACS](.img/hacs_reglages.png)
 
 
 ### Ajouter une intégration, une interface ou une automatisation.

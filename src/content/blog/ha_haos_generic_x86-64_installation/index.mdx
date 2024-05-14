@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Installation sur un mini PC type NUC, Lenovo, HP, Dell.
 description: "Le coût d'une installation sur Raspberry Pi et de ses accessoires commence à être élevé pour des performances moindres et non évolutives. C'est pour cela que je vous recommande l'installation de Home Assistant sur un mini PC type NUC, HP Elite Desk G3 800 USFF ou Lenovo qui peut aussi être reconditionnée."
 pubDate: 02/14/2024
-heroImage: './ha_installation_generic.png'
+heroImage: '.img/ha_installation_generic.png'
 categories: 
 - Home Assistant
 - Domotique
@@ -100,7 +100,7 @@ Pour écrire l'image HAOS sur le support de stockage de votre matériel, il exis
 * Un lecteur de disque SSD externe (SATA vers USB) ([Amazon (9€)](https://amzn.to/49a9Yq7)),
 * Un lecteur de disque M.2 externe (M.2 vers USB) ([Amazon (14€)](https://amzn.to/3UDrL4w)).
 
-![Installation de Home Assistant sur votre support de stockage via Balena Etcher](./img/balena_etcher_installation_ha_generic_x86_64.png)
+![Installation de Home Assistant sur votre support de stockage via Balena Etcher](.img/balena_etcher_installation_ha_generic_x86_64.png)
 
 1. Récupérez Balena Etcher ([j'ai rédigé un article ici](/blog/balena_etcher_installation_utilisation/)),
 1. Connectez le périphérique de stockage à votre ordinateur,
@@ -113,7 +113,7 @@ Une fois la copie réussie, réinstallez le support de stockage dans votre ordin
 
 Dans le navigateur de votre système de bureau, dans quelques minutes, vous pourrez accéder à votre nouveau Home Assistant à l'adresse `homeassistant.local:8123`, `homeassistant:8123` ou `http://X.X.X.X:8123` (remplacez X.X.X.X par l'adresse IP de votre Generic x86-64).
 
-![Démarrage de Home Assistant](./img/ecran_demarrage_home_assistant.png)
+![Démarrage de Home Assistant](.img/ecran_demarrage_home_assistant.png)
 
 <Alert type="info">Vérifiez que vous avez sélectionné le démarrage sur le bon support de stockage s'il y en a plusieurs. Sur HP, <kbd>F9</kbd> au démarrage puis sélectionnez votre disque dur</Alert>
 
@@ -137,13 +137,13 @@ Une fois le live lancé :
 1. Ouvrir l'application `Disques` (Disks) d'Ubuntu,
 1. Sélectionnez le support de stockage de votre PC dans la barre de gauche (attention, pas la clé USB),
 1. Cliquez sur les trois points en haut à droite et sélectionnez Restaurer le Disque,
-![Sélection du disque et restauration depuis Ubuntu Live](./img/ubuntu_disques_selection_disque_restauration_image.png)
+![Sélection du disque et restauration depuis Ubuntu Live](.img/ubuntu_disques_selection_disque_restauration_image.png)
 1. Sélectionnez l'image de Home Assistant OS,
-![Sélection de l'image Home Assistant Generique x86 64 a restaurer depuis Ubuntu Live](./img/ubuntu_disques_selection_image_a_restaurer.png)
-![Valider la restauration](./img/ubuntu_disques_lancer_restauration.png)
+![Sélection de l'image Home Assistant Generique x86 64 a restaurer depuis Ubuntu Live](.img/ubuntu_disques_selection_image_a_restaurer.png)
+![Valider la restauration](.img/ubuntu_disques_lancer_restauration.png)
 1. Lancez la copie.
-![Restauration en cours](./img/ubuntu_disques_restauration_en_cours.png)
-![Restauration terminée](./img/ubuntu_disques_restauration_terminee.png)
+![Restauration en cours](.img/ubuntu_disques_restauration_en_cours.png)
+![Restauration terminée](.img/ubuntu_disques_restauration_terminee.png)
 
 
 Une fois la copie terminée, éteignez votre PC, débranchez la clé USB puis redémarrez.
@@ -152,7 +152,7 @@ Une fois la copie terminée, éteignez votre PC, débranchez la clé USB puis re
 
 Dans le navigateur de votre système de bureau, dans quelques minutes, vous pourrez accéder à votre nouveau Home Assistant à l'adresse `homeassistant.local:8123`, `homeassistant:8123` ou `http://X.X.X.X:8123` (remplacez X.X.X.X par l'adresse IP de votre Generic x86-64).
 
-![Démarrage de Home Assistant](./img/ecran_demarrage_home_assistant.png)
+![Démarrage de Home Assistant](.img/ecran_demarrage_home_assistant.png)
 
 ## Astuces
 **Configurer le redémarrage de son mini PC automatiquement en cas de coupure d'électricité.**
