@@ -5,9 +5,6 @@ backend:
   repo: McFlyPartages/mcflypartages.github.io
   branch: main
 
-
-
-
 locale: 'fr'
 
 show_preview_links: true
