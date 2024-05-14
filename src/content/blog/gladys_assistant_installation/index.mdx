@@ -3,7 +3,7 @@ draft: False
 title: Gladys Assistant - Installation de la solution domotique accessible aux débutants
 description: "Nous allons installer Gladys Assistant sous Docker avec Docker Compose. L'installation de Gladys est surement la partie la plus compliquée, sauf sur Raspberry, car il y a une image disponible"
 pubDate: 05/01/2024
-heroImage: './gladys_installation.png'
+heroImage: '.img/gladys_installation.png'
 categories: 
 - Gladys Assistant
 - Domotique
@@ -103,7 +103,7 @@ Ouvrez votre navigateur et saisissez l'adresse IP de votre Mini PC dans la barre
 
 Félicitations, vous êtes sur Gladys Assistant.
 
-![Première page de lancement de Gladys Assistant](./img/gladys_assistant_signup.png)
+![Première page de lancement de Gladys Assistant](.img/gladys_assistant_signup.png)
 
 ### Docker Compose
 <Alert type="warning">Si vous avez suivi la procédure précédente, pas besoin de suivre celle-ci, passez directement au chapitre suivant.</Alert>
@@ -150,25 +150,25 @@ Lors du premier lancement de Gladys Assistant, vous allez devoir créer un compt
 Sachez qu'à part la création de compte, vous pourrez tout modifier ou ajouter des choses plus tard depuis le tableau de bord en cliquant sur l'icône en haut à droite puis sur `Paramètres`.
 
 1. Cliquez sur `Créer un compte local`.
-![Création d'un compte local sur Gladys Assistant](./img/gladys_assistant_compte_local.png)
+![Création d'un compte local sur Gladys Assistant](.img/gladys_assistant_compte_local.png)
 Remplissez les champs disponibles et terminez en cliquant sur `Créer un compte`.
 <Alert type="info">Toutes les informations restent en local, il n'y a aucune information qui part sur le web. L'adresse e-mail ne sert qu'à se connecter, vous ne recevrez jamais d'e-mail.</Alert>
 1. Paramétrez vos préférences.
-![Paramétrages des préférences dans Gladys Assistant](./img/gladys_assistant_preferences.png)
+![Paramétrages des préférences dans Gladys Assistant](.img/gladys_assistant_preferences.png)
 Le paramètre 'Conserver l'historique des états des appareils` fera en sorte que la base de donnée ne conserve que trois mois d'historique par défaut, tout le reste sera supprimé. A vous de choisir en fonction de votre besoin.
 
 <Alert type="warning">Je vous conseille de changer le paramètre `Conserver l'historique des états des appareils` en `illimité` si vous comptez faire de la gestion d'énergie.</Alert>
 
 1. Passons à la configuration géographique de la maison et de ses pièces.
-![Configuration de votre maison et de ses pièces dans Gladys](./img/gladys_assistant_maison.png)
+![Configuration de votre maison et de ses pièces dans Gladys](.img/gladys_assistant_maison.png)
 Commencez par donner un nom à votre maison, puis sélectionnez là sur la carte. Ensuite, vous pouvez ajouter toutes les pièces.
 
-![Fin de la configuration de Gladys Assistant](./img/gladys_assistant_fin_configuration.png)
+![Fin de la configuration de Gladys Assistant](.img/gladys_assistant_fin_configuration.png)
 
 La configuration est terminée, vous pouvez dès à présent `Accéder au tableau de bord`.
 
 Il est bien vide ce tableau de bord ;).
-![Tableau de bord vide de Gladys Assistant](./img/gladys_assistant_tableau_de_bord.png)
+![Tableau de bord vide de Gladys Assistant](.img/gladys_assistant_tableau_de_bord.png)
 
 ### Petit tour rapide des onglets.
 En haut de votre page d'accueil, vous avez six onglets au centre/gauche et l'accès à votre profil et à vos paramètres en haut à droite.
@@ -176,7 +176,7 @@ En haut de votre page d'accueil, vous avez six onglets au centre/gauche et l'acc
 **Accueil :**
 Par défaut, nous sommes sur l'Accueil, c'est la page où sera affiché tout ce que vous souhaitez avoir en visuel. Vous pourrez créer plusieurs tableaux de bord pour organiser vos éléments en différentes vues.
 Pour le modifier, il vous suffit de cliquer sur `Editer` en haut à droite.
-![Ajouter et configurer un tableau de bord avec Gladys](./img/gladys_assistant_ajouter_configurer_tableau_de_bord.gif)
+![Ajouter et configurer un tableau de bord avec Gladys](.img/gladys_assistant_ajouter_configurer_tableau_de_bord.gif)
 
 **Discussion :**
 L'onglet discussion est un chat permettant d'interagir avec votre domotique. Vous pouvez lui poser tout un tas de questions comme "Quel temps fait-il ?", "Montre-moi la caméra de la cuisine", "Quelle est la température dans la cuisine ?".
@@ -188,7 +188,7 @@ Une intégration Telegram est aussi disponible.
 **Intégrations :**
 Les intégrations de Gladys sont vraiment son point fort, car elles sont installables sans aucune configuration technique. De plus, chaque intégration a une documentation complète disponible en français et en anglais.
 
-![Les intégrations dans Gladys Assistant](./img/gladys_assistant_integrations.png)
+![Les intégrations dans Gladys Assistant](.img/gladys_assistant_integrations.png)
 
 **Calendrier :**
 Gladys permet de créer des scènes à partir d'un ou plusieurs calendriers. Pour cela, il suffit de connecter Gladys à vos calendriers externes. Il est compatible avec Nextcloud, iCloud, Google Agenda, Calendrier Synology et tous les calendriers CalDAV.
@@ -209,7 +209,7 @@ Je ne vais pas entrer dans les détails du menu paramètre de Gladys Assistant, 
 Je vais en citer quelques-uns.
 
 **Maison :** Vous pouvez ajouter ou supprimer des pièces depuis cet endroit. Il vous permet aussi de **définir un code d'alarme** et un **délai avant son armement**.
-![Réglage de l'alarme dans Gladys](./img/gladys_assistant_alarme_reglages.png)
+![Réglage de l'alarme dans Gladys](.img/gladys_assistant_alarme_reglages.png)
 
 **Utilisateurs :** C'est ici que vous pouvez gérer vos utilisateurs, que ce soit pour en ajouter, en modifier ou en supprimer.
 
@@ -222,7 +222,7 @@ Je vais en citer quelques-uns.
 
 Une fonction intéressante comme l'envoi tous les samedis à 09h00 de la **liste des appareils avec moins de 10% (configurable) de batterie** est configurable depuis cet endroit.
 
-![Paramètres du système dans Gladys Assistant](./img/gladys_assistant_parametres_systeme.png)
+![Paramètres du système dans Gladys Assistant](.img/gladys_assistant_parametres_systeme.png)
 
 ## Conclusion
 Nous arrivons à la fin de cet article et j'aurai encore envie de vous parler de Gladys pendant longtemps. Je suis vraiment très sensible à cette solution, grâce à sa simplicité et ses petites options par-ci par-là.

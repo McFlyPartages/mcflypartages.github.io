@@ -1,4 +1,4 @@
-local_backend: false
+local_backend: true
 
 backend:
   name: github
@@ -35,7 +35,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - {label: "Description", name: "description", widget: "text"}
       - { label: "Publish Date", name: "pubDate", widget: "datetime", date_format: "MM.DD.YYYY", format: "L"}
-      - { label: "Featured Image", name: "heroImage", widget: "image", choose_url: false, media_folder: ".", required: false }
+      - { label: "Featured Image", name: "heroImage", widget: "image", choose_url: false, media_folder: ".img", required: false }
       - label: "Auteur"
         name: "authors"
         widget: "list"

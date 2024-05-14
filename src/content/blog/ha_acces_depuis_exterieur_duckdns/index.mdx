@@ -3,7 +3,7 @@ draft: false
 title: Home Assistant - Accès depuis l'extérieur avec DuckDNS
 description: "Voici une méthode simple pour se connecter à Home Assistant depuis l'extérieur et bénéficier d'un nom de domaine gratuit. Attention, ce n'est pas la méthode la plus sécurisée"
 pubDate: 03/12/2024
-heroImage: './HA_acces_externe_duckdns.png'
+heroImage: '.img/HA_acces_externe_duckdns.png'
 categories: 
 - Home Assistant
 - Domotique
@@ -40,11 +40,11 @@ Avant de configurer Home Assistant, vous devez :
 
 ### Création de compte et de domaine DuckDNS
 Pour créer votre compte DuckDNS, rendez-vous sur [DuckDNS](https://duckdns.org) puis choisissez la méthode de connexion que vous préférez parmi les cinq proposés.
-![Connexion a DuckDNS](./img/duckdns_compte.png)
+![Connexion a DuckDNS](.img/duckdns_compte.png)
 Ensuite il vous suffit de choisir votre sous domaine et de cliquer sur `add domain`.
-![Ajout d'un domaine depuis DuckDNS](./img/duckdns_ajout_domaine.png)
+![Ajout d'un domaine depuis DuckDNS](.img/duckdns_ajout_domaine.png)
 Maintenant, vérifiez que l'adresse IP est bien la vôtre et récupérez votre token.
-![Création du compte et du NDD avec DuckDNS](./img/ha_acces_ext_duckdns_account.png "Compte DuckDNS et Création NDD")
+![Création du compte et du NDD avec DuckDNS](.img/ha_acces_ext_duckdns_account.png "Compte DuckDNS et Création NDD")
 
 ### Ouvrir le port 8123 et le rediriger
 Mon FAI étant Free en ce moment, je vais le faire pour une Freebox, mais la procédure reste sensiblement la même pour les autres.
@@ -54,7 +54,7 @@ Mon FAI étant Free en ce moment, je vais le faire pour une Freebox, mais la pro
 1. Cliquez sur Ajouter une redirection
 1. Remplissez les champs disponibles,
 1. Appliquez si besoin.
-![Ouverture de port depuis une Freebox](./img/freebox_ouverture_port.png)
+![Ouverture de port depuis une Freebox](.img/freebox_ouverture_port.png)
 
 Passons à présent à l'installation de l'add-on DuckDNS.
 
@@ -63,14 +63,14 @@ Passons à présent à l'installation de l'add-on DuckDNS.
 Assurez-vous de bien avoir vérifié tous les prérequis.
 
 Installons l'add-on DuckDNS comme n'importe quel add-on (si besoin le [tuto est là](/blog/ha_addons/)). Une fois installé, n'oubliez pas de regarder la documentation.
-![Add-on DuckDNS dans les modules complémentaires](./img/add-on_duckdns.png)
+![Add-on DuckDNS dans les modules complémentaires](.img/add-on_duckdns.png)
 
 Rendez-vous ensuite dans l'onglet `Configuration`,
 * Ajouter votre domaine,
 * Ajouter votre token,
 * Remplacer `false` par `true` dans la ligne `accept_terms`
 * Enregistrer.
-![Configuration de l'add-on DuckDNS](./img/duckdns_configuration.png)
+![Configuration de l'add-on DuckDNS](.img/duckdns_configuration.png)
 
 Retournez dans l'onglet `info` de l'add-on puis activez les deux boutons `Lancer au démarrage` et `Chien de garde`.
 
@@ -144,13 +144,13 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 ```
-![Ajout de DuckDNS dans le fichier configuration.yaml de Home Assistant](./img/duckdns_configuration_yaml.png)
+![Ajout de DuckDNS dans le fichier configuration.yaml de Home Assistant](.img/duckdns_configuration_yaml.png)
 
 Sauvegardez puis redémarrez Home Assistant.
 
 Essayez de vous connecter avec votre domaine nouvellement créé `https://mcflydomo.duckdns.org:8123` (**ATTENTION** à bien ajouter **:8123**) et vous devriez atterrir sur votre Home Assistant.
 
-![Vérification du bon fonctionnement de l'accès extérieur depuis l'adresse DuckDNS](./img/duckdns_acces_exterieur.png)
+![Vérification du bon fonctionnement de l'accès extérieur depuis l'adresse DuckDNS](.img/duckdns_acces_exterieur.png)
 
 <Alert type="info"> Si vous n'arrivez pas à accéder à votre instance depuis l'extérieur, essayez depuis votre mobile en 4G, sinon reconnectez-vous en local via l'adresse `http**S**://votre_ip:8123`.</Alert>
 
