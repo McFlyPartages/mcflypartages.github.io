@@ -5,17 +5,20 @@ backend:
   repo: McFlyPartages/mcflypartages.github.io
   branch: main
 
-  site_url: https://mcflypartages.fr
-  display_url: https://mcflypartages.fr
-  logo_url: https://mcflypartages.fr/logoDark.webp
 
 
 
-  locale: 'fr'
+locale: 'fr'
 
-  show_preview_links: true
+show_preview_links: true
 
 publish_mode: editorial_workflow
+
+site_url: https://mcflypartages.fr
+display_url: https://mcflypartages.fr
+logo_url: https://mcflypartages.fr/logoDark.webp
+
+
 media_folder: "/public/images/decap"
 public_folder: "/images/decap"
 
