@@ -103,7 +103,7 @@ const ogImage = createOgImage({
     <ViewTransitions />
     <!-- Ajout du code pour matomo -->
 
-    <!-- Matomo -->
+    <!-- Matomo 
     <script>
       var _paq = window._paq = window._paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -121,7 +121,7 @@ const ogImage = createOgImage({
       })();
     </script>
     <noscript><p><img src="//matomo.mcflypartages.fr/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Matomo Code -->
+    End Matomo Code -->
 
   </head>
   <body class="bg-white dark:bg-zinc-900/95">
@@ -134,5 +134,9 @@ const ogImage = createOgImage({
       // This is a hack to get vite-plugin-pwa to generate a sw.js file.
       // Do not remove this script tag.
     </script>
+    <noscript>
+      <img src="https://shynet.mcflypartages.fr/ingress/aaae3046-343a-46fb-bc5a-56e4fda0683d/pixel.gif">
+    </noscript>
+    <script defer src="https://shynet.mcflypartages.fr/ingress/aaae3046-343a-46fb-bc5a-56e4fda0683d/script.js"></script>
   </body>
 </html>
