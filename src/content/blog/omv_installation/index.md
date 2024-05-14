@@ -3,7 +3,7 @@ draft: true
 title: HP MicroServer Gen8 et OpenMediaVault - Un NAS au top et pas cher
 description: "Comment installer la solution NAS gratuite et Open sources OpenMediaVault sur un serveur semi professionnel a moins de 200 euros le HP MicroServer Gen8"
 pubDate: 01/08/2024
-heroImage: '/src/content/blog/covers/openmediavault-b.webp'
+heroImage: '.img/openmediavault-b.webp'
 categories:
 - Auto Hebergement
 - Linux
@@ -53,16 +53,16 @@ Ce qui est, à mon avis, très intéressant avec cette technologie, c'est que vo
 
 ### Se connecter à l'interface ILo
 Pour profiter de cet accès, il vous suffit de brancher un câble Ethernet supplémentaire sur le port Ethernet nommé ILo à l'arrière (5 sur l'image).
-![Port Ethernet ILo MicroServer HP Gen 8](./img/hp_gen_8_port_ilo.png)
+![Port Ethernet ILo MicroServer HP Gen 8](.img/hp_gen_8_port_ilo.png)
 
 Ensuite, récupérer l'adresse IP qui lui a été attribuée (via votre box internet ou routeur), il devrait apparaitre sous la forme `iloczXXXXXXXX`, puis rendez-vous sur celle-ci depuis un navigateur via `https`.
 *Vous avez une alerte de sécurité, mais c'est normal, car les adresses IP ne peuvent pas recevoir de certificat SSL.*
 Une fois arrivé sur l'interface de connexion, vous devez saisir vos identifiants présents sur un autocollant derrière le serveur ou alors sur une étiquette couleur sable attachée avec un bout de ficelle.
 *Si vous n'arrivez pas à vous connecter, il faudra réinitialiser l'ILo*
-![Interface de connexion ILo](./img/interface_connexion_ilo.png)
+![Interface de connexion ILo](.img/interface_connexion_ilo.png)
 
 Vous voila sur l'interface d'administration de votre MicroServer HP Hen 8.
-![Interface d'administration ILo](./img/interface_administration_ilo.png)
+![Interface d'administration ILo](.img/interface_administration_ilo.png)
 
 **HTML5** vous permet d'ouvrir une fenêtre qui remplacera l'écran.
 **POWER: OFF** vous permet de gérer l'alimentation de votre serveur, qu'il soit ou non allumé.
@@ -89,14 +89,14 @@ Normalement, le MicroServer Gen 8, démarre uniquement depuis la carte MicroSD o
 Connectez-vous sur l'interface ILo4 de votre serveur HP Gen 8.
 
 Une fois connecté, dans `Information` -> `Overview` cliquez sur `HTML5` (en face de `Integrated Remote Console`, *accessible aussi via le menu `Remote Console`*)
-![Remote console](./img/remote_console.png)
+![Remote console](.img/remote_console.png)
 
 Une fenêtre de type Terminal s'ouvre (alors que votre machine n'est toujours pas allumée)
 
 En bas à droite, vous avez une icône (jaune) avec marqué `POWER : OFF`, cliquez dessus puis sélectionnez `Momentary Press` pour faire démarrer votre machine à distance. Une demande de confirmation s'affiche, puis votre serveur se lance avec les informations qui s'affichent dans votre fenêtre comme si vous aviez un écran. Je trouve vraiment très pratique.
 
 *Vous pouvez éteindre ou reset votre serveur depuis ce même bouton.*
-![Écran type terminal ILo](./img/ilo_terminal_power_button.png)
+![Écran type terminal ILo](.img/ilo_terminal_power_button.png)
 
 Quand vous avez l'écran ci-dessous, appuyez sur la touche <span><kbd>F10</kbd></span> puis sur <span><kbd>ENTRER</kbd></span>.
 
@@ -105,9 +105,9 @@ Attendre le moment où il vous propose d'appuyer sur <span><kbd>F5</kbd></span> 
 *Si vous n'arrivez pas à accéder au HPE Smart Storage Administrator il est peut-être désactivé. Le seul moyen est de réinitialiser l`ILO avec la procédure vue plus haut.*
 
 Voici quelques captures d'écran.
-![Écran de démarrage HP](./img/ecran_demarrage_hp.png)
-![Écran de sélection F5](./img/ecran_selection_f5.png)
-![Écran de sélection HP Storage](./img/ecran_selection_hp_storage.png)
+![Écran de démarrage HP](.img/ecran_demarrage_hp.png)
+![Écran de sélection F5](.img/ecran_selection_f5.png)
+![Écran de sélection HP Storage](.img/ecran_selection_hp_storage.png)
 
 Une fois sur le `HPE Smart Storage Administrator`
 - Cliquez sur `Dynamic Smart Array B120i RAID`,
@@ -118,7 +118,7 @@ Une fois sur le `HPE Smart Storage Administrator`
 - À la question `Create Arrays with RAID 0` cliquez sur `Yes`,
 - Puis sur `Finish`.
 
-![Création de la baie Raid 0 pour votre disque](./img/creation_baie_raid_0.gif)
+![Création de la baie Raid 0 pour votre disque](.img/creation_baie_raid_0.gif)
 
 Vous devez être de nouveau sur l'écran principal dans `Dynamic Smart Array B120i RAID` :
 - Cliquez sur `Set bootable Logical Drive/Volume`,

@@ -3,7 +3,7 @@ draft: true
 title: Proxmox - Quelques tips
 description: "Comment passer un disque dur en Passtrough, ajouter une clé USB a votre VM, ajouter un disque reseaux, et plein d'autres astuces qui seront ajoutées au fur et a mesure."
 pubDate: 01/09/2024
-heroImage: '/src/content/blog/covers/flatpak-linux-box.webp'
+heroImage: '.img/flatpak-linux-box.webp'
 categories:
 - Linux
 authors: 
@@ -31,7 +31,7 @@ Nous allons voir comment ajouter un disque supplementaire dans Proxmox (autre qu
 ***ATTENTION :** A ne pas faire avec undisque qui contient des données, sinon elles seront perdues*
 Commencer par brancher votre disque sur votre proxmox ;).
 * Verifier que celui ci apparait bien dans votre noeud (ici `pve_test`) puis `Disk`
-![Gestion des disques dans Proxmox](./img/proxmox_disk.png)
+![Gestion des disques dans Proxmox](.img/proxmox_disk.png)
 
 Vous remarquez que j'ai trois disques :
 **sda** qui est mon disque systeme (celui ou est installé Proxmox),

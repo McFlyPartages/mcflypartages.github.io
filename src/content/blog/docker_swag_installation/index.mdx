@@ -3,7 +3,7 @@ draft: true
 title: Swag - Le Reverse Proxy complet de linuxserver.io sous DOcker
 description: "SWAG une image docker qui exécute serveur web complet et un reverse proxy incluant Nginx, Php7, Certbot (client Let's Encrypt) et Fail2ban. Voyons comment le créer avec docker compose"
 pubDate: 03/26/2024
-heroImage: './swag_reverse_proxy.png'
+heroImage: '.img/swag_reverse_proxy.png'
 categories: 
 - Docker
 - Linux
@@ -23,7 +23,7 @@ tags:
 * Matériels : [Sonoff Zigbee 3.0 USB Dongle Plus **P**](https://amzn.to/41W8f4W) 
 
 BLABLA SWAG
-![Reverse Proxy en image](./img/reverseproxy.png)
+![Reverse Proxy en image](.img/reverseproxy.png)
 
 **Pré-requis**
 
@@ -106,11 +106,11 @@ Dans `Rights` (les droits) mettre :
 * PUT -> /domain/zone/*
 * POST -> /domain/zone/*
 * DELETE -> /domain/zone/*
-![Création d'une clé API OVH](./img/ovh_creation_api.png "Création d'une clé API OVH")
+![Création d'une clé API OVH](.img/ovh_creation_api.png "Création d'une clé API OVH")
 
 Pour finir cliquer sur `Create`.
 Sauvegarder bien les informations.
-![Votre clé API OVH](./img/ovh_cle_api.png "Votre clé API OVH")
+![Votre clé API OVH](.img/ovh_cle_api.png "Votre clé API OVH")
 
 Retournons a notre conteneur SWAG.
 Dans le dossier `swag`, `config` puis `dns-conf` rerchercher et éditer le fichier `ovh.ini` avec vos elements puis sauvegarder.
