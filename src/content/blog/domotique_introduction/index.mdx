@@ -1,33 +1,34 @@
 ---
 draft: false
-title: "Domotique - Introduction et comparatif des solutions les plus utilisées"
-description: "Pourquoi j'ai choisi Home Assistant et mon avis sur les trois principales solutions domotique utilisées en France."
-pubDate: 12/05/2023
+heroImage: .img/smart-home-2769210_1920.jpg
+authors:
+  - mcfly
 upDate: 04/29/2024
-heroImage: '.img/smart-home-2769210_1920.jpg'
-categories: 
-- Domotique
-authors: 
-- mcfly
+dossier: domotique_introduction
+title: Domotique - Introduction et comparatif des solutions les plus utilisées
+description: Pourquoi j'ai choisi Home Assistant et mon avis sur les trois
+  principales solutions domotique utilisées en France.
+pubDate: 12/05/2023
+categories:
+  - domotique
 tags:
-- Home Assistant
-- Domoticz
-- Jeedom
-- Gladys Assistant
-- Débutants
+  - Home Assistant
+  - Domoticz
+  - Jeedom
+  - Gladys Assistant
+  - Débutants
 ---
-
 import Alert from "@components/mdx/Alert.astro";
 
 Nous voyons fleurir dans le commerce, depuis quelques années, une multitude d'**appareils connectés** vendus pour nous **faciliter la vie** (surtout nous rendre plus fainéants)
 
-Cela fait maintenant plus de cinq ans que j'ai mis le pied dedans et il y a du bon et du moins bon. Malheureusement, ce n'**est pas** forcément les **solutions** qui ont **pignon sur rue** qui sont les **meilleures**, voire complètement l'inverse.
+Cela fait maintenant depuis 2017 que j'ai mis le pied dans la domotique en commençant avec des applications propriétaires puis via des solutions domotique multiprotocole et je peux vous dire qu'il y a du bon et du moins bon. Malheureusement, ce n'est pas forcément les solutions qui ont pignon sur rue qui sont les meilleures, voire complètement l'inverse.
 
 Ayant essayé trois (presque quatre) des solutions domotiques les plus connues du marché français, je vais vous livrer mon **avis personnel** sur ces solutions, mais aussi vous expliquer **pourquoi** il vaut mieux passer par des **solutions domotique plutôt que les applications des constructeurs**.
 
 Bien-sur les goûts et les couleurs étant propres à chacun, **ce n'est que mon avis**, libre a chacun de penser ce qu'il veut ou de tester toutes les **solutions** pour voir celle **qui** lui **convient** le mieux.
 
-Je vais essayer d'être entièrement objectif et donc par transparence avec vous, je suis resté environ **un an** sur [**Jeedom**](https://www.jeedom.com/fr/), **six mois** sur [**Domoticz**](https://www.domoticz.com/) et je suis **depuis 2020** sur [**Home Assistant**](https://www.home-assistant.io/).
+Je vais essayer d'être entièrement objectif et donc par transparence avec vous, je suis resté environ **un an** sur **[Jeedom](https://www.jeedom.com/fr/)**, **six mois** sur **[Domoticz](https://www.domoticz.com/)** et je suis **depuis 2020** sur **[Home Assistant](https://www.home-assistant.io/)**.
 
 Depuis le début de l'année 2024, j'ai voulu tester Gladys Assistant, une solution domotique made in France et je peux vous dire que j'ai été très bluffé par la simplicité de prise en main, que ce soit des intégrations ou des automatisations (scènes). Son interface moderne et intuitive fait de cette solution, selon moi, la plus adaptée à un public débutant et conviendra à 90% des personnes non-geek pour une domotique simple et épurée. J'ai fait un article de présentation [ici](/blog/gladys_assistant_intro/).
 
@@ -62,8 +63,9 @@ C'est bien sûr de ce type de domotique que je vais vous parler maintenant.
 ### Mes exigences
 
 Les **points importants** (exigences personnelles) pour une **solution domotique** en 2023 :
-* **Open source :** _Assure normalement la pérennité de la solution_.
-* Solution non propriétaire : _Idem sur la pérennité, mais aussi pour éviter d'être limité ou de s'enfermer dans certains appareils_,
+
+* **Open source :** *Assure normalement la pérennité de la solution*.
+* Solution non propriétaire : *Idem sur la pérennité, mais aussi pour éviter d'être limité ou de s'enfermer dans certains appareils*,
 * **Majoritairement gratuite :** Je n'ai pas de soucis pour payer un produit complet et évolutif, mais j'aime aussi pouvoir tester avant et avoir un support bienveillant,
 * Installation sur plusieurs supports : Au fur et à mesure que votre domotique augmente, l'appareil servant de cerveau doit aussi pouvoir évoluer.
 * **Exploitable sur tous les types d'écrans :** Doit pouvoir être utilisé depuis un PC, un smartphone ou une tablette,
@@ -85,11 +87,12 @@ Commencons le tour des solutions.
 
 J'ai commencé par [Jeedom](https://www.jeedom.com/fr/) après avoir essayé trois autres solutions (en 2016/17), car il me paraissait le plus **simple** et promettait de belles choses avec une grosse **communauté française**.
 
-Il bénéficie d'un système se disant _gratuit et open source_ (**un peu faux**) et il y a beaucoup de tutoriels sur Internet.
+Il bénéficie d'un système se disant *gratuit et open source* (**un peu faux**) et il y a beaucoup de tutoriels sur Internet.
 
 J'ai mème décidé de lancer ma [chaîne YouTube](https://yt.mcflypartages.fr) sur cette solution domotique en espérant rendre accessible ce système au plus débutant.
 
 Après un an de loyaux services, j'ai décidé de changer pour les raisons suivntes :
+
 * Le **prix des Add-ons** en augmentation permanente, **sans** possibilité de les **essayer** et sans garantie de mise à jour (confirmé depuis).
 * De moins en **moins d'Add-ons gratuits**, mais plus de payants,
 * L'**ambiance** au sein du forum communautaire, que je trouvais trop **hautaine, et arrogante**, surtout de la part de certains développeurs,
@@ -97,11 +100,12 @@ Après un an de loyaux services, j'ai décidé de changer pour les raisons suivn
 * La construction d'un tableau de bord propre et responsive trop complexe,
 * **Application mobile payante**.
 
-_La priorité de Jeedom SAS est le professionnel, ce qui, malgré une volonté des utilisateurs de faire évoluer les choses, bloque ou retarde les mises à jour, voire bloque des évolutions qui sont jugées quasi indispensable._
+*La priorité de Jeedom SAS est le professionnel, ce qui, malgré une volonté des utilisateurs de faire évoluer les choses, bloque ou retarde les mises à jour, voire bloque des évolutions qui sont jugées quasi indispensable.*
 
 Une des principales qualités était son système d'automatisation par bloc avec le débugueur qui n'avait pas d'équivalent à l'époque.
 
----
+- - -
+
 Même si beaucoup d'appareils sont compatibles, on est quand même loin de couvrir l'ensemble de ce qui est proposé par la concurrence.
 La plupart des Add-ons sont créés par des personnes tierces à l'équipe (qui sont souvent seules à les maintenir d'ailleurs) et donc n'assure en aucun cas sa pérennité. Très peu sont officiels et de toute façon même officielle, le suivi n'est pas top.
 
@@ -113,12 +117,12 @@ Dernier point, l'application payante, qui était encore très buguée, il y a qu
 
 <Alert type="warning">Si vous souhaitez économiser de l'argent et ne pas perdre de temps avant un changement de solution, je ne vous la recommande pas.</Alert>
 
-_Un grand nombre de personnes quittent Jeedom pour une autre solution, mais très peu, voire aucunes, ne font l'inverse._
-_Beaucoup restent, car ils ont passé tellement de temps sur leurs automatisatons et tableaux de bord, que basculer sur une autre solution demanderait trop de travail._
+*Un grand nombre de personnes quittent Jeedom pour une autre solution, mais très peu, voire aucunes, ne font l'inverse.*
+*Beaucoup restent, car ils ont passé tellement de temps sur leurs automatisatons et tableaux de bord, que basculer sur une autre solution demanderait trop de travail.*
 
 <Alert type="info">Si vous partez de zéro, ne commencez pas par Jeedom.</Alert>
 
----
+- - -
 
 ### Domoticz
 
@@ -131,6 +135,7 @@ _Beaucoup restent, car ils ont passé tellement de temps sur leurs automatisaton
 Le deuxième système domotique que j'ai installé est [Domoticz](https://www.domoticz.com/), malgré son **interface austère et dépassée**, il y a une vraie promesse de **gratuité**, une **communauté** internationale et [francophone](https://easy-domoticz.fr) avec une **bienveillance**, il permet l'utilisation de **plusieurs langages** (blocky, lua, python, etc) pour ses automatisations.
 
 Après six mois d'utilisation, j'ai aussi décidé de le remplacer pour les raisons suivantes :
+
 * Interface vieillissante,
 * Construction d'un tableau de bord responsive compliqué,
 * **Application mobile payante** si vous souhaitez utiliser la géolocalisation,
@@ -140,17 +145,17 @@ Ses principaux atouts sont sa "**vraie gratuité**" (seule l'application mobile 
 
 [Site Officiel de Domoticz](https://www.domoticz.com/) [Lien vers la Communauté FR](https://easy-domoticz.fr)
 
----
+- - -
 
 <Alert type="info">Je pense que ce n'est pas une solution vraiment accessible au grand public, il faudra quand même mettre les mains dans du code.</Alert>
 
 Il semblerait que, depuis la version 2023.1, une amélioration de l'interface soit apparue. À vous de tester.
 
----
+- - -
 
 ### Gladys Assistant
 
->![Interface de GladysAssistant](.img/gladysassistant.webp)
+> ![Interface de GladysAssistant](.img/gladysassistant.webp)
 
 **Open-source :** Oui / Gratuit
 **App Mobile :** Oui / Gratuite
@@ -170,10 +175,12 @@ Début 2024, j'ai voulu tester Gladys Assistant, que j'avais déjà essayé dans
 * Pleins d'autres choses encore...
 
 Voici quelques liens :
+
 * [Site Officiel de Home Assistant](https://gladysassistant.com/)
 * [Lien de la communauté Francophone](https://community.gladysassistant.com/)
 * [Une formation complète en partant de zéro de qualité](https://formation.gladysassistant.com/gladys-starter-pack-2024/25ut8)
----
+
+- - -
 
 Contrairement à son principal concurrent (Home Assistant), Gladys Assistant met l'utilisateur en avant en travaillant d'abord sur l'utilisation plutôt que sur la technique, ce qui lui permet d'être très facile à prendre en main, même pour des grands débutants. Il y a certes moins d'intégrations, mais elles sont complètement intégrées dans l'interface et ne nécessitent, pour la plupart, aucun réglage.
 
@@ -183,7 +190,7 @@ Je trouve que c'est ce qui permet d'avoir rapidement un beau rendu et une domoti
 
 Il existe un abonnement **facultatif** en deux versions vous permettant de vous simplifier et de sécuriser l'accès depuis l'extérieur, d'intégrer les assistants vocaux Alexa et Google et de stocker une sauvegarde chiffrée de manière automatique et journalière . D'autres services comme ChatGPT permettant de discuter avec votre domotique dans un langage humain sont aussi présents. Ce n'est **aucunement obligatoire**.
 
----
+- - -
 
 ### Home Assistant
 
@@ -211,10 +218,12 @@ Mais **depuis 2020**, tout ceci a bien changé, permettant maintenant de limiter
 * Pleins d'autres choses encore...
 
 Voici quelques liens :
+
 * [Site Officiel de Home Assistant](https://www.home-assistant.io/)
 * [Démo en ligne](https://demo.home-assistant.io/#/lovelace/0)
 * [Lien de la communauté Francophone HACF](https://hacf.fr)
----
+
+- - -
 
 On peut penser que je ne suis pas très objectif sur ce choix, mais ce sont des points que j'avais déjà remarqués avant de lancer [HACF, la communauté francophone](https://hacf.fr).
 
@@ -225,6 +234,7 @@ En 2023, Home Assistant s'est donné un objectif de réussir à intégrer un ass
 Il existe un abonnement **facultatif** vous permettant de simplifier la mise en place d'un accès depuis l'extérieur et l'intégration simplifiée des assistants vocaux Alexa et Google. Ce n'est **aucunement obligatoire** et il n'est **pas difficile de le faire sans l'abonnement**.
 
 <Alert type="info">Home Assistant est la solution domotique du moment, mais elle n'est pas aussi simple qu'elle pourrait le faire croire.</Alert>
+
 ## Conclusion
 
 Il n'y a pas de surprise, mes choix et ma **recommandation** vont vers **Home Assistant** et **Gladys Assistant**.
