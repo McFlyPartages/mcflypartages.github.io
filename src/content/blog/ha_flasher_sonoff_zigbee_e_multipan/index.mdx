@@ -104,12 +104,16 @@ La version à installer est `ZigStar Silicon Labs FW Flasher` car la [Sonoff Zig
 
 ![Add-on Home Assistant Zigstar Silicon Labs FW Flasher](.img/add-on_zigstar_silicon_labs_fw_flasher.png "Add-on Home Assistant Zigstar Silicon Labs FW Flasher")
 
-Une fois installé
+Une fois installé, vous allez dans `configuration`.
+* Saisissez un nom bidon dans `Network Device`,
+* Sélectionnez votre clé USB Sonoff Zigbee,
+* Activez `Flash USB Devive`,
+* Dans `Firmware URL`, coller l'URL de votre firmware (à récupérer [ici](https://github.com/darkxst/silabs-firmware-builder/tree/main/firmware_builds/zbdonglee),
+Dans mon cas `https://github.com/darkxst/silabs-firmware-builder/raw/main/firmware_builds/zbdonglee/rcp-uart-802154-v4.4.2-zbdonglee-460800.gbl`
+* `Bootloader Baudrate`, sélectionnez `460800`,
+Enregistrer puis lancer l'add-on et rendez-vous dans `journal` pour voir si tout se passe bien.
 
-
-
-
-
+<Alert type="warning"> Il faut que les add-ons Zigbee2MQTT ou ZHA soient arrêtés, sinon ça ne marchera pas.</Alert>
 
 
 ## Configuration sous Home Assistant
