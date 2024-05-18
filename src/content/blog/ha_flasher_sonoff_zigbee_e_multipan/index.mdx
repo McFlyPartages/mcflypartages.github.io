@@ -92,6 +92,22 @@ Vous vous souvenez peut-être que j'ai fait un article sur le [flash de la clé 
 
 ## Configuration sous Home Assistant
 
+Maintenant que notre clé est flashée avec le dernier firmware Multi protocole, nous allons devoir la configurer dans Home Assistant.
+
+Nous allons d'abord ajouter un add-on, nommé Silicon Labs Multiprotocol, qui permet de créer des réseaux séparés en utilisant le firmware RCP Multi-PAN sur la Sonoff et servira de passerelle entre votre clé et Home Assistant.
+
+Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des modules complementaires`, recherchez `Silicon Labs Multiprotocol` et installez le.
+
+Passons à la configuration de celui-ci :
+
+* Selectionnez votre clé,
+* Baudrate 460800,
+* Désactivez `Hardware Flow Control`, `Automatically flash firmware` et `Co-Processor Communication tracing`,
+* Activez `Enable OpenThread Border Router` et `OTBR firewall`,
+* Laissez le reste par défaut, **sauvegardez** et lancez l'add-on.
+
+![Configuration de l'add-on Silicon Labs MultiProtocol sur Home Assistant](.img/add-on_silicon_labs_multiprotocol_configuration.png "Configuration de l'add-on Silicon Labs MultiProtocol sur Home Assistant")
+
 ### Sources
 
 * [Firmware Builder](https://darkxst.github.io/silabs-firmware-builder/)
