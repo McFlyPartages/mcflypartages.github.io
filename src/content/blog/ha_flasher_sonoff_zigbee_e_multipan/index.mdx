@@ -244,13 +244,13 @@ Cliquez dessus et selectionner `Configurer une nouvelle instance de Zigbee Home 
 Ensuite créez un réseau ou récuperez le votre.
 
 ### Ajout de Zigbee2MQTT
-Pour utiliser Zigbee2MQTT, il va falloir changer les parametres de votre coordinateur (dongle) dans la configuration de l'add-on par ceux la.
+Pour utiliser Zigbee2MQTT vous devez suivre en partie [mon tuto](/blog/ha_mosquitto_broker_zigbee2mqtt/),mais dans la configuration de l'add-on il va falloir remplacer les parametres du `port` (dongle) par ceux ci-dessous.
 
 ```yaml
 port: tcp://core-silabs-multiprotocol:9999
 adapter: ezsp
 ```
-
+Enregistrez puis démarrez l'add-on.
 
 ### Sources
 
