@@ -111,13 +111,134 @@ Passons à la configuration de celui-ci :
 
 Voici mes logs :
 ```yaml
-jhcksdc
+-----------------------------------------------------------
+ Add-on: Silicon Labs Multiprotocol
+ Zigbee and OpenThread multiprotocol add-on
+-----------------------------------------------------------
+ Add-on version: 2.4.5
+ You are running the latest version of this add-on.
+ System: Home Assistant OS 12.3  (amd64 / qemux86-64)
+ Home Assistant Core: 2024.5.4
+ Home Assistant Supervisor: 2024.05.1
+-----------------------------------------------------------
+ Please, share the above information when looking for help
+ or support in, e.g., GitHub, forums or the Discord chat.
+-----------------------------------------------------------
+s6-rc: info: service banner successfully started
+s6-rc: info: service universal-silabs-flasher: starting
+[00:59:59] INFO: Flashing firmware is disabled
+s6-rc: info: service universal-silabs-flasher successfully started
+s6-rc: info: service cpcd-config: starting
+[00:59:59] INFO: Generating cpcd configuration.
+WARNING in function 'main' in file /usr/src/cpc-daemon/main.c at line #186 : Running CPCd as 'root' is not recommended. Proceed at your own risk.
+s6-rc: info: service cpcd successfully started
+s6-rc: info: service zigbeed: starting
+s6-rc: info: service otbr-agent: starting
+s6-rc: info: service zigbeed successfully started
+[00:59:02] INFO: Starting zigbeed...
+[00:59:02] INFO: Setup OTBR firewall...
+[00:59:02] INFO: Starting otbr-agent...
+otbr-agent[300]: [NOTE]-AGENT---: Running 0.3.0
+otbr-agent[300]: [NOTE]-AGENT---: Thread version: 1.3.0
+otbr-agent[300]: [NOTE]-AGENT---: Thread interface: wpan0
+otbr-agent[300]: [NOTE]-AGENT---: Radio URL: spinel+cpc://cpcd_0?iid=2&iid-list=0
+otbr-agent[300]: [NOTE]-ILS-----: Infra link selected: enp0s18
+otbr-agent[300]: 49d.18:27:26.395 [C] Platform------: mCpcBusSpeed = 115200
+[00:59:01:856025] Info : [CPCd v4.3.1.0] [Library API v3] [RCP Protocol v4]
+[00:59:01:856077] Info : Git commit: 133b29678b3d0bc7578e098d2f46b4d5bcd2ebb4 / branch: 
+[00:59:01:856079] Info : Sources hash: ff8300587e7e4ab1def7a89a272c0baef32f9eb3bff9b0ba06b94e655d652367
+[00:59:01:856084] WARNING : In function 'main' in file /usr/src/cpc-daemon/main.c at line #186 : Running CPCd as 'root' is not recommended. Proceed at your own risk.
+[00:59:01:856095] Info : Reading cli arguments
+[00:59:01:856097] Info : /usr/local/bin/cpcd 
+[00:59:01:857013] Info : Reading configuration
+[00:59:01:857016] Info :   file_path = /usr/local/etc/cpcd.conf
+[00:59:01:857017] Info :   instance_name = cpcd_0
+[00:59:01:857017] Info :   socket_folder = /dev/shm
+[00:59:01:857018] Info :   operation_mode = MODE_NORMAL
+[00:59:01:857018] Info :   use_encryption = false
+[00:59:01:857019] Info :   binding_key_file = /etc/binding-key.key
+[00:59:01:857019] Info :   stdout_tracing = false
+[00:59:01:857020] Info :   file_tracing = false
+[00:59:01:857020] Info :   lttng_tracing = false
+[00:59:01:857021] Info :   enable_frame_trace = false
+[00:59:01:857021] Info :   traces_folder = /dev/shm/cpcd-traces
+[00:59:01:857021] Info :   bus = UART
+[00:59:01:857022] Info :   uart_baudrate = 460800
+[00:59:01:857023] Info :   uart_hardflow = false
+[00:59:01:857023] Info :   uart_file = /dev/ttyACM0
+[00:59:01:857023] Info :   fu_recovery_pins_enabled = false
+[00:59:01:857024] Info :   fu_connect_to_bootloader = false
+[00:59:01:857024] Info :   fu_enter_bootloader = false
+[00:59:01:857025] Info :   restart_cpcd = false
+[00:59:01:857025] Info :   application_version_validation = false
+[00:59:01:857026] Info :   print_secondary_versions_and_exit = false
+[00:59:01:857026] Info :   use_noop_keep_alive = false
+[00:59:01:857026] Info :   reset_sequence = true
+[00:59:01:857027] Info :   stats_interval = 0
+[00:59:01:857027] Info :   rlimit_nofile = 2000
+[00:59:01:857028] Info : ENCRYPTION IS DISABLED 
+[00:59:01:857029] Info : Starting daemon in normal mode
+[00:59:01:868200] Info : Connecting to Secondary...
+[00:59:01:942433] Info : RX capability is 256 bytes
+[00:59:01:942443] Info : Connected to Secondary
+[00:59:01:944346] Info : Secondary Protocol v4
+[00:59:01:948541] Info : Secondary CPC v4.3.1
+[00:59:01:950522] Info : Secondary bus bitrate is 460800
+[00:59:01:954397] Info : Secondary APP vUNDEFINED
+[00:59:01:954451] Info : Daemon startup was successful. Waiting for client connections
+[00:59:02:470494] Info : New client connection using library v4.3.1.0
+[00:59:02:472827] Info : Opened connection socket for ep#12
+[00:59:02:472988] Info : Endpoint socket #12: Client connected. 1 connections
+[00:59:03:277345] Info : New client connection using library v4.3.1.0
+[00:59:03:280160] Info : Endpoint socket #12: Client connected. 2 connections
+otbr-agent[300]: 00:00:00.029 [N] RoutingManager: No valid /48 BR ULA prefix found in settings, generating new one
+otbr-agent[300]: 00:00:00.039 [N] RoutingManager: BR ULA prefix: fd7c:e06a:e652::/48 (generated)
+otbr-agent[300]: 00:00:00.039 [N] RoutingManager: Local on-link prefix: fdde:ad00:beef:cafe::/64
+s6-rc: info: service otbr-agent successfully started
+s6-rc: info: service otbr-agent-rest-discovery: starting
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for    4 homeassistant.local. Addr 192.168.10.13
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for   16 homeassistant.local. AAAA 2a01:e0a:c51:b740:b5a7:d3fb:9ad9:b5b6
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for   16 homeassistant.local. AAAA fe80::150e:998e:e522:12b1
+Default: mDNSCoreReceiveResponse: Received from 172.30.32.1:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629652592 for    4 homeassistant.local. Addr 172.30.32.1
+Default: mDNSCoreReceiveResponse: Received from 172.30.32.1:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629652592 for   16 homeassistant.local. AAAA fe80::42:ebff:fe49:dc25
+otbr-agent[300]: 00:00:00.292 [N] RoutingManager: Local on-link prefix: fda3:d3a9:8d95:d438::/64
+otbr-agent[300]: 00:00:00.300 [N] Mle-----------: Role disabled -> detached
+otbr-agent[300]: 00:00:00.301 [N] Platform------: [netif] Changing interface state to up.
+[00:59:04] INFO: Successfully sent discovery information to Home Assistant.
+s6-rc: info: service otbr-agent-rest-discovery successfully started
+s6-rc: info: service legacy-services: starting
+s6-rc: info: service legacy-services successfully started
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for    4 homeassistant.local. Addr 192.168.10.13
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for   16 homeassistant.local. AAAA 2a01:e0a:c51:b740:b5a7:d3fb:9ad9:b5b6
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629646304 for   16 homeassistant.local. AAAA fe80::150e:998e:e522:12b1
+Default: mDNSCoreReceiveResponse: Received from 172.30.32.1:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629652592 for    4 homeassistant.local. Addr 172.30.32.1
+Default: mDNSCoreReceiveResponse: Received from 172.30.32.1:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; restarting probing after 1024-tick pause due to possibly spurious multicast conflict (1/1) via interface 629652592 for   16 homeassistant.local. AAAA fe80::42:ebff:fe49:dc25
+otbr-agent[300]: 00:00:01.027 [N] Mle-----------: Attach attempt 1, AnyPartition reattaching with Active Dataset
+Default: mDNSCoreReceiveResponse: Received from 192.168.10.10:5353    4 homeassistant.local. Addr 192.168.10.10
+Default: mDNSCoreReceiveResponse: ProbeCount 2; will deregister    4 homeassistant.local. Addr 192.168.10.13 due to multicast conflict via interface 629646304
+Default: Local Hostname homeassistant.local already in use; will try homeassistant-2.local instead
+Listening on port 9999 for connection...
+Accepting connection.
+otbr-agent[300]: 00:00:07.528 [N] RouterTable---: Allocate router id 62
+otbr-agent[300]: 00:00:07.529 [N] Mle-----------: RLOC16 fffe -> f800
+otbr-agent[300]: 00:00:07.531 [N] Mle-----------: Role detached -> leader
+otbr-agent[300]: 00:00:07.531 [N] Mle-----------: Partition ID 0x4d2ec7c1
+otbr-agent[300]: [NOTE]-BBA-----: BackboneAgent: Backbone Router becomes Primary!
 ```
 
 ### Ajout de ZHA
-
-
-A vir
+Si vous souhaitez ajouter ZHA (au lieu de Zigbee2MQTT).
+Allez dans `Parametres -> Appareils et services -> AJOUTER UNE INTEGRATION` rechercher ZHA 
 
 ### Ajout de Zigbee2MQTT
 avoir 
