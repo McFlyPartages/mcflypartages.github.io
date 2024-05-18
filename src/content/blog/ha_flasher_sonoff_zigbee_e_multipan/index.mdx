@@ -238,11 +238,18 @@ otbr-agent[300]: [NOTE]-BBA-----: BackboneAgent: Backbone Router becomes Primary
 
 ### Ajout de ZHA
 Si vous souhaitez ajouter ZHA (au lieu de Zigbee2MQTT).
-Allez dans `Parametres -> Appareils et services -> AJOUTER UNE INTEGRATION` rechercher ZHA 
+Allez dans `Parametres -> Appareils et services -> AJOUTER UNE INTEGRATION` rechercher ZHA.
+Cliquez dessus et selectionner `Configurer une nouvelle instance de Zigbee Home Automation` et selectionner le `socket://core-silabs-multiprotocol:9999`
+
+Ensuite créez un réseau ou récuperez le votre.
 
 ### Ajout de Zigbee2MQTT
-avoir 
+Pour utiliser Zigbee2MQTT, il va falloir changer les parametres de votre coordinateur (dongle) dans la configuration de l'add-on par ceux la.
 
+```yaml
+port: tcp://core-silabs-multiprotocol:9999
+adapter: ezsp
+```
 
 
 ### Sources
