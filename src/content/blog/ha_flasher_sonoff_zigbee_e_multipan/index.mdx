@@ -1,0 +1,39 @@
+---
+draft: true
+dossier: ha_flasher_sonoff_zigbee_e_multipan
+title: Sonoff ZBDongle E - Activer Thread, Matter et Zigbee en simultanée Grace
+  a sa puce EFR32MG21
+description: La clé Sonoff ZBDongle E permet de faire du Zigbee ou du Thread,
+  mais depuis quelque temps, il est possible de faire les deux simultanément.
+  Voyons ensemble comment le faire depuis un module complémentaire (add-on) Home
+  Assistant ou depuis un navigateur compatible WebSerial API
+  (Chrome/Chromium/Edge).
+pubDate: 05.18.2024
+authors:
+  - mcfly
+categories:
+  - home assistant
+  - domotique
+affiliateLink: true
+---
+import Alert from "@components/mdx/Alert.astro";
+
+La clé USB Sonoff ZBDongle E est basé sur une puce EFR32MG21 qui permet le support de Thread et du Zigbee.
+
+Je ne vais pas vous cacher que je suis encore sceptique sur le protocole Thread. Cela fait quelques années que l'on nous en parle et on commence seulement à voir du matériel compatible.
+
+Tout comme le Zigbee qui était aussi censé rendre tous les appareils interopérables, les constructeurs ont vite ajouté des surcouches ou ils se sont autorisé des fantaisies dans le codage pour le rendre inopérable avec les concurrents. Bien sûr, ce n'est qu'une histoire de gros sous.
+
+Si le "protocole" Thread arrive avec ce qu'il promet, ce sera une très grosse avancée pour la domotique.
+
+**Qu'est-ce que Thread** (très rapidement) **:**
+
+Thread est un protocole réseau maillé conçu pour la domotique. Il permet aux appareils de communiquer entre eux de manière sécurisée et efficace, sans avoir à passer par un routeur Wi-Fi ou un hub central.
+
+*Je ferais peut-être un article dessus, mais plus tard, car comme je vous l'ai dit. Je suis sceptique.*
+
+Revenons à nos moutons !!!
+
+<Alert type="warning">Si votre coordinateur actuel est le ZBDongle E, il vous faudra tout réapairer après le flash du firmware. Le **flash peut comporter des risques**, à vous de les assumer.</Alert>
+
+Nous allons flasher la clé Sonoff directement avec un module complementaire de Home Assistant, mais il est possible de la flasher directement avec un navigateur compatible WebSerial API comme Chrome (Chromium aussi en effectuant ou Edge.
