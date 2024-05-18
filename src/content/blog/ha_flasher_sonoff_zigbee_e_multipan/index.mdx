@@ -36,18 +36,14 @@ Revenons à nos moutons !!!
 
 <Alert type="warning">Si votre coordinateur actuel est le ZBDongle E, il vous faudra tout réapairer après le flash du firmware. Le **flash peut comporter des risques**, à vous de les assumer.</Alert>
 
-Je vais vous montrer les deux méthodes permettant de flasher la clé Sonoff 
+Je vais vous montrer la méthode permettant de flasher la clé Sonoff directement depuis un navigateur compatible WebSerial API comme Chrome/Chromium ou Edge.
 
-* Directement avec un module complémentaire dans Home Assistant, 
-* Directement depuis un navigateur compatible WebSerial API comme Chrome/Chromium ou Edge.
+La manipulation est relativement simple.
 
-Les deux sont relativement simples.
-
-**Matériels utilisé :**
+**Matériels utilisés :**
 
 * Sonoff ZBDongle E [Domadoo](https://www.domadoo.fr/fr/interface-domotique/6315-sonoff-zbdongle-e-cle-usb-dongle-zigbee-30-antenne-externe-20dbm-v2.html?domid=66), [Amazon](https://amzn.to/3UpzWPX), [AliExpress](https://s.click.aliexpress.com/e/_DmnOkph)
 * Chromium v124.0.6367.207,
-* Add-on Zigstar 0.1.1,
 * HA 2024.5.4 / 12.3
 
 ## Flash du Firmware Multi protocole.
@@ -67,7 +63,7 @@ Les deux sont relativement simples.
    <Alert type="info">Si vous avez un navigateur compatible, mais que vous ne voyez pas votre ZBDongle, essayez cela.
 
 * Sous Windows ou Mac vérifiez que vous avez bien le [driver CP2102](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) d'installé.
-* Sous Ubuntu vérifier les autorisations de Chromium depuis l'Ubuntu Store (recherchez Chromium puis cliquez sur Permissions) car "Access USB hardware directly" n'est pas activé par défaut.
+* Sous Ubuntu vérifier les autorisations de Chromium depuis l'Ubuntu Store (recherchez Chromium et cliquez sur Permissions) car "Access USB hardware directly" n'est pas activé par défaut.
 
 </Alert>
 
@@ -78,7 +74,7 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 4. Cliquez sur `CHANGE FIRMWARE`,
 5. Sélectionnez Muti-PAN (RCP) dans la fenêtre qui s'affiche et cliquez sur `INSTALL`,
 
-![Selection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Selection du firmware Multi-PAN")
+![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
 ![Flash du firmaware Multi-PAN sur Sonoff ZBDongle E](.img/flash_dongle_web_flash_firmware_multipan.png "Flash du firmware Multi-PAN sur Sonoff ZBDongle E")
 
@@ -90,110 +86,9 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 7. Au moment où j'écris, le firmware installé par le navigateur web est le 4.3.1, mais vous pouvez mettre le dernier qui est le 4.4.2 et qui se trouve [ici](https://github.com/darkxst/silabs-firmware-builder/tree/main/firmware_builds/zbdonglee) (Prendre le`rcp-uart-802154-v4.4.2-zbdonglee-460800.gbl` ou plus récent s'il y a.
 8. Ensuite, suivez de nouveau le tuto à partir de l'étape 1 et choisissez `Upload your own firmware`, cliquez sur `UPLOAD` et sélectionnez le firmware que vous souhaitez installer.
 
-### Depuis l'add-on Zigstart
+### Flash depuis l'Add-on Zigstar
 
-Vous vous souvenez peut-être que j'ai fait un article sur le [flash de la clé Sonoff ZBDongle mais la version **P**](/blog/ha_flasher_sonoff_zigbee/) pour enlever la limite du nombre d'appareils imposé par Sonoff ? Eh bien **attention**, car nous n'allons pas utiliser le même add-on, mais par contre, c'est la même source à ajouter.
-
-Voici les étapes :
-
-1. Nous ajoutons une source externe, vous savez comment faire maintenant, sinon l'[article est ici](/blog/ha_addons/), ou plus simple en cliquant sur l'image ci-dessous ;
-   [![Ajouter le dépôt Zigstar en un clic](.img/add_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmercenaruss%2Fzigstar_addons)
-      
-
-La version à installer est `ZigStar Silicon Labs FW Flasher` car la [Sonoff Zigbee 3.0 USB Dongle Plus **E**](https://amzn.to/3UpzWPX) est sous puce EFR32MG21.
-
-![Add-on Home Assistant Zigstar Silicon Labs FW Flasher](.img/add-on_zigstar_silicon_labs_fw_flasher.png "Add-on Home Assistant Zigstar Silicon Labs FW Flasher")
-
-Une fois installé, vous allez dans `configuration`.
-* Saisissez un nom bidon dans `Network Device`,
-* Sélectionnez votre clé USB Sonoff Zigbee,
-* Activez `Flash USB Devive`,
-* Dans `Firmware URL`, coller l'URL de votre firmware (à récupérer [ici](https://github.com/darkxst/silabs-firmware-builder/tree/main/firmware_builds/zbdonglee),
-Dans mon cas `https://github.com/darkxst/silabs-firmware-builder/raw/main/firmware_builds/zbdonglee/rcp-uart-802154-v4.4.2-zbdonglee-460800.gbl`
-* `Bootloader Baudrate`, sélectionnez `460800`,
-Enregistrer puis lancer l'add-on et rendez-vous dans `journal` pour voir si tout se passe bien.
-
-Voici mes logs :
-```yaml
------------------------------------------------------------
- Add-on: ZigStar Silicon Labs FW Flasher
- ZigStar Silicon Labs firmware flasher add-on
------------------------------------------------------------
- Add-on version: 0.1.1
- You are running the latest version of this add-on.
- System: Home Assistant OS 12.3  (amd64 / qemux86-64)
- Home Assistant Core: 2024.5.4
- Home Assistant Supervisor: 2024.05.1
------------------------------------------------------------
- Please, share the above information when looking for help
- or support in, e.g., GitHub, forums or the Discord chat.
------------------------------------------------------------
-s6-rc: info: service banner successfully started
-s6-rc: info: service universal-silabs-flasher: starting
-[00:13:13] INFO: Starting universal-silabs-flasher with /dev/ttyACM0 (bootloader baudrate 460800)
-2024-05-19 00:13:13 193f5383-zigstar-silabs-flasher universal_silabs_flasher.flash[158] INFO Extracted GBL metadata: NabuCasaMetadata(metadata_version=1, sdk_version='4.4.2', ezsp_version=None, ot_rcp_version=None, fw_type=<FirmwareImageType.RCP_UART_802154: 'rcp-uart-802154'>, baudrate=460800)
-2024-05-19 00:13:13 193f5383-zigstar-silabs-flasher universal_silabs_flasher.flasher[158] INFO Probing ApplicationType.GECKO_BOOTLOADER at 460800 baud
-2024-05-19 00:13:15 193f5383-zigstar-silabs-flasher universal_silabs_flasher.flasher[158] INFO Probing ApplicationType.CPC at 460800 baud
-2024-05-19 00:13:15 193f5383-zigstar-silabs-flasher universal_silabs_flasher.flasher[158] INFO Detected ApplicationType.CPC, version '4.3.1' at 460800 baudrate (bootloader baudrate None)
-2024-05-19 00:13:15 193f5383-zigstar-silabs-flasher universal_silabs_flasher.cpc[158] WARNING Failed to parse buffer bytearray(b'\x80'): ValueError('Invalid flag')
-2024-05-19 00:13:15 193f5383-zigstar-silabs-flasher universal_silabs_flasher.cpc[158] WARNING Failed to parse buffer bytearray(b'\x00'): ValueError('Invalid flag')
-2024-05-19 00:13:16 193f5383-zigstar-silabs-flasher universal_silabs_flasher.flasher[158] INFO Probing ApplicationType.GECKO_BOOTLOADER at 460800 baud
-Traceback (most recent call last):
-  File "/usr/local/bin/universal-silabs-flasher", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
-    return self.main(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1078, in main
-    rv = self.invoke(ctx)
-         ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1688, in invoke
-    return _process_result(sub_ctx.command.invoke(sub_ctx))
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
-    return ctx.invoke(self.callback, **ctx.params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/core.py", line 783, in invoke
-    return __callback(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/click/decorators.py", line 33, in new_func
-    return f(get_current_context(), *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/universal_silabs_flasher/flash.py", line 36, in inner
-    return asyncio.run(f(*args, **kwargs))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
-    return runner.run(main)
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
-    return self._loop.run_until_complete(task)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
-    return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/universal_silabs_flasher/flash.py", line 392, in flash
-    await flasher.enter_bootloader()
-  File "/usr/local/lib/python3.11/site-packages/universal_silabs_flasher/flasher.py", line 305, in enter_bootloader
-    await self.probe_app_type(types=[ApplicationType.GECKO_BOOTLOADER])
-  File "/usr/local/lib/python3.11/site-packages/universal_silabs_flasher/flasher.py", line 261, in probe_app_type
-    raise RuntimeError("Failed to probe running application type")
-RuntimeError: Failed to probe running application type
-[00:13:18] INFO: universal-silabs-flasher-up script exited with code 1
-s6-rc: warning: unable to start service universal-silabs-flasher: command exited 1
-s6-rc: info: service banner: stopping
-/run/s6/basedir/scripts/rc.init: warning: s6-rc failed to properly bring all the services up! Check your logs (in /run/uncaught-logs/current if you have in-container logging) for more information.
-s6-rc: info: service banner successfully stopped
-s6-rc: info: service legacy-cont-init: stopping
-/run/s6/basedir/scripts/rc.init: fatal: stopping the container.
-s6-rc: info: service legacy-cont-init successfully stopped
-s6-rc: info: service fix-attrs: stopping
-s6-rc: info: service fix-attrs successfully stopped
-s6-rc: info: service s6rc-oneshot-runner: stopping
-s6-rc: info: service s6rc-oneshot-runner successfully stopped
-```
-<Alert type="warning"> Il faut que les add-ons Zigbee2MQTT ou ZHA soient arrêtés, sinon ça ne marchera pas.</Alert>
-
+Vous vous souvenez peut-être que j'ai fait un article sur le [flash de la clé Sonoff ZBDongle mais la version **P**](/blog/ha_flasher_sonoff_zigbee/) pour enlever la limite du nombre d'appareils imposé par Sonoff ? Eh bien, je n'ai pas réussi à flasher la Sonoff ZBDongle depuis cet add-on, si vous avez réussi la manip, je suis preneur.
 
 ## Configuration sous Home Assistant
 
