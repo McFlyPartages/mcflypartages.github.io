@@ -43,11 +43,9 @@ Je vais vous montrer les deux methodes permettant de flasher la clé Sonoff
 
 Les deux sont relativement simple.
 
-\### Flash du Firmware Multi protocole.
+## Flash du Firmware Multi protocole.
 
-\## Depuis l'add-on XXXXX
-
-\## Depuis le navigateur
+### Depuis le navigateur
 
 1. Brancher le dongle Sonoff sur votre PC,
 2. Rendez-vous a [cette adresse](https://darkxst.github.io/silabs-firmware-builder/) depuis un navigateur compatible WebSerial API,
@@ -79,6 +77,21 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 
 ![Flash terminé](.img/flash_firmware_multipan_termine.png "Flash terminé")
 
-1. Cliquez sur CONTINUE et vous devriez avoir votre nouveau firmware d'affiché.
+6. Cliquez sur CONTINUE et vous devriez avoir votre nouveau firmware d'affiché.
 
    ![Votre nouveau firmware Multi-PAN](.img/zbdongle_firmware_multipan.png "Votre nouveau firmware Multi-PAN")
+7. Au moment où j'écris, le firmware installé par le navigateur web est le 4.3.1, mais vous pouvez mettre le dernier qui est le 4.4.2 et qui se trouve [ici](https://github.com/darkxst/silabs-firmware-builder/tree/main/firmware_builds/zbdonglee) (Prendre le`rcp-uart-802154-v4.4.2-zbdonglee-460800.gbl` ou plus récent s'il y 
+
+### Depuis l'add-on XXXXX
+
+
+
+
+
+## Configuration sous Home Assistant
+
+### Sources
+
+* [Firmware Builder](https://darkxst.github.io/silabs-firmware-builder/)
+* [Les firmwares](https://github.com/darkxst/silabs-firmware-builder/tree/main)
+* [SmartHomeScene](https://smarthomescene.com/guides/how-to-enable-thread-and-matter-support-on-sonoff-zbdongle-e/)(pour la partie integration HA)
