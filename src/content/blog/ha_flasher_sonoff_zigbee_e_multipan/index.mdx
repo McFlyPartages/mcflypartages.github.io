@@ -36,12 +36,17 @@ Revenons à nos moutons !!!
 
 <Alert type="warning">Si votre coordinateur actuel est le ZBDongle E, il vous faudra tout réapairer après le flash du firmware. Le **flash peut comporter des risques**, à vous de les assumer.</Alert>
 
-Je vais vous montrer les deux methodes permettant de flasher la clé Sonoff 
-
+Je vais vous montrer les deux méthodes permettant de flasher la clé Sonoff 
 * Directement avec un module complémentaire dans Home Assistant, 
 * Directement depuis un navigateur compatible WebSerial API comme Chrome/Chromium ou Edge.
 
-Les deux sont relativement simple.
+Les deux sont relativement simples.
+
+**Matériels utilisé :**
+* Sonoff ZBDongle E [Domadoo](https://www.domadoo.fr/fr/interface-domotique/6315-sonoff-zbdongle-e-cle-usb-dongle-zigbee-30-antenne-externe-20dbm-v2.html?domid=66), [Amazon](https://amzn.to/3UpzWPX), [AliExpress](https://s.click.aliexpress.com/e/_DmnOkph)
+* Chromium v124.0.6367.207,
+* Add-on Zigstar 0.1.1,
+* HA 2024.5.4 / 12.3
 
 ## Flash du Firmware Multi protocole.
 
@@ -88,6 +93,12 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 Vous vous souvenez peut-être que j'ai fait un article sur le [flash de la clé Sonoff ZBDongle mais la version **P**](/blog/ha_flasher_sonoff_zigbee/) pour enlever la limite du nombre d'appareils imposé par Sonoff ? Et bien attention car nous allons pas utiliser le même add-on, mais par contre, c'est la même source à ajouter.
 
 Voici les étapes :
+
+1. Nous ajoutons une source externe, vous savez comment faire maintenant, sinon l'[article est ici](/blog/ha_addons/), ou plus simple en cliquant sur l'image ci-dessous;
+[![Ajouter le dépôt Zigsatr en un clic](.img/add_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmercenaruss%2Fzigstar_addons)
+
+La version à installer est `ZigStar Silicon Labs FW Flasher` car la [Sonoff Zigbee 3.0 USB Dongle Plus **E**](https://amzn.to/3UpzWPX) est sous puce EFR32MG21
+![Version de Zigstar](.img/add-ons_zigstar.png)
 
 
 
