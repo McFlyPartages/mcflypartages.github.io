@@ -261,7 +261,7 @@ adapter: ezsp
 
 Enregistrez puis démarrez l'add-on.
 
-<Alert type="info">Malgré le fait que \`ezsp\` soit marqué comme déprécié, il ne faut pas le remplacer par \`ember\` comme mentionné, car cela rend le Multi-PAN complètement instable, voir [cette discussion sur GitHub](https://github.com/Koenkk/zigbee2mqtt/issues/22635)</Alert>
+<Alert type="info">Malgré le fait que \`ezsp\` soit marqué comme déprécié, il ne faut pas le remplacer par \`ember\` comme mentionné, car cela rend le Multi-PAN complètement instable, voir [cette discussion sur GitHub](https://github.com/Koenkk/zigbee2mqtt/issues/22635) qui annonce qu'Home Assistant a annoncé qu'il n'y aurait plus de développement car le firmware RCP impose certaines limitations et difficultés lorsque Thread et Zigbee sont utilisés sur la même radio. </Alert>
 
 Voici mes logs :
 
@@ -287,10 +287,41 @@ Voici mes logs :
 [2024-05-19 10:11:40] info: 	z2m: Zigbee2MQTT started!
 ```
 
-Ensuite vous pouvez continuer de suivre [le tuto sur Zigbee2MQTT](/blog/ha_mosquitto_broker_zigbee2mqtt/).
+Ensuite, vous pouvez continuer de suivre [le tuto sur Zigbee2MQTT](/blog/ha_mosquitto_broker_zigbee2mqtt/).
+
+
+
+### Thread
+
+Pour Thread, normalement, il a automatiquement été ajouté dans vos appareils et services. Dans le cas contraire, rendez-vous dans `Paramètres -> Appareils et services` puis `AJOUTER UNE INTÉGRATION`. Recherchez Thread et sélectionnez votre clé Sonoff ZBDongle E.
+
+
+
+## Flasher le firmware pour Thread
+
+Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread uniquement, la procédure est la même. Il vous faudra juste selectionner le firmware.
+
+![Interface du Flash de la Sonoff ZBDongle E via un navigateur Web](.img/flash_dongle_web.png "Flash de la Sonoff ZBDongle E avec Chromium")
+
+## Revenir en arrière
+
+
+
+ncp-uart-hw- EmberZnet pure Zigbee
+
+rcp-uart-802154- RCP MultiPan
+
+ot-rcp- OpenThread Only
+
+
 
 ## Conclusion
 
+Il est vrai que j'ai acheté la ZBDongle E uniquement pour tester ce multi protocole. Après plusieurs recherches, je ne pense pas qu'il y aura de grosses évolutions du firmware RCP.
+
+Les retours semblent globalement bons et sans problème pour le moment. Maintenant, pour une installation en production, je vous suggère plutôt d'avoir une clé pour le Zigbee et une autre pour Thread afin d'avoir une installation vraiment stable.
+
+Pour mettre Thread sur votre Sonoff ZBDongle E, il vous suffit de suivre la meme procedure de flash
 
 ### Sources
 
