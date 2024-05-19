@@ -1,8 +1,7 @@
 ---
 draft: true
 dossier: ha_flasher_sonoff_zigbee_e_multipan
-title: Sonoff ZBDongle E - Activer Thread, Matter et Zigbee en simultanée Grace
-  a sa puce EFR32MG21
+title: Sonoff ZBDongle E - Activer Thread et Zigbee en simultanée ou simplement Thread
 description: La clé Sonoff ZBDongle E permet de faire du Zigbee ou du Thread,
   mais depuis quelque temps, il est possible de faire les deux simultanément.
   Voyons ensemble comment le faire depuis un module complémentaire (add-on) Home
@@ -14,6 +13,13 @@ authors:
 categories:
   - home assistant
   - domotique
+tags:
+  - zigbee
+  - Thread
+  - Matter
+  - ZHA
+  - Zigbee2MQTT
+  - Sonoff?ZBDongle-E
 affiliateLink: true
 ---
 import Alert from "@components/mdx/Alert.astro";
@@ -30,7 +36,9 @@ Si le "protocole" Thread arrive avec ce qu'il promet, ce sera une très grosse a
 
 Thread est un protocole réseau maillé conçu pour la domotique. Il permet aux appareils de communiquer entre eux de manière sécurisée et efficace, sans avoir à passer par un routeur Wi-Fi ou un hub central.
 
-*Je ferais peut-être un article dessus, mais plus tard, car comme je vous l'ai dit. Je suis sceptique.*
+*Je ferais peut-être un article dessus, mais plus tard, car comme je vous l'ai dit, je suis sceptique.*
+
+Pour en sdavoir plus il y a deja pas mal de source sur le web dont [celle ci du site Domadoo](https://blog.domadoo.fr/89279-thread-protocole-domotique-matter/)
 
 Revenons à nos moutons !!!
 
@@ -289,31 +297,23 @@ Voici mes logs :
 
 Ensuite, vous pouvez continuer de suivre [le tuto sur Zigbee2MQTT](/blog/ha_mosquitto_broker_zigbee2mqtt/).
 
-
-
 ### Thread
 
 Pour Thread, normalement, il a automatiquement été ajouté dans vos appareils et services. Dans le cas contraire, rendez-vous dans `Paramètres -> Appareils et services` puis `AJOUTER UNE INTÉGRATION`. Recherchez Thread et sélectionnez votre clé Sonoff ZBDongle E.
 
 
-
 ## Flasher le firmware pour Thread
+*Pas besoin de suivre ces etapes si vous souhaitez faire du Multi-PAN*
 
-Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread uniquement, la procédure est la même. Il vous faudra juste selectionner le firmware.
+Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread uniquement, la procédure est la même. Il vous faudra juste selectionner le firmware OpenThread.
 
-![Interface du Flash de la Sonoff ZBDongle E via un navigateur Web](.img/flash_dongle_web.png "Flash de la Sonoff ZBDongle E avec Chromium")
+![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
-## Revenir en arrière
+## Remettre le firmware Zigbee
 
+Pour remettre le firmware Zigbee sur votre Sonoff ZBDongle E. Suivez la même procedure mais en choissiant firmware Zigbee (EZSP).
 
-
-ncp-uart-hw- EmberZnet pure Zigbee
-
-rcp-uart-802154- RCP MultiPan
-
-ot-rcp- OpenThread Only
-
-
+![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
 ## Conclusion
 
@@ -321,7 +321,19 @@ Il est vrai que j'ai acheté la ZBDongle E uniquement pour tester ce multi proto
 
 Les retours semblent globalement bons et sans problème pour le moment. Maintenant, pour une installation en production, je vous suggère plutôt d'avoir une clé pour le Zigbee et une autre pour Thread afin d'avoir une installation vraiment stable.
 
-Pour mettre Thread sur votre Sonoff ZBDongle E, il vous suffit de suivre la meme procedure de flash
+Si vous souhaitez essayer d'autres versions de firmware que ceux qui sont avec le WebFlasher, retenez que les firmwares commencant par:
+
+* `ncp-uart-hw-` sont pour le Zigbee (ember) seul,
+* `rcp-uart-802154-` sont pour le MultiPan (Zigbee + Thread),
+* `ot-rcp-` sont pour OpenThread seul.
+
+A la fin du nom de firmware il y a le Baudrate.
+
+Pour la Sonoff ZBDOngle E, il faut :
+* `ncp-uart-hw-` prendre la version 115200,
+* `rcp-uart-802154-` prendre la version 460800,
+* `ot-rcp-` prendre la version 460800.
+
 
 ### Sources
 
