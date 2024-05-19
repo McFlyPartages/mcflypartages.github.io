@@ -45,6 +45,8 @@ La manipulation est relativement simple.
 * Sonoff ZBDongle E [Domadoo](https://www.domadoo.fr/fr/interface-domotique/6315-sonoff-zbdongle-e-cle-usb-dongle-zigbee-30-antenne-externe-20dbm-v2.html?domid=66), [Amazon](https://amzn.to/3UpzWPX), [AliExpress](https://s.click.aliexpress.com/e/_DmnOkph)
 * Chromium v124.0.6367.207,
 * HA 2024.5.4 / 12.3
+* Zigbee2MQTT 1.37.1
+* Silicon Labs Multiprotocol 2.4.5
 
 ## Flash du Firmware Multi protocole.
 
@@ -86,6 +88,8 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 7. Au moment où j'écris, le firmware installé par le navigateur web est le 4.3.1, mais vous pouvez mettre le dernier qui est le 4.4.2 et qui se trouve [ici](https://github.com/darkxst/silabs-firmware-builder/tree/main/firmware_builds/zbdonglee) (Prendre le`rcp-uart-802154-v4.4.2-zbdonglee-460800.gbl` ou plus récent s'il y a.
 8. Ensuite, suivez de nouveau le tuto à partir de l'étape 1 et choisissez `Upload your own firmware`, cliquez sur `UPLOAD` et sélectionnez le firmware que vous souhaitez installer.
 
+<Alert type="warning">A date de l'écriture de cet article, il semble que le 4.3.1 semble le seul firmware fonctionnant avec l'add-on Silicon Labs Multiprotocol</Alert>
+
 ### Flash depuis l'Add-on Zigstar
 
 Vous vous souvenez peut-être que j'ai fait un article sur le [flash de la clé Sonoff ZBDongle mais la version **P**](/blog/ha_flasher_sonoff_zigbee/) pour enlever la limite du nombre d'appareils imposé par Sonoff ? Eh bien, je n'ai pas réussi à flasher la Sonoff ZBDongle depuis cet add-on, si vous avez réussi la manip, je suis preneur.
@@ -102,7 +106,7 @@ Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des module
 
 Passons à la configuration de celui-ci :
 
-* Selectionnez votre clé,
+* Sélectionnez votre clé,
 * Baudrate 460800,
 * Désactivez `Hardware Flow Control`, `Automatically flash firmware` et `Co-Processor Communication tracing`,
 * Activez `Enable OpenThread Border Router` et `OTBR firewall`,
@@ -242,13 +246,13 @@ otbr-agent[300]: [NOTE]-BBA-----: BackboneAgent: Backbone Router becomes Primary
 
 Si vous souhaitez ajouter ZHA (au lieu de Zigbee2MQTT).
 Allez dans `Parametres -> Appareils et services -> AJOUTER UNE INTEGRATION` rechercher ZHA.
-Cliquez dessus et selectionner `Configurer une nouvelle instance de Zigbee Home Automation` et selectionner le `socket://core-silabs-multiprotocol:9999`
+Cliquez dessus et sélectionné `Configurer une nouvelle instance de Zigbee Home Automation` puis `socket://core-silabs-multiprotocol:9999`.
 
-Ensuite créez un réseau ou récuperez le votre.
+Ensuite, créez un réseau ou récupérez le vôtre.
 
 ### Ajout de Zigbee2MQTT
 
-Pour utiliser Zigbee2MQTT vous devez suivre en partie [mon tuto](/blog/ha_mosquitto_broker_zigbee2mqtt/),mais dans la configuration de l'add-on il va falloir remplacer les parametres du `port` (dongle) par ceux ci-dessous.
+Pour utiliser Zigbee2MQTT, vous devez suivre en partie [mon tuto](/blog/ha_mosquitto_broker_zigbee2mqtt/), mais dans la configuration de l'add-on il va falloir remplacer les paramètres du `port` (dongle) par ceux ci-dessous.
 
 ```yaml
 port: tcp://core-silabs-multiprotocol:9999
@@ -256,6 +260,8 @@ adapter: ezsp
 ```
 
 Enregistrez puis démarrez l'add-on.
+
+<Alert type="info">Malgré le fait que \`ezsp\` soit marqué comme déprécié, il ne faut pas le remplacer par \`ember\` comme mentionné, car cela rend le Multi-PAN complètement instable, voir [cette discussion sur GitHub](https://github.com/Koenkk/zigbee2mqtt/issues/22635)</Alert>
 
 Voici mes logs :
 
@@ -286,3 +292,4 @@ Voici mes logs :
 * [Firmware Builder](https://darkxst.github.io/silabs-firmware-builder/)
 * [Les firmwares](https://github.com/darkxst/silabs-firmware-builder/tree/main)
 * [SmartHomeScene](https://smarthomescene.com/guides/how-to-enable-thread-and-matter-support-on-sonoff-zbdongle-e/)(pour la partie intégration HA)
+* [Ember et MultiPAN](https://github.com/Koenkk/zigbee2mqtt/issues/22635)
