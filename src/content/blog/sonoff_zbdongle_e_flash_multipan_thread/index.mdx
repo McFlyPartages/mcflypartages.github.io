@@ -1,6 +1,6 @@
 ---
 draft: true
-dossier: ha_flasher_sonoff_zigbee_e_multipan
+dossier: sonoff_zbdongle_e_flash_multipan_thread
 title: Sonoff ZBDongle E - Activer Thread et Zigbee en simultanée ou simplement Thread
 description: La clé Sonoff ZBDongle E permet de faire du Zigbee ou du Thread,
   mais depuis quelque temps, il est possible de faire les deux simultanément ou
@@ -39,11 +39,11 @@ Thread est un protocole réseau maillé conçu pour la domotique. Il permet aux 
 
 *Je ferais peut-être un article dessus, mais plus tard, car comme je vous l'ai dit, je suis sceptique.*
 
-Pour en sdavoir plus il y a deja pas mal de source sur le web dont [celle ci du site Domadoo](https://blog.domadoo.fr/89279-thread-protocole-domotique-matter/)
+Pour en savoir plus, il y a déjà pas mal de source sur le web dont [celle-ci du site Domadoo](https://blog.domadoo.fr/89279-thread-protocole-domotique-matter/)
 
 Revenons à nos moutons !!!
 
-<Alert type="warning">Si votre coordinateur actuel est le ZBDongle E, il vous faudra tout réapairer après le flash du firmware. Le **flash peut comporter des risques**, à vous de les assumer.</Alert>
+<Alert type="warning">Si votre coordinateur actuel est le ZBDongle E, il vous faudra tout appairer à nouveau après le flash du firmware. Le **flash peut comporter des risques**, à vous de les assumer</Alert>
 
 Je vais vous montrer la méthode permettant de flasher la clé Sonoff directement depuis un navigateur compatible WebSerial API comme Chrome/Chromium ou Edge.
 
@@ -71,12 +71,7 @@ La manipulation est relativement simple.
    ![Message d'erreur pour un navigateur non compatible avec WebSerial API](.img/flash_dongle_web_non_compatible.png "Navigateur non compatible avec WebSerial API")
 3. Cliquez sur le bouton "CONNECT" sous la clé Sonoff puis sélectionnez votre clé.
 
-   <Alert type="info">Si vous avez un navigateur compatible, mais que vous ne voyez pas votre ZBDongle, essayez cela.
-
-* Sous Windows ou Mac vérifiez que vous avez bien le [driver CP2102](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) d'installé.
-* Sous Ubuntu vérifier les autorisations de Chromium depuis l'Ubuntu Store (recherchez Chromium et cliquez sur Permissions) car "Access USB hardware directly" n'est pas activé par défaut.
-
-</Alert>
+<Alert type="info">Si vous avez un navigateur compatible, mais que vous ne voyez pas votre ZBDongle, essayez cela. *Sous Windows ou Mac* vérifiez que vous avez bien le [driver CP2102](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) d'installé. *Sous Ubuntu* vérifier les autorisations de Chromium depuis l'Ubuntu Store (recherchez Chromium et cliquez sur Permissions) car "Access USB hardware directly" n'est pas activé par défaut.</Alert>
 
 Une fois connecté, vous devez avoir toutes les informations de votre clé
 
@@ -87,7 +82,7 @@ Une fois connecté, vous devez avoir toutes les informations de votre clé
 
 ![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
-![Flash du firmaware Multi-PAN sur Sonoff ZBDongle E](.img/flash_dongle_web_flash_firmware_multipan.png "Flash du firmware Multi-PAN sur Sonoff ZBDongle E")
+![Flash du firmware Multi-PAN sur Sonoff ZBDongle E](.img/flash_dongle_web_flash_firmware_multipan.png "Flash du firmware Multi-PAN sur Sonoff ZBDongle E")
 
 ![Flash terminé](.img/flash_firmware_multipan_termine.png "Flash terminé")
 
@@ -111,7 +106,7 @@ Nous allons d'abord ajouter un add-on, nommé Silicon Labs Multiprotocol, qui pe
 
 ### Add-on Silicon Labs MultiProtocol
 
-Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des modules complementaires`, recherchez `Silicon Labs Multiprotocol` et installez-le.
+Comme d'habitude, `Paramètres -> Modules complémentaires -> Boutique des modules complémentaires`, recherchez `Silicon Labs Multiprotocol` et installez-le.
 
 Passons à la configuration de celui-ci :
 
@@ -270,7 +265,7 @@ adapter: ezsp
 
 Enregistrez puis démarrez l'add-on.
 
-<Alert type="info">Malgré le fait que \`ezsp\` soit marqué comme déprécié, il ne faut pas le remplacer par \`ember\` comme mentionné, car cela rend le Multi-PAN complètement instable, voir [cette discussion sur GitHub](https://github.com/Koenkk/zigbee2mqtt/issues/22635) qui annonce qu'Home Assistant a annoncé qu'il n'y aurait plus de développement car le firmware RCP impose certaines limitations et difficultés lorsque Thread et Zigbee sont utilisés sur la même radio. </Alert>
+<Alert type="info">Malgré le fait que \`ezsp\` soit marqué comme déprécié, il ne faut pas le remplacer par \`ember\` comme mentionné, car cela rend le Multi-PAN complètement instable, voir [cette discussion sur GitHub](https://github.com/Koenkk/zigbee2mqtt/issues/22635) qui annonce qu'Home Assistant a annoncé qu'il n'y aurait plus de développement parce que le firmware RCP impose certaines limitations et difficultés lorsque Thread et Zigbee sont utilisés sur la même radio.</Alert>
 
 Voici mes logs :
 
@@ -312,7 +307,7 @@ Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread 
 
 ## Remettre le firmware Zigbee
 
-Pour remettre le firmware Zigbee sur votre Sonoff ZBDongle E. Suivez la même procédure, mais en choisissant firmware Zigbee (EZSP).
+Pour remettre le firmware Zigbee sur votre Sonoff ZBDongle E , suivez la même procédure, mais en choisissant le firmware Zigbee (EZSP).
 
 ![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
@@ -322,7 +317,7 @@ Il est vrai que j'ai acheté la ZBDongle E seulement pour tester ce multiprotoco
 
 Les retours semblent globalement bons et sans problème pour le moment. Maintenant, pour une installation en production, je vous suggère plutôt d'avoir une clé pour le Zigbee et une autre pour Thread afin d'avoir une installation vraiment stable.
 
-Si vous souhaitez essayer d'autres versions de firmware que ceux qui sont avec le WebFlasher, retenez que les firmwares commençant par :
+Si vous souhaitez essayer d'autres versions de firmware que ceux qui sont avec le WebFlasher, retenez que les firmwares commençant par :
 
 * `ncp-uart-hw-` sont pour le Zigbee (ember) seul,
 * `rcp-uart-802154-` sont pour le MultiPan (Zigbee + Thread),
