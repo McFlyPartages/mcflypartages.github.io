@@ -7,7 +7,8 @@ description: La clé Sonoff ZBDongle E permet de faire du Zigbee ou du Thread,
   Voyons ensemble comment le faire depuis un module complémentaire (add-on) Home
   Assistant ou depuis un navigateur compatible WebSerial API
   (Chrome/Chromium/Edge).
-pubDate: 05.18.2024
+pubDate: 05.19.2024
+heroImage: .img/sonoff_flash_zbdongle_e-1-.png
 authors:
   - mcfly
 categories:
@@ -110,7 +111,7 @@ Nous allons d'abord ajouter un add-on, nommé Silicon Labs Multiprotocol, qui pe
 
 ### Add-on Silicon Labs MultiProtocol
 
-Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des modules complementaires`, recherchez `Silicon Labs Multiprotocol` et installez le.
+Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des modules complementaires`, recherchez `Silicon Labs Multiprotocol` et installez-le.
 
 Passons à la configuration de celui-ci :
 
@@ -301,39 +302,39 @@ Ensuite, vous pouvez continuer de suivre [le tuto sur Zigbee2MQTT](/blog/ha_mosq
 
 Pour Thread, normalement, il a automatiquement été ajouté dans vos appareils et services. Dans le cas contraire, rendez-vous dans `Paramètres -> Appareils et services` puis `AJOUTER UNE INTÉGRATION`. Recherchez Thread et sélectionnez votre clé Sonoff ZBDongle E.
 
-
 ## Flasher le firmware pour Thread
-*Pas besoin de suivre ces etapes si vous souhaitez faire du Multi-PAN*
 
-Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread uniquement, la procédure est la même. Il vous faudra juste selectionner le firmware OpenThread.
+*Pas besoin de suivre ces étapes si vous souhaitez faire du Multi-PAN*
+
+Si vous souhaitez juste flasher votre Sonoff ZBDongle E avec le firmware Thread uniquement, la procédure est la même. Il vous faudra juste sélectionner le firmware OpenThread.
 
 ![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
 ## Remettre le firmware Zigbee
 
-Pour remettre le firmware Zigbee sur votre Sonoff ZBDongle E. Suivez la même procedure mais en choissiant firmware Zigbee (EZSP).
+Pour remettre le firmware Zigbee sur votre Sonoff ZBDongle E. Suivez la même procédure, mais en choisissant firmware Zigbee (EZSP).
 
 ![Sélection du firmware Multi-PAN](.img/flash_dongle_web_selection_multipan_firmware.png "Sélection du firmware Multi-PAN")
 
 ## Conclusion
 
-Il est vrai que j'ai acheté la ZBDongle E uniquement pour tester ce multi protocole. Après plusieurs recherches, je ne pense pas qu'il y aura de grosses évolutions du firmware RCP.
+Il est vrai que j'ai acheté la ZBDongle E seulement pour tester ce multiprotocole, ma ZBDongle P marche super bien. Après plusieurs recherches, je ne pense pas qu'il y aura de grosses évolutions du firmware RCP.
 
 Les retours semblent globalement bons et sans problème pour le moment. Maintenant, pour une installation en production, je vous suggère plutôt d'avoir une clé pour le Zigbee et une autre pour Thread afin d'avoir une installation vraiment stable.
 
-Si vous souhaitez essayer d'autres versions de firmware que ceux qui sont avec le WebFlasher, retenez que les firmwares commencant par:
+Si vous souhaitez essayer d'autres versions de firmware que ceux qui sont avec le WebFlasher, retenez que les firmwares commençant par :
 
 * `ncp-uart-hw-` sont pour le Zigbee (ember) seul,
 * `rcp-uart-802154-` sont pour le MultiPan (Zigbee + Thread),
 * `ot-rcp-` sont pour OpenThread seul.
 
-A la fin du nom de firmware il y a le Baudrate.
+À la fin du nom de firmware, il y a le Baudrate.
 
 Pour la Sonoff ZBDOngle E, il faut :
+
 * `ncp-uart-hw-` prendre la version 115200,
 * `rcp-uart-802154-` prendre la version 460800,
 * `ot-rcp-` prendre la version 460800.
-
 
 ### Sources
 
