@@ -97,6 +97,7 @@ Maintenant que notre clé est flashée avec le dernier firmware Multi protocole,
 Nous allons d'abord ajouter un add-on, nommé Silicon Labs Multiprotocol, qui permet de créer des réseaux séparés en utilisant le firmware RCP Multi-PAN sur la Sonoff et servira de passerelle entre votre clé et Home Assistant.
 
 ### Add-on Silicon Labs MultiProtocol
+
 Comme d'habitude, `Paramétres -> Modules complementaires -> Boutique des modules complementaires`, recherchez `Silicon Labs Multiprotocol` et installez le.
 
 Passons à la configuration de celui-ci :
@@ -110,6 +111,7 @@ Passons à la configuration de celui-ci :
 ![Configuration de l'add-on Silicon Labs MultiProtocol sur Home Assistant](.img/add-on_silicon_labs_multiprotocol_configuration.png "Configuration de l'add-on Silicon Labs MultiProtocol sur Home Assistant")
 
 Voici mes logs :
+
 ```yaml
 -----------------------------------------------------------
  Add-on: Silicon Labs Multiprotocol
@@ -237,6 +239,7 @@ otbr-agent[300]: [NOTE]-BBA-----: BackboneAgent: Backbone Router becomes Primary
 ```
 
 ### Ajout de ZHA
+
 Si vous souhaitez ajouter ZHA (au lieu de Zigbee2MQTT).
 Allez dans `Parametres -> Appareils et services -> AJOUTER UNE INTEGRATION` rechercher ZHA.
 Cliquez dessus et selectionner `Configurer une nouvelle instance de Zigbee Home Automation` et selectionner le `socket://core-silabs-multiprotocol:9999`
@@ -244,13 +247,39 @@ Cliquez dessus et selectionner `Configurer une nouvelle instance de Zigbee Home 
 Ensuite créez un réseau ou récuperez le votre.
 
 ### Ajout de Zigbee2MQTT
+
 Pour utiliser Zigbee2MQTT vous devez suivre en partie [mon tuto](/blog/ha_mosquitto_broker_zigbee2mqtt/),mais dans la configuration de l'add-on il va falloir remplacer les parametres du `port` (dongle) par ceux ci-dessous.
 
 ```yaml
 port: tcp://core-silabs-multiprotocol:9999
 adapter: ezsp
 ```
+
 Enregistrez puis démarrez l'add-on.
+
+Voici mes logs :
+
+```
+[10:11:31] INFO: Preparing to start...
+[10:11:31] INFO: Socat not enabled
+[10:11:32] INFO: Starting Zigbee2MQTT...
+[2024-05-19 10:11:33] info: 	z2m: Logging to console, file (filename: log.log)
+[2024-05-19 10:11:33] info: 	z2m: Starting Zigbee2MQTT version 1.37.1 (commit #unknown)
+[2024-05-19 10:11:33] info: 	z2m: Starting zigbee-herdsman (0.46.6)
+[2024-05-19 10:11:33] warning: 	zh:ezsp: Deprecated driver 'ezsp' currently in use, 'ember' will become the officially supported EmberZNet driver in next release. If using Zigbee2MQTT see https://github.com/Koenkk/zigbee2mqtt/discussions/21462
+[2024-05-19 10:11:38] error: 	zh:ezsp:ezsp: Command (setValue(EzspValueId.VALUE_CCA_THRESHOLD, 0)) returned unexpected state: {"_cls_":"setValue","_id_":171,"_isRequest_":false,"status":55}
+[2024-05-19 10:11:38] error: 	zh:ezsp:ezsp: Failure to init network
+[2024-05-19 10:11:38] info: 	zh:ezsp:driv: Form network
+[2024-05-19 10:11:40] info: 	zh:controller: Wrote coordinator backup to '/config/zigbee2mqtt/coordinator_backup.json'
+[2024-05-19 10:11:40] info: 	z2m: zigbee-herdsman started (reset)
+[2024-05-19 10:11:40] info: 	z2m: Coordinator firmware version: '{"meta":{"maintrel":"1 ","majorrel":"7","minorrel":"3","product":12,"revision":"7.3.1.0 build 0"},"type":"EZSP v12"}'
+[2024-05-19 10:11:40] info: 	z2m: Currently 0 devices are joined:
+[2024-05-19 10:11:40] info: 	z2m: Zigbee: disabling joining new devices.
+[2024-05-19 10:11:40] info: 	z2m: Connecting to MQTT server at mqtt://core-mosquitto:1883
+[2024-05-19 10:11:40] info: 	z2m: Connected to MQTT server
+[2024-05-19 10:11:40] info: 	z2m: Started frontend on port 8099
+[2024-05-19 10:11:40] info: 	z2m: Zigbee2MQTT started!
+```
 
 ### Sources
 
