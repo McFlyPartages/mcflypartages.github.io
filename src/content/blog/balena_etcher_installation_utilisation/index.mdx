@@ -1,30 +1,34 @@
 ---
 draft: false
-title: "Balena Etcher - Flasher des images de votre OS sur carte SD, clé USB ou disque dur"
-description: "Comment installer un OS sur un support amovible (clé USB, carte Micro SD, etc) avec Balena Etcher."
-pubDate: 12/10/2023
+heroImage: .img/data-carrier-1313000_1920.jpg
+authors:
+  - mcfly
 upDate: 12/18/2023
-heroImage: '.img/data-carrier-1313000_1920.jpg'
-categories: 
-- Linux
-authors: 
-- mcfly
+dossier: balena_etcher_installation_utilisation
+title: Balena Etcher - Flasher des images de votre OS sur carte SD, clé USB ou
+  disque dur
+description: Comment installer un OS sur un support amovible (clé USB, carte
+  Micro SD, etc) avec Balena Etcher.
+pubDate: 12/10/2023
+categories:
+  - linux
 tags:
-- Balena Etcher
-- Raspberry Pi
-- Home Assistant
-- Windows
-- MacOS
-- Debian
-- Ubuntu
-- ElementaryOS
-- LinuxMint
+  - Balena Etcher
+  - Raspberry Pi
+  - Home Assistant
+  - Windows
+  - MacOS
+  - Debian
+  - Ubuntu
+  - ElementaryOS
+  - LinuxMint
 ---
 import Alert from "@components/mdx/Alert.astro";
 
 Nous allons voir rapidement comment utiliser [Balena Etcher](https://etcher.balena.io/) pour copier vos systèmes d'exploitation (OS) sur un support amovible en vue de les installer sur une machine ou tout simplement de démarrer dessus.
 
 C'est un logiciel très simple d'utilisation avec deux possibilités :
+
 * À partir d'un OS téléchargé en avance,
 * À partir d'une URL.
 
@@ -34,6 +38,7 @@ Il vous suffit de récupérer la version correspondante à votre OS sur le [site
 ![Page de téléchargement de Balena Etcher](.img/balena_etcher_download.png)
 
 Une fois récupéré et exécuté, il ne vous reste plus que trois étapes :
+
 * Sélectionner l'image (OS) téléchargé OU via une URL,
 * Sélectionner le support,
 * Cliquer sur FLASH.
@@ -49,8 +54,6 @@ Voici une série d'images.
 ![Flash terminé](.balena/05_balena_etcher_complete.png)
 
 Vous avez vu, c'était rapide ;)
-
-
 
 ## Installation en dur sur Ubuntu ou Debian
 
@@ -89,6 +92,7 @@ Traitement des actions différées (« triggers ») pour man-db (2.10.2-1) ..
 **Récupérer le fichier**
 
 Récupérer le fichier d'installation avec la commande suivante :
+
 ```bash
 curl -1sLf \
    'https://dl.cloudsmith.io/public/balena/etcher/setup.deb.sh' \
@@ -133,6 +137,7 @@ sudo apt-get install balena-etcher-electron
 ```
 
 *Résultat de la commande*
+
 ```bash
 anthony@McFly-Bureau:~$ sudo apt-get install balena-etcher-electron
 [sudo] Mot de passe de anthony : 
@@ -224,4 +229,5 @@ apt-get update
 Depuis un bon moment (découverte de [Ventoy](/blog/ventoy_installation_update) et l'ajout des fonctionnalités de [Raspberry Pi Imager](/blog/raspberry_pi_installer_os)) je n'utilise plus Balena Etcher, mais l'article était écrit depuis un moment, alors je préférais quand même le mettre à disposition, les goûts et les couleurs étant propres à chacun, il peut être utile.
 
 ## Sources
+
 * [GitHub de Balena](https://github.com/balena-io/etcher?d_id=3b31ed76-310c-4a90-b691-41da11c4e087&s_id=1668416948422#debian-and-ubuntu-based-package-repository-gnulinux-x86x64)
