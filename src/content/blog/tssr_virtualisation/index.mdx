@@ -35,13 +35,53 @@ Dans les années **2000**, VMware lance ses premiers produits de virtualisation 
 
 
 
-Depuis les années 2010, la virtualisation devient omniprésente dans les centres de données avec :
+Depuis les années **2010**, la virtualisation devient omniprésente dans les centres de données avec :
 
 * L'émergence de la conteneurisation avec Docker (2013) comme forme légère de virtualisation,
 * Le développement de la virtualisation de réseaux (NFV) et du stockage défini par logiciel (SDS),
 * l'intégration croissante avec l'intelligence artificielle et l'apprentissage automatique pour l'optimisation des ressources.
 
+## Principes
 
+La virtualisation repose sur plusieurs principes clés qui permettent de créer et de gérer efficacement des environnements virtuels. Comprendre ces principes est essentiel pour saisir pleinement le fonctionnement et les avantages de cette technologie.
+
+### Abstraction des ressources
+
+L'abstraction est le concept central de la virtualisation. Elle consiste à séparer les ressources logiques des ressources physiques sous-jacentes. Cette séparation permet de créer une représentation virtuelle des ressources matérielles, qui peut être manipulée indépendamment du matériel physique.
+
+* **Abstraction du matériel** : Les composants matériels (CPU, mémoire, stockage, réseau) sont présentés sous forme de ressources logiques aux machines virtuelles.
+* **Indépendance du matériel :** Les machines virtuelles peuvent fonctionner sans connaître les détails spécifiques du matériel physique sur lequel elles s'exécutent.
+
+### Partitionnement
+
+Le partitionnement permet de diviser une ressource physique en plusieurs ressources virtuelles. Cela permet le :
+
+* **Partage des ressources :** Un seul serveur physique peut héberger plusieurs machines virtuelles, chacune avec sa propre allocation de ressources.
+* **Isolation :** Chaque partition virtuelle fonctionne de manière isolée, comme si elle disposait de ses propres ressources dédiées.
+
+### Encapsulation
+
+L'encapsulation consiste à regrouper l'état complet d'une machine virtuelle dans un ensemble de fichiers. Ce qui permet la **Portabilité** (les machines virtuelles encapsulées peuvent être facilement déplacées d'un hôte physique à un autre) et la **Sauvegarde et restauration** (l'état complet d'une machine virtuelle peut être sauvegardé et restauré rapidement).
+
+### Isolation
+
+L'isolation garantit que les différentes machines virtuelles fonctionnent indépendamment les unes des autres, même si elles partagent les mêmes ressources physiques afin d'augmenter la **Sécurité** (les problèmes ou les failles de sécurité d'une machine virtuelle n'affectent pas les autres) et les **Performances** (l'activité d'une machine virtuelle n'impacte pas directement les performances des autres).
+
+### Multiplexage
+
+Le multiplexage permet à plusieurs machines virtuelles de partager les mêmes ressources physiques avec comme apport l'**Optimisation des ressources** (les ressources physiques sont utilisées de manière plus efficace en étant partagées entre plusieurs machines virtuelles) et **l'Allocation dynamique** (les ressources peuvent être allouées et réallouées dynamiquement en fonction des besoins).
+
+
+
+3.6 Émulation
+
+L'émulation permet de simuler un environnement matériel complet, y compris des composants qui peuvent ne pas être physiquement présents.
+
+
+
+Compatibilité : Permet d'exécuter des systèmes d'exploitation ou des applications conçus pour d'autres architectures.
+
+Test et développement : Facilite le test de logiciels sur différentes configurations matérielles sans avoir besoin du matériel physique correspondant.
 
 ## L'Hyperviseur
 
