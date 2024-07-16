@@ -23,6 +23,29 @@ Nous pouvons utiliser la virtualisation pour virtualiser de serveurs, des postes
 
 ## L'Hyperviseur
 
-L'hyperviseur est le logiciel clé qui gère les machines virtuelles et alloue les ressources.
+L'hyperviseur est le composant logiciel fondamental de la virtualisation. Il agit comme une couche d'abstraction entre le matériel physique et les machines virtuelles. Il gère et contrôle les ressources matérielles, les allouant aux différentes machines virtuelles selon leurs besoins. Il permet aussi d'isoler des machines virtuelles, de partager des ressources, migration à chaud, etc.
 
-Applications : Utilisée dans les centres de données, le cloud computing, et pour le développement et les tests.
+Il existe deux types d'hyperviseur :
+
+* **Type 1** (bare-metal) : S'exécute directement sur le matériel,
+* **Type 2** (hosted) : S'exécute sur un système d'exploitation hôte.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Conclusion
+
+Bien que l'hyperviseur soit crucial, il existe d'autres technologies de virtualisation qui ne reposent pas nécessairement sur un hyperviseur traditionnel, comme la conteneurisation (Docker, par exemple).
