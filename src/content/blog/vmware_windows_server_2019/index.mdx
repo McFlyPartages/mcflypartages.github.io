@@ -36,12 +36,29 @@ Nous allons installer Windows Server avec VMware. Pour cela :
    > Vous pouvez récuperer une licence de test depuis le [site de Microsoft](https://learn.microsoft.com/fr-fr/windows-server/get-started/kms-client-activation-keys?tabs=server2019%2Cwindows10ltsc%2Cversion1803%2Cwindows81#windows-server-ltsc) 
    >
    > Il existe deux versions de Windows Server, une verison **Core** qui installe une version en PowerShell de Windows Server (sans UI) et une **classique avec une interface graphique,** nous utiliserons cette derniere.
-   
+
 ![Configuration de Windows Server depuis VMware](.img/vmware_new_machine_key.png "Configuration de Windows Server depuis VMware")
 
 6. Donnez un nom à votre VM et saisir le dossier de destination,
 
+   ![Choix du nom de la machine et de la localistaion des fichiers](.img/vmware_new_machine_name_location.png "Choix du nom de la machine et de la localistaion des fichiers")
 7. Sélectionnez le type de Bios que vous voulez,
+
+   ![Choix du type de BIOS](.img/vmware_new_machine_bios.png "Choix du type de BIOS")
 8. Allouez-lui un nombre de cœurs, une quantité de RAM, sélectionnez Use network address translation (NAT), SCI, NVMe.
-9. Créez un nouveau disque virtuel avec Create a new virtual disk, selectionnez une taille pour ce dernier et sélectionnez Store virtual disk as a single file et finissez par lui donner un nom
-10. Cliquez sur Finish pour lancer l'installation.
+
+   ![Allocation du Hardware à notre VM](.img/vmware_new_machine_cpu_ram_network_sci.png "Allocation du Hardware à notre VM")
+9. Créez un nouveau disque virtuel avec `Create a new virtual disk`, sélectionnez une taille pour ce dernier et sélectionnez `Store virtual disk as a single` file et finissez par lui donner un nom
+
+   ![Configuration du disque de la VM](.img/vmware_new_machine_disk_multi.png "Configuration du disque de la VM")
+10. Vérifiez les paramètres puis cliquez sur `Finish` pour lancer l'installation.
+
+    ![Récapitulatif de la configuration de la VM](.img/vmware_new_machine_infos.png "Récapitulatif de la configuration de la VM")
+
+    Une fois l'initialisation de la VLM réussie, elle va e lancer et installer Windows Server de façon autonome.
+
+![Installation de Windows Server](.img/windows_server_2019_installation.png "Installation de Windows Server")
+
+![Windows Server est installé avec VMwareTools](.img/windows_server_2019_vmware_tool.png "Windows Server est installé avec VMwareTools")
+
+L'installation de Windows Server est terminé et VMware a installé VMware Tool permettant quelques manipulations entre les VMs et l'hôte.
