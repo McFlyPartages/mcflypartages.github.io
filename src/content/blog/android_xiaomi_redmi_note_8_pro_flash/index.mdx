@@ -146,11 +146,19 @@ Finished. Total time: 0.251s
 
 Votre smartphone redémarre sur un TWRP modifié
 
-Passons à l'installation d'une Rom personnalisée
+Passons à l'installation d'une Rom personnalisée.
 
-## Via le Recovery (TWRP)
+
+
+## Installer Android 14 (crDroid)
+
+Nous allons installer crDroid pour Xiaomi Redmi Note 8 Pro. La dernière version de cette Rom personnalisée apporte Android 14 sur ce smartphone abandonné par Xiaomi ainsi que les derniers patchs de sécurité Android.
+
+### Via le Recovery (TWRP)
 
 ***ATTENTION :** Cette méthode peut ne pas fonctionner si votre TWRP n'est pas compatible avec la version Android de votre ROM, dans ce cas, privilégiez la méthode ADB ou alors flasher le recovery qui peut être fourni avec la rom que vous souhaitez installer en suivant la méthode ci-dessous en remplaçant le `roms.zip` par votre fichier `recovery.zip`.*
+
+#### Installer TWRP pour Android 14 sur Xiaomi Redmi Note 8 Pro
 
 **Exemple avec crDroid** qui apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un Recovery compatible Android 14 qui est récupérable via le site de crDroid.
 
@@ -180,16 +188,16 @@ Une fois le flash terminé, revenez au menu principal.
 
 Normalement, votre téléphone devrait démarrer sur la Rom crDroid fraichement installée.
 
-## Via ADB
+### Via ADB
 
 1. Entrez dans le Recovery avec Bouton On/Off et volume haut,
 2. Allez dans `Paramètres avancé (advanced)` puis `Transfert via ADB (sideload)`,
 3. Cochez `Effacer le cache Dalvik (Wipe Davlvik Cache)` et `Effacer le Cache  (Wipe Cache)` 
 4. Faites glisser la barre du bas pour valider.
-5. Depuis votre PC, dans un Terminal, lancer la commande suivante (adapter avec le nom de votre Roms)
-   `adb sideload filename.zip`
+5. Depuis votre PC, dans un Terminal, lancer la commande suivante (adapter avec le nom de votre Rom)
+   `adb sideload filename.zip`.
 
-Retour avec crDroid :
+***Retour avec crDroid :***
 
 ```bash
 anthony@Bureau:~/platform-tools$ adb sideload roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip 
@@ -198,18 +206,9 @@ serving: 'roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip'  (~15%)
 
 Une fois le flash terminé, redémarrez le smartphone.
 
-S'il redémarre sur TWRP,
+S'il redémarre sur TWRP, ????????????????Revenir sur la rom MIUI
 
-## Installer Android 14
-
-Nous allons installé crDroid pour Xiaomi Redmi Note 8 Pro avec Android 14.
-
-Il faut d'abord installer le recvery compatible ici en suivant la meme procedure qu'au dessus mais au lieu de flasher le fichier BPR????.img vous allez flasher le fichier recovery .img qui se trouve dans le dosier fraichement telechargé depuis le lien de crDroid
-Ensuite pssons a l'installtion de la roms rn suivant le procedure via TWRP ou via ADB. en faisant un format data puis en rebootant le syseme a la fin.
-
-## Revenir sur la rom MIUI
-
-Pour revenir a la rom d'origine, il vous suffit soit de passer la TWRP et copier coller la derniere version de la roms Xiaomi pour votre smartphone ou alors via aADB.
+Pour revenir à la Rom d'origine, il vous suffit soit de passer par la méthode TWRP et copier-coller la dernière version de la rom Xiaomi pour votre smartphone ou alors via la méthode ADB.
 
 ### Sources
 
