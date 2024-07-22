@@ -1,0 +1,215 @@
+---
+draft: false
+dossier: /tssr_virtualisation
+title: La virtualisation - Découverte
+description: Nous allons voir quelques principes de la virtualisation. La
+  virtualisation est une technologie qui permet de créer des versions virtuelles
+  de ressources informatiques, telles que des serveurs, des systèmes
+  d'exploitation, des réseaux ou des dispositifs de stockage.
+pubDate: 07.16.2024
+heroImage: .img/virtualization.webp
+authors:
+  - mcfly
+categories:
+  - TSSR
+tags:
+  - Proxmox
+  - ESXi
+  - KVM
+  - Hyper-V
+  - VMware
+  - Virtualbox
+affiliateLink: false
+---
+La virtualisation est une technologie transformative qui a révolutionné la façon dont nous concevons, déployons et gérons les infrastructures informatiques. En permettant l'abstraction des ressources matérielles et la création d'environnements virtuels multiples sur une seule plateforme physique, la virtualisation a ouvert la voie à une utilisation plus efficace et flexible des ressources informatiques.
+
+Cette technologie a des implications profondes dans divers domaines de l'informatique, allant des centres de données aux ordinateurs personnels, en passant par le cloud computing et au-delà. Elle offre des avantages significatifs en termes de coûts, de performances, de sécurité et de gestion des ressources, tout en posant de nouveaux défis et en nécessitant de nouvelles compétences.
+
+## Histoire
+
+L'histoire de la virtualisation remonte aux années 1960, bien avant l'ère des ordinateurs personnels et du cloud computing.
+
+En **1960**, IBM introduit le concept de virtualisation avec son système [CP-40](https://fr.wikipedia.org/wiki/IBM_CP-40) en 1964, suivi du CP-67 en 1966. Ces systèmes permettaient de partitionner les mainframes (ordinateurs capables de traiter des milliards de calculs et de transactions en temps réel, de manière sécurisée et fiable) en plusieurs machines virtuelles, chacune exécutant son propre système d'exploitation. L'objectif principal était d'optimiser l'utilisation leur coût en permettant le traitement simultané de plusieurs tâches.
+
+![IBM 360](.img/ibm-360.webp "IBM 360")
+
+En **1970-1980**, IBM continue à développer la technologie avec des systèmes comme [VM/370](https://en.wikipedia.org/wiki/IBM_System/370). D'autres fabricants de mainframes, comme DEC et HP, commencent à explorer la virtualisation. Cependant, avec l'avènement des mini-ordinateurs et des PC moins coûteux, l'intérêt pour la virtualisation diminue.
+
+En **1990**, La croissance d'Internet et l'augmentation des besoins en puissance de calcul ravivent l'intérêt pour la virtualisation. En 1998, VMware est fondée et commence à travailler sur la virtualisation pour les plateformes x86.
+
+Dans les années **2000**, VMware lance ses premiers produits de virtualisation pour serveurs x86, Xen, un hyperviseur open-source, est créé à l'Université de Cambridge en 2003, Amazon lance, en 2026, EC2 (Elastic Compute Cloud), marquant le début du cloud computing basé sur la virtualisation et en 2007, KVM (Kernel-based Virtual Machine) est intégré au noyau Linux.
+
+Depuis les années **2010**, la virtualisation devient omniprésente dans les centres de données avec :
+
+* L'émergence de la conteneurisation avec Docker (2013) comme forme légère de virtualisation,
+* Le développement de la virtualisation de réseaux (NFV) et du stockage défini par logiciel (SDS),
+* l'intégration croissante avec l'intelligence artificielle et l'apprentissage automatique pour l'optimisation des ressources.
+
+## Principes
+
+La virtualisation repose sur plusieurs principes clés qui permettent de créer et de gérer efficacement des environnements virtuels. Comprendre ces principes est essentiel pour saisir pleinement le fonctionnement et les avantages de cette technologie.
+
+### Abstraction des ressources
+
+L'abstraction est le concept central de la virtualisation. Elle consiste à séparer les ressources logiques des ressources physiques sous-jacentes. Cette séparation permet de créer une représentation virtuelle des ressources matérielles, qui peut être manipulée indépendamment du matériel physique.
+
+* **Abstraction du matériel** : Les composants matériels (CPU, mémoire, stockage, réseau) sont présentés sous forme de ressources logiques aux machines virtuelles.
+* **Indépendance du matériel :** Les machines virtuelles peuvent fonctionner sans connaître les détails spécifiques du matériel physique sur lequel elles s'exécutent.
+
+### Partitionnement
+
+Le partitionnement permet de diviser une ressource physique en plusieurs ressources virtuelles. Cela permet le :
+
+* **Partage des ressources :** Un seul serveur physique peut héberger plusieurs machines virtuelles, chacune avec sa propre allocation de ressources.
+* **Isolation :** Chaque partition virtuelle fonctionne de manière isolée, comme si elle disposait de ses propres ressources dédiées.
+
+### Encapsulation
+
+L'encapsulation consiste à regrouper l'état complet d'une machine virtuelle dans un ensemble de fichiers. Ce qui permet la **Portabilité** (les machines virtuelles encapsulées peuvent être facilement déplacées d'un hôte physique à un autre) et la **Sauvegarde et restauration** (l'état complet d'une machine virtuelle peut être sauvegardé et restauré rapidement).
+
+### Isolation
+
+L'isolation garantit que les différentes machines virtuelles fonctionnent indépendamment les unes des autres, même si elles partagent les mêmes ressources physiques afin d'augmenter la **Sécurité** (les problèmes ou les failles de sécurité d'une machine virtuelle n'affectent pas les autres) et les **Performances** (l'activité d'une machine virtuelle n'impacte pas directement les performances des autres).
+
+### Multiplexage
+
+Le multiplexage permet à plusieurs machines virtuelles de partager les mêmes ressources physiques avec comme apport l'**Optimisation des ressources** (les ressources physiques sont utilisées de manière plus efficace en étant partagées entre plusieurs machines virtuelles) et **l'Allocation dynamique** (les ressources peuvent être allouées et réallouées dynamiquement en fonction des besoins).
+
+### Émulation
+
+L'émulation permet de simuler un environnement matériel complet, y compris des composants qui peuvent ne pas être physiquement présents. Cela permet d'exécuter des systèmes d'exploitation ou des applications conçus pour d'autres architectures et facilite le test de logiciels sur différentes configurations matérielles sans avoir besoin du matériel physique correspondant.
+
+## L'Hyperviseur
+
+L'hyperviseur est le composant logiciel central qui gère la virtualisation.
+
+Il agit comme une couche d'abstraction entre le matériel physique et les machines virtuelles. Il gère et contrôle les ressources matérielles, les allouant aux différentes machines virtuelles selon leurs besoins. Il permet aussi d'isoler des machines virtuelles, de partager des ressources, migration à chaud, etc.
+
+Il existe deux types d'hyperviseur :
+
+* **Type 1** (bare-metal) : S'exécute directement sur le matériel,
+
+  * Proxmox,
+  * ESXi
+  * Hyper-V
+  * KVM
+* **Type 2** (hosted) : S'exécute sur un système d'exploitation hôte.
+
+  * VMware
+  * Virtalbox
+  * Hyper-V (Attention, ce dernier une fois installé ne permet plus d'utiliser les autres, car il agit comme un Hyperviseur de type 1. Merci Microsoft ;)).
+
+## Types de virtualisation
+
+La virtualisation peut être appliquée à différents aspects de l'infrastructure informatique. Chaque type de virtualisation a ses propres caractéristiques et cas d'utilisation spécifiques. Voici les principaux types de virtualisation :
+
+### Virtualisation des serveurs
+
+C'est le type de virtualisation le plus courant et le plus largement utilisé. Son principe est d'exécuter plusieurs systèmes d'exploitation virtuels sur un seul serveur physique.
+
+**Avantages :**
+
+* Meilleure utilisation des ressources matérielles
+* Réduction des coûts d'infrastructure et d'énergie
+* Facilite la sauvegarde et la reprise après sinistre
+
+Technologies : VMware vSphere, Microsoft Hyper-V, KVM, Xen
+
+### Virtualisation des postes de travail (VDI - Virtual Desktop Infrastructure)
+
+Permet de centraliser la gestion des postes de travail en les hébergeant sur des serveurs distants. Il permet aux utilisateurs d'accèder à leur bureau virtuel via un client léger ou un navigateur web.
+
+**Avantages :**
+
+* Gestion centralisée des postes de travail
+* Sécurité accrue des données
+* Accès flexible depuis n'importe quel appareil
+
+Technologies : Citrix Virtual Apps and Desktops, VMware Horizon, Microsoft Windows Virtual Desktop
+
+### Virtualisation des applications
+
+Isole les applications de l'environnement d'exploitation sous-jacent. Le principe est d'exécuter l'application dans un conteneur virtuel, indépendamment du système d'exploitation hôte.
+
+**Avantages :**
+
+* Portabilité des applications
+* Réduction des conflits entre applications
+* Facilite le déploiement et la mise à jour
+
+Technologies : Microsoft App-V, VMware ThinApp, Citrix Application Virtualization
+
+### Virtualisation du stockage
+
+Abstrait les ressources de stockage physiques pour créer des pools de stockage virtualisés. Son obejctif est de regrouper plusieurs dispositifs de stockage physiques en un seul dispositif de stockage virtuel géré de manière centralisée.
+
+**Avantages :**
+
+* Utilisation plus efficace de l'espace de stockage
+* Flexibilité accrue dans l'allocation et la gestion du stockage
+* Facilite la mise en œuvre de fonctionnalités avancées comme la réplication et les instantanés
+
+Technologies : VMware vSAN, Microsoft Storage Spaces Direct, NetApp ONTAP
+
+### Virtualisation des réseaux (NFV - Network Function Virtualization)
+
+Sépare les fonctions réseau du matériel réseau dédié. Les fonctions réseau (routage, pare-feu, équilibrage de charge, etc.) sont implémentées en logiciel et peuvent s'exécuter sur du matériel standard.
+
+**Avantages :**
+
+* Réduction des coûts matériels
+* Flexibilité accrue dans la configuration et le déploiement des services réseau
+* Scalabilité améliorée
+
+Technologies : VMware NSX, Cisco ACI, Juniper Contrail
+
+### Conteneurisation
+
+Forme légère de virtualisation au niveau du système d'exploitation. La conteneurisation encapsule une application et ses dépendances dans un "conteneur" qui peut s'exécuter sur n'importe quel système compatible.
+
+**Avantages :**
+
+* Démarrage rapide et faible surcharge
+* Haute densité d'applications par hôte
+* Portabilité et cohérence entre les environnements de développement et de production
+* Un seul OS a maintenir (Mises à jour, etc)
+
+Technologies : Docker, Kubernetes, containerd
+
+### Virtualisation de la mémoire
+
+Permet de gérer la mémoire de manière plus flexible et efficace. Le but est d'abstraire la mémoire physique pour créer des pools de mémoire virtualisée qui peuvent être alloués dynamiquement.
+
+**Avantages :**
+
+* Utilisation plus efficace de la mémoire
+* Possibilité d'exécuter plus de machines virtuelles que la mémoire physique ne le permettrait normalement
+* Amélioration des performances grâce à des techniques comme la déduplication de la mémoire
+
+Technologies : VMware vSphere Memory Overcommitment, KSM (Kernel Samepage Merging) dans KVM
+
+### Virtualisation du GPU
+
+Permet de partager les ressources GPU entre plusieurs machines virtuelles ou conteneurs en divisant les ressources d'un GPU physique en plusieurs GPU virtuels.
+
+**Avantages :**
+
+* Amélioration des performances graphiques dans les environnements virtualisés
+* Prise en charge des charges de travail intensives en GPU comme l'IA et le machine learning dans des environnements virtuels
+* Optimisation de l'utilisation des ressources GPU coûteuses
+
+Technologies : NVIDIA GRID vGPU, AMD MxGPU, Intel GVT-g
+
+Chacun de ces types de virtualisation joue un rôle important dans la création d'infrastructures informatiques modernes, flexibles et efficaces. Ils peuvent être utilisés individuellement ou combinés pour répondre aux besoins spécifiques des organisations.
+
+## Conclusion
+
+La virtualisation permet aux entreprises d'optimiser l'utilisation des ressources matérielles en créant des instances virtuelles de serveurs, stockage et réseaux. Elle offre une flexibilité accrue, une meilleure gestion des ressources et une réduction des coûts d'infrastructure. Les machines virtuelles (VM) sont largement utilisées pour isoler les applications et les systèmes d'exploitation.
+
+Bien que l'hyperviseur soit crucial, il existe d'autres technologies de virtualisation qui ne reposent pas nécessairement sur un hyperviseur traditionnel, comme la conteneurisation (Docker, par exemple).
+
+La conteneurisation est une forme plus légère de virtualisation qui gagne en popularité pour le déploiement d'applications. Ils partagent le même système d'exploitation hôte, ce qui les rend plus légers et rapides que les VM. Docker est la solution de conteneurisation la plus répandue, offrant portabilité et facilité de déploiement mais Kubernetes est devenu le standard pour l'orchestration de conteneurs à grande échelle.
+
+Les entreprises adoptent souvent une approche hybride, combinant VM et conteneurs selon leurs besoins.
+
+La virtualisation et la conteneurisation sont essentielles pour le cloud computing et la transformation numérique des entreprises.
