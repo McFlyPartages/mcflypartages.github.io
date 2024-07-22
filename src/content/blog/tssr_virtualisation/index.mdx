@@ -7,10 +7,18 @@ description: Nous allons voir quelques principes de la virtualisation. La
   de ressources informatiques, telles que des serveurs, des systèmes
   d'exploitation, des réseaux ou des dispositifs de stockage.
 pubDate: 07.16.2024
+heroImage: .img/virtualization.webp
 authors:
   - mcfly
 categories:
   - TSSR
+tags:
+  - Proxmox
+  - ESXi
+  - KVM
+  - Hyper-V
+  - VMware
+  - Virtualbox
 affiliateLink: false
 ---
 La virtualisation est une technologie transformative qui a révolutionné la façon dont nous concevons, déployons et gérons les infrastructures informatiques. En permettant l'abstraction des ressources matérielles et la création d'environnements virtuels multiples sur une seule plateforme physique, la virtualisation a ouvert la voie à une utilisation plus efficace et flexible des ressources informatiques.
@@ -67,13 +75,9 @@ L'isolation garantit que les différentes machines virtuelles fonctionnent indé
 
 Le multiplexage permet à plusieurs machines virtuelles de partager les mêmes ressources physiques avec comme apport l'**Optimisation des ressources** (les ressources physiques sont utilisées de manière plus efficace en étant partagées entre plusieurs machines virtuelles) et **l'Allocation dynamique** (les ressources peuvent être allouées et réallouées dynamiquement en fonction des besoins).
 
-3.6 Émulation
+### Émulation
 
-L'émulation permet de simuler un environnement matériel complet, y compris des composants qui peuvent ne pas être physiquement présents.
-
-Compatibilité : Permet d'exécuter des systèmes d'exploitation ou des applications conçus pour d'autres architectures.
-
-Test et développement : Facilite le test de logiciels sur différentes configurations matérielles sans avoir besoin du matériel physique correspondant.
+L'émulation permet de simuler un environnement matériel complet, y compris des composants qui peuvent ne pas être physiquement présents. Cela permet d'exécuter des systèmes d'exploitation ou des applications conçus pour d'autres architectures et facilite le test de logiciels sur différentes configurations matérielles sans avoir besoin du matériel physique correspondant.
 
 ## L'Hyperviseur
 
@@ -200,4 +204,12 @@ Chacun de ces types de virtualisation joue un rôle important dans la création 
 
 ## Conclusion
 
+La virtualisation permet aux entreprises d'optimiser l'utilisation des ressources matérielles en créant des instances virtuelles de serveurs, stockage et réseaux. Elle offre une flexibilité accrue, une meilleure gestion des ressources et une réduction des coûts d'infrastructure. Les machines virtuelles (VM) sont largement utilisées pour isoler les applications et les systèmes d'exploitation.
+
 Bien que l'hyperviseur soit crucial, il existe d'autres technologies de virtualisation qui ne reposent pas nécessairement sur un hyperviseur traditionnel, comme la conteneurisation (Docker, par exemple).
+
+La conteneurisation est une forme plus légère de virtualisation qui gagne en popularité pour le déploiement d'applications. Ils partagent le même système d'exploitation hôte, ce qui les rend plus légers et rapides que les VM. Docker est la solution de conteneurisation la plus répandue, offrant portabilité et facilité de déploiement mais Kubernetes est devenu le standard pour l'orchestration de conteneurs à grande échelle.
+
+Les entreprises adoptent souvent une approche hybride, combinant VM et conteneurs selon leurs besoins.
+
+La virtualisation et la conteneurisation sont essentielles pour le cloud computing et la transformation numérique des entreprises.
