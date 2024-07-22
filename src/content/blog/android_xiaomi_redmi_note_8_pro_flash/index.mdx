@@ -12,7 +12,7 @@ heroImage: .img/flatpak-linux-box.webp
 authors:
   - mcfly
 categories:
-  - Android
+  - android
 tags:
   - TWRP
   - Begonia
@@ -36,7 +36,7 @@ Pour commencer, il va falloir mettre à jour votre smartphone vers la dernière 
 
 ## Mettre à jour son Xiaomi Redmi Note 8 Pro (begonia)
 
-Mettez à jour votre Redmi Note 8 Pro vers la version v12.5 minimum (Android 11) (la dernière version officielle de Xiaomi la 12.5.15.0.RGGEUXM, mais je n'ai pas réussi à passer au-dessus de la v12.5.14.0)
+Mettez à jour votre Redmi Note 8 Pro vers la version v12.5 minimum (Android 11) (la dernière version officielle de Xiaomi est la 12.5.15.0.RGGEUXM, mais je n'ai pas réussi à passer au-dessus de la v12.5.14.0)
 
 Pour ma part, je suis parti de la v12.0.4.0 QGGEUXM (Android 10), 
 **\*Note :** C'est la ROM Europe dite "Global" mais qui est remplacée par la EEA depuis la version 12.0.6.0 aussi à destination de l'Europe.*
@@ -49,9 +49,11 @@ Alors deux choix s'offrent à vous :
 
 ### Depuis le téléphone
 
-Pour mettre à jour directement depuis Xiaomi, il va falloir jouer avec les régions (Guyane française, Serbie, Grèce, il faut essayer et redémarrer le smartphone à chaque fois).
-Rendez-vous dans les Paramètres supplémentaires `Paramètres -> Paramètres supplémentaires -> Région`
-![Changer de région sur MIUI](.img/miui_changer_region.gif)
+Pour mettre à jour directement depuis Xiaomi, il va falloir jouer avec les régions (Guyane française, Serbie, Grèce, il faut essayer et redémarrer le smartphone à chaque fois). Pour cela :
+
+* Rendez-vous dans les Paramètres supplémentaires `Paramètres -> Paramètres supplémentaires -> Région`
+
+![Changer de région sur MIUI](.img/miui_changer_region.gif "Changer de région sur MIUI")
 
 **\*Note :** Je me suis donc arrêté à la version 12.5.14, car je n'arrivais pas à voir la dernière 12.5.15. **Le principal, c'est d'être sur une version 12.5***
 
@@ -59,31 +61,36 @@ Rendez-vous dans les Paramètres supplémentaires `Paramètres -> Paramètres su
 
 Il va falloir récupérer la 12.0.6.0.QGGEUXM via ce [lien](https://xiaomifirmwareupdater.com/miui/begonia/stable%20beta/V12.0.6.0.QGGEUXM/) puis la coller dans votre téléphone.
 
-Faites de même avec la dernière version 12.5.15.0.RGGEUXM (2.4Go) récupérable [ici](https://xiaomifirmwareupdater.com/miui/begonia/stable/V12.5.15.0.RGGEUXM/)
+Faites de même avec la dernière version 12.5.15.0.RGGEUXM (2.4Go) récupérable [ici](https://xiaomifirmwareupdater.com/miui/begonia/stable/V12.5.15.0.RGGEUXM/).
 
-**\*Note :** Cette méthode n'a pas marché chez moi, les roms ne passaient pas le check, je me suis donc arrêté à la version 12.5.14. Mais je n'avais pas de carte SIM dans le téléphone, peut-être est-ce lié à ça. **Le principal, c'est d'être sur une version 12.5***
+**\*Note :** Cette méthode n'a pas marché chez moi, les roms ne passaient pas le check, je me suis donc arrêté à la version 12.5.14. Mais je n'avais pas de carte SIM dans le téléphone, peut-être est-ce lié à ça. **Le principal, c'est d'être sur une version 12.5**.*
 
-Ensuite, allez dans `Parametres -> A propos du téléphone` puis cliquez sur `Version MIUI` (carré image en haut à gauche)
-Une fois affiché, appuyez sept fois sur le logo, un popup doit vous afficher : des fonctionnalités de mise à jour supplémentaires sont disponibles.
-![Activation des fonctionnalités supplémentaires sur MIUI](.img/miui_activer_mise_a_jour_depuis_interface.gif)
+Ensuite, allez dans `Paramètres -> A propos du téléphone` puis cliquez sur `Version MIUI` (carré image en haut à gauche).
+Une fois affiché, **appuyez sept fois** sur le logo. Un popup doit vous afficher : *des fonctionnalités de mise à jour supplémentaires sont disponibles*.
+
+![Activation des fonctionnalités supplémentaires sur MIUI](.img/miui_activer_mise_a_jour_depuis_interface.gif "Activation des fonctionnalités supplémentaires sur MIUI")
+
 Cliquez maintenant sur les trois petits points en haut à droite puis `Sélectionner une mise à jour a installer` sélectionner le fichier téléchargé précédemment (d'abord le v12.0.6.0) puis, après une vérification, il va l'installer et redémarrer.
 ![Menu de mise à jour depuis l'(interface MIUI)](.img/miui_menu_mise_a_jour_interface.png)
 
 ### Installer TWRP
 
 1. Activez les options développeur.
-   ![Activation du mode développeur sur MIUI](.img/miui_activation_mode_developpeur.gif)
-   Rendez-vous dans les options développeur `Paramètres -> Paramètres supplémentaires -> Options développeur`.
-2. Vérifiez que le déverrouillage OEM est désactivé (doit être grisé)
-3. Vérifiez que le statut du déverrouillage Mi est bien `Déverrouillé`
-4. Activez le débogage USB
-   ![Activation du débogage USB sur MIUI](.img/miui_activation_debug_usb.gif)
-5. Branchez votre smartphone à votre PC et validez le popup d'autorisation du débogage USB.
 
-Récupérez le fichier `fastboot-zip/MIUI12.5/BRP3.5.2v3.1-fastboot.zip` à [cette adresse](https://sourceforge.net/projects/begonianon-cfw/) et dézippez-lee pour récupérer le fichier `BRP3.5.2v3.1.img`
-Assurez-vous d'avoir le fichier ZIP de la version de MUI installée sur votre smartphone (miui_BEGONIAEEAGlobal_V12.5.14.0.RGGEUXM_d0012c6e24_11.0.zip) qu'il faut dézipper pour récupérer le fichier `vbmeta.img`
+   ![Activation du mode développeur sur MIUI](.img/miui_activation_mode_developpeur.gif "Activation du mode développeur sur MIUI")
+2. Rendez-vous dans les options développeur `Paramètres -> Paramètres supplémentaires -> Options développeur`.
+3. Vérifiez que le déverrouillage OEM est désactivé (doit être grisé)
+4. Vérifiez que le statut du déverrouillage Mi est bien `Déverrouillé`
+5. Activez le débogage USB
+
+   ![Activation du débogage USB sur MIUI](.img/miui_activation_debug_usb.gif "Activation du débogage USB sur MIUI")
+6. Branchez votre smartphone à votre PC et validez le popup d'autorisation du débogage USB.
+7. Récupérez le fichier `fastboot-zip/MIUI12.5/BRP3.5.2v3.1-fastboot.zip` à [cette adresse](https://sourceforge.net/projects/begonianon-cfw/) et dézippez-le pour récupérer le fichier `BRP3.5.2v3.1.img`
+8. Assurez-vous d'**avoir le fichier ZIP de la version de MUI installée sur votre smartphone** (miui_BEGONIAEEAGlobal_V12.5.14.0.RGGEUXM_d0012c6e24_11.0.zip) qu'il faut dézipper pour récupérer le fichier `vbmeta.img`
 
 Maintenant, pour lancer les commandes suivantes, il vous faut ADB et Fastboot sur votre machine.
+
+#### 
 Pour Linux
 
 ```bash
@@ -141,54 +148,51 @@ Rebooting into recovery                            OKAY [  0.001s]
 Finished. Total time: 0.251s
 ```
 
-Votre smartphone redemarre sur un TWRP modifié
+Votre smartphone redémarre sur un TWRP modifié
 
-Passons a l'installation d'une Rom personnalisée
+Passons à l'installation d'une Rom personnalisée
 
 ## Via le recovery (TWRP)
 
-**\*ATTENTION :** Cette methode peut ne pas fonctionner si votre TWRP n'est pas compatible avec la version android de votre ROM dns ce cas provilegiez la methode ADB ou alors flasher le recovery qui peutetre fourit avec la roms que vous souhaitez installer en suicat la methode ci-dessous en remplcant le roms.zip par votre fichier revery.ip.*
+***ATTENTION :** Cette méthode peut ne pas fonctionner si votre TWRP n'est pas compatible avec la version Android de votre ROM, dans ce cas, privilégiez la méthode ADB ou alors flasher le recovery qui peut être fourni avec la rom que vous souhaitez installer en suivant la méthode ci-dessous en remplaçant le `roms.zip` par votre fichier `recovery.zip`.*
 
-Exemple avec crDroid qui apporte la versio Android 14 a votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un recovery compatible Android 14 qui est recuperable via le site de crDroid.
+Exemple avec crDroid qui apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un recovery compatible Android 14 qui est récupérable via le site de crDroid.
 
-Démmarage sous recovery
-Si loupe Bouton ON/OFF + Volume Haut
+1. Démarrage sous recovery (Soit via le menu avancé ou en appuyant sur le bouton ON/OFF + Volume Haut au démarrage du smartphone),
+2. Lors du lacement de TWRP, vous pouvez le passer en Francais en cliquant sur `Select language`,
+3. Ensuite, faites glisser la barre en bas vers la droite pour `autoriser les modifications`,
+4. Sélectionnez `Formater (Wipe)-> Formater les données (format data)` puis validez avec `yes`,
 
-Lors du lacement de TWRP, vous pouvz le passer en Francais en cliquant sur `Select language`
-Ensuite faites glisser la barre en bas vers la droite pour `autorier les modifications`
+   ***ATTENTION :** Toutes vos données seront supprimées et c'est **irréversible**.*
 
-Selectionner Formater (Wipe) puis Formater les données (format data() taper `yes` puis valider.
-**\*ATTENTION :** Toutes vos données seront supprimées et c'est **irreversible**.*
-Ensite fites Retour (Retunr)puis cliquez deux fois sur le fleche `<` pour revenir au menu principal
+5. Ensuite, faites `Retour (Return)` puis cliquez deux fois sur la flèche `<` pour revenir au menu principal,
+6. Allez dans `Montage partitions (Mount)` puis sélectionnez `Systéme (System)` et `Données (data)`,
+   Cliquez sur `Sélect. l'emplacement (Select Storage)` puis sur `mémoire interne (Internal Storage)` et sur `OK`, vous devriez avoir votre smartphone reconnu sous Linux (ou Windaub).
+7. Coller la rom custom de votre choix dans le dossier TWRP par exemple ou à la racine si vous préférez.
 
-ensuite allez dans Montage partitions (Mount) puis selectionner Systéme (System) et Données (data),
-Cliquez sur Sélect. l'emplacement (Select Storage) puis sur mémoire interne (Internal Storage) et sur OK, vous drevriez avoir votre smarpthone reconnu sous linux (ou windaub).
+Une fois le rom collé, retourner sur la page principale du menu puis :
 
-Coller la roms custom de votre choix dans le dossier TWRP par exemple ou a la racine si vous preferez.
+1. Sélectionnez `Installer (install)`,
+2. Sélectionnez votre `roms.zip` laisser les deux cases décochées,
+3. Faites glisser pour confirmer le flash en bas de l'écran,
 
-Une fois la rom collé, retourner sur la page principal du menu puis 
+Une fois le flash terminé, revenez au menu principal.
 
-1. selectionnez Installer (install),
-2. Selectionnez votre roms.zip laisser les deux cases decochées,
-3. Faite glisser pour confirmer le flash en bas de l'ecran.
-   Une fois le flash terminé, revenez au menu principale
-4. Cliquez sur Formatter, Formatter les données, tapez `yes`,
-5. Cliquez sur Redémarrer le systeme (reboot systeme)
+1. Cliquez sur `Formatter -> Formatter les données`  puis tapez sur `yes`,
+2. Cliquez sur `Redémarrer le systeme (reboot systeme)`.
 
-Normalement vore telephone devrait booter sur votre custom rom fraichement installée.
+Normalement votre téléphone devrait démarrer sur la Roms crDroid fraichement installée.
 
 ## Via ADB
 
-Entrer dans le recovery avec Bouton On/Off et volume haut
-aller dans Paramètres vancé (advanced) puis Transfert vi ADB (sideload)
+1. Entrez dans le recovery avec Bouton On/Off et volume haut,
+2. Allez dans `Paramètres avancé (advanced)` puis `Transfert via ADB (sideload)`,
+3. Cochez `Effacer le cache Dalvik (Wipe Davlvik Cache)` et `Effacer le Cache  (Wipe Cache)` 
+4. Faites glisser la barre du bas pour valider.
+5. Depuis votre PC, dans un Terminal, lancer la commande suivante (adapter avec le nom de votre Roms)
+   `adb sideload filename.zip`
 
-cocher Effacer le cache Dalvik (Wipe Davlvik Cache) rt Effacer le Cache  (Wipe Cache) 
-Faites glisser la barrde du bas pour valider.
-
-maintenant dans un Terminal, lancer la commande suivante (adapter avec le nom de votre roms)
-`adb sideload filename.zip`
-
-Retour avec cdDroid :
+Retour avec crDroid :
 
 ```bash
 anthony@McFly-Bureau:~/Téléchargements/platform-tools_r34.0.5-linux/platform-too
