@@ -92,16 +92,19 @@ Cliquez maintenant sur les trois petits points en haut à droite puis `Sélectio
 
 Maintenant, pour lancer les commandes suivantes, il vous faut ADB et Fastboot sur votre machine.
 
-Pour Linux
+#### Pour Linux
+
+Installer ADB ET FASTBOO ?????????????
+
+??????????????????????????????????????
+
+Et vérifiez la version d'ADB et de Fastboot installée avec `adb version` et `fastboot --version`.
 
 ```bash
 anthony@McFly-Bureau:~/platform-tools$ adb version
 Android Debug Bridge version 1.0.41
 Version 34.0.0-9570255
 Installed as /usr/lib/android-sdk/platform-tools/adb
-```
-
-```bash
 anthony@McFly-Bureau:~/platform-tools$ fastboot --version
 fastboot version 34.0.5-10900879
 Installed as /usr/lib/android-sdk/platform-tools/fastboot
@@ -111,7 +114,7 @@ Installed as /usr/lib/android-sdk/platform-tools/fastboot
 ?????????????????????????????????????????????????????????????
  et récuperer le fichier 
 
-Dans le dossier platformtool????, copiez le fichier `vbmeta.img` (remplacez celui existant) et le fichier `BRP3.5.2v3.1.img` de votre version de MIUI et lancez les commandes suivantes dans un Terminal depuis le dossier Platformtools??????
+Dans le dossier `platform-tools`, copiez le fichier `vbmeta.img` (remplacez celui existant) et le fichier `BRP3.5.2v3.1.img` de votre version de MIUI et lancez les commandes suivantes dans un Terminal depuis le dossier Platformtools??????
 
 ```bash
 adb reboot bootloader
