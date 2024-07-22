@@ -152,18 +152,20 @@ Passons à l'installation d'une Rom personnalisée
 
 ***ATTENTION :** Cette méthode peut ne pas fonctionner si votre TWRP n'est pas compatible avec la version Android de votre ROM, dans ce cas, privilégiez la méthode ADB ou alors flasher le recovery qui peut être fourni avec la rom que vous souhaitez installer en suivant la méthode ci-dessous en remplaçant le `roms.zip` par votre fichier `recovery.zip`.*
 
-**Exemple avec crDroid** qui apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un recovery compatible Android 14 qui est récupérable via le site de crDroid.
+**Exemple avec crDroid** qui apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un Recovery compatible Android 14 qui est récupérable via le site de crDroid.
 
-1. Démarrage sous recovery (Soit via le menu avancé ou en appuyant sur le bouton ON/OFF + Volume Haut au démarrage du smartphone),
-2. Lors du lacement de TWRP, vous pouvez le passer en Français en cliquant sur `Select language`,
-3. Ensuite, faites glisser la barre en bas vers la droite pour `autoriser les modifications`,
-4. Sélectionnez `Formater (Wipe)-> Formater les données (format data)` puis validez avec `yes`,
+1. Démarrez sous le Recovery (soit via le menu avancé ou en appuyant sur le bouton ON/OFF + Volume Haut au démarrage du smartphone),
 
-   **\*ATTENTION :** Toutes vos données seront supprimées et c'est **irréversible**.*
-5. Ensuite, faites `Retour (Return)` puis cliquez deux fois sur la flèche `<` pour revenir au menu principal,
-6. Allez dans `Montage partitions (Mount)` puis sélectionnez `Systéme (System)` et `Données (data)`,
+*Lors du lancement de TWRP, vous pouvez le passer en Français en cliquant sur `Select language`.*
+
+1. Ensuite, faites glisser la barre en bas vers la droite pour `autoriser les modifications`,
+2. Sélectionnez `Formater (Wipe)-> Formater les données (format data)` puis validez avec `yes`,
+
+   ***ATTENTION :** Toutes vos données seront supprimées et c'est **irréversible**.*
+3. Ensuite, faites `Retour (Return)` puis cliquez deux fois sur la flèche `<` pour revenir au menu principal,
+4. Allez dans `Montage partitions (Mount)` puis sélectionnez `Systéme (System)` et `Données (data)`,
    Cliquez sur `Sélect. l'emplacement (Select Storage)` puis sur `mémoire interne (Internal Storage)` et sur `OK`, vous devriez avoir votre smartphone reconnu sous Linux (ou Windaub).
-7. Coller la rom custom de votre choix dans le dossier TWRP par exemple ou à la racine si vous préférez.
+5. Coller la rom custom de votre choix dans le dossier TWRP par exemple ou à la racine si vous préférez.
 
 Une fois le rom collé, retourner sur la page principale du menu puis :
 
@@ -176,11 +178,11 @@ Une fois le flash terminé, revenez au menu principal.
 1. Cliquez sur `Formatter -> Formatter les données`  puis tapez sur `yes`,
 2. Cliquez sur `Redémarrer le systeme (reboot systeme)`.
 
-Normalement, votre téléphone devrait démarrer sur la Roms crDroid fraichement installée.
+Normalement, votre téléphone devrait démarrer sur la Rom crDroid fraichement installée.
 
 ## Via ADB
 
-1. Entrez dans le recovery avec Bouton On/Off et volume haut,
+1. Entrez dans le Recovery avec Bouton On/Off et volume haut,
 2. Allez dans `Paramètres avancé (advanced)` puis `Transfert via ADB (sideload)`,
 3. Cochez `Effacer le cache Dalvik (Wipe Davlvik Cache)` et `Effacer le Cache  (Wipe Cache)` 
 4. Faites glisser la barre du bas pour valider.
