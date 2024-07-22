@@ -26,9 +26,9 @@ tags:
 * BRP3.5.2v3.1
 * crDroid ???
 
-J'ai récupéré un Xiaomi Redmi Note 8 Pro pour que je puisse le vider avant de le filer à quelqu'un, j'en ai profité pour le mettre à jour avec une ROM personnalisée qui permettra de supprimer toutes les pubs intrusives de Xiaomi et de le déconnecter de leurs clouds.
+J'ai récupéré un Xiaomi Redmi Note 8 Pro pour que je puisse le vider avant de le filer à quelqu'un, j'en ai profité pour le mettre à jour avec une Rom Custom (personnalisée) qui permettra de supprimer toutes les pubs intrusives de Xiaomi et de le déconnecter de leur cloud.
 
-Ce smartphone m'a donné du fil à retordre, car la procédure classique via TWRP ne marche pas. TWRP n'est pas à jour pour ce smartphone. Heureusement, la [communauté XDA](https://xdaforums.com/) est toujours là.
+Ce smartphone m'a donné du fil à retordre à cause de TWRP qui n'est pas à jour pour ce smartphone et qui rend la méthode d'installation classique, via TWRP, impossible. Heureusement, la [communauté XDA](https://xdaforums.com/) est toujours là.
 
 Passons à la pratique ! ;)
 
@@ -39,23 +39,27 @@ Pour commencer, il va falloir mettre à jour votre smartphone vers la dernière 
 Mettez à jour votre Redmi Note 8 Pro vers la version v12.5 minimum (Android 11) (la dernière version officielle de Xiaomi est la 12.5.15.0.RGGEUXM, mais je n'ai pas réussi à passer au-dessus de la v12.5.14.0)
 
 Pour ma part, je suis parti de la v12.0.4.0 QGGEUXM (Android 10), 
-**\*Note :** C'est la ROM Europe dite "Global" mais qui est remplacée par la EEA depuis la version 12.0.6.0 aussi à destination de l'Europe.*
+
+
+***Note :** C'est la Rom Europe dite "Global", mais qui est remplacée par la EEA depuis la version 12.0.6.0 aussi à destination de l'Europe.*
+
+
 
 Alors deux choix s'offrent à vous :
 
-1. Jouer sur les régions pour récupérer de manière officielle les dernières roms (recommandé)
-2. Récupérer les roms sur les liens ci-dessous, puis les installer depuis votre smartphone (elles seront vérifiées avant d'être installées).
-3. Récupérer les roms sur les liens ci-dessous, puis les installer via ADB.
+1. Jouer sur les régions pour récupérer de manière officielle les dernières Roms (recommandé)
+2. Récupérer les Roms sur les liens ci-dessous, puis les installer depuis votre smartphone (elles seront vérifiées avant d'être installées).
+3. Récupérer les Roms sur les liens ci-dessous, puis les installer via ADB.
 
 ### Depuis le téléphone
 
 Pour mettre à jour directement depuis Xiaomi, il va falloir jouer avec les régions (Guyane française, Serbie, Grèce, il faut essayer et redémarrer le smartphone à chaque fois). Pour cela :
 
-* Rendez-vous dans les Paramètres supplémentaires `Paramètres -> Paramètres supplémentaires -> Région`
+* Rendez-vous dans `Paramètres -> Paramètres supplémentaires -> Région`,
 
 ![Changer de région sur MIUI](.img/miui_changer_region.gif "Changer de région sur MIUI")
 
-**\*Note :** Je me suis donc arrêté à la version 12.5.14, car je n'arrivais pas à voir la dernière 12.5.15. **Le principal, c'est d'être sur une version 12.5***
+***Note :** Je me suis arrêté à la version 12.5.14, car je n'arrivais pas à voir la dernière 12.5.15. **Le principal, c'est d'être sur une version 12.5**.*
 
 ### Depuis les liens
 
@@ -94,16 +98,14 @@ Maintenant, pour lancer les commandes suivantes, il vous faut ADB et Fastboot su
 Pour Linux
 
 ```bash
-anthony@McFly-Bureau:~/Téléchargements/MiUnlockTool/platform-tools_r34.0.5-linux
-/platform-tools$ adb version
+anthony@McFly-Bureau:~/platform-tools$ adb version
 Android Debug Bridge version 1.0.41
 Version 34.0.0-9570255
 Installed as /usr/lib/android-sdk/platform-tools/adb
 ```
 
 ```bash
-anthony@McFly-Bureau:~/Téléchargements/MiUnlockTool/platform-tools_r34.0.5-linux
-/platform-tools$ fastboot --version
+anthony@McFly-Bureau:~/platform-tools$ fastboot --version
 fastboot version 34.0.5-10900879
 Installed as /usr/lib/android-sdk/platform-tools/fastboot
 ```
@@ -125,25 +127,20 @@ fastboot reboot recovery
 
 Retour des commandes
 
-```bash
-anthony@McFly-Bureau:~/Téléchargements/MiUnlockTool/platform-tools_r34.0.5-linux
-/platform-tools$ adb reboot bootloader
-anthony@McFly-Bureau:~/Téléchargements/MiUnlockTool/platform-tools_r34.0.5-linux
-/platform-tools$ fastboot devices
+```shell
+anthony@McFly-Bureau:~/platform-tools$ adb reboot bootloader
+anthony@McFly-Bureau:~/platform-tools$ fastboot devices
 8xnbw8giv4fuucfq	 fastboot
-anthony@McFly-Bureau:~/Téléchargements/platform-tools_r34.0.5-linux/platform-too
-ls$ fastboot flash recovery BRP3.5.2v3.1.img 
+anthony@McFly-Bureau:~/platform-tools$ fastboot flash recovery BRP3.5.2v3.1.img 
 Sending 'recovery' (65536 KB)                      OKAY [  2.119s]
 Writing 'recovery'                                 OKAY [  0.305s]
 Finished. Total time: 2.428s
-anthony@McFly-Bureau:~/Téléchargements/platform-tools_r34.0.5-linux/platform-too
-ls$ fastboot flash vbmeta vbmeta.img --disable-verity --disable-verification
+anthony@McFly-Bureau:~/platform-tools$ fastboot flash vbmeta vbmeta.img --disable-verity --disable-verification
 Rewriting vbmeta struct at offset: 0
 Sending 'vbmeta' (4 KB)                            OKAY [  0.012s]
 Writing 'vbmeta'                                   OKAY [  0.001s]
 Finished. Total time: 0.016s
-anthony@McFly-Bureau:~/Téléchargements/platform-tools_r34.0.5-linux/platform-too
-ls$ fastboot reboot recovery
+anthony@McFly-Bureau:~/platform-tools$ fastboot reboot recovery
 Rebooting into recovery                            OKAY [  0.001s]
 Finished. Total time: 0.251s
 ```
@@ -159,7 +156,7 @@ Passons à l'installation d'une Rom personnalisée
 Exemple avec crDroid qui apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un recovery compatible Android 14 qui est récupérable via le site de crDroid.
 
 1. Démarrage sous recovery (Soit via le menu avancé ou en appuyant sur le bouton ON/OFF + Volume Haut au démarrage du smartphone),
-2. Lors du lacement de TWRP, vous pouvez le passer en Francais en cliquant sur `Select language`,
+2. Lors du lacement de TWRP, vous pouvez le passer en Français en cliquant sur `Select language`,
 3. Ensuite, faites glisser la barre en bas vers la droite pour `autoriser les modifications`,
 4. Sélectionnez `Formater (Wipe)-> Formater les données (format data)` puis validez avec `yes`,
 
@@ -195,14 +192,13 @@ Normalement, votre téléphone devrait démarrer sur la Roms crDroid fraichement
 Retour avec crDroid :
 
 ```bash
-anthony@McFly-Bureau:~/Téléchargements/platform-tools_r34.0.5-linux/platform-too
-ls$ adb sideload roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip 
+anthony@Bureau:~/platform-tools$ adb sideload roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip 
 serving: 'roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip'  (~15%)    
 ```
 
-Une fois le flash terminé, redémarré le smartphone.
+Une fois le flash terminé, redémarrez le smartphone.
 
-S'il redemarre sur TWRP,
+S'il redémarre sur TWRP,
 
 ## Installer Android 14
 
