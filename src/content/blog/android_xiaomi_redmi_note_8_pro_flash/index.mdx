@@ -58,7 +58,7 @@ Pour mettre à jour directement depuis Xiaomi, il va falloir jouer avec les rég
 
 ![Changer de région sur MIUI](.img/miui_changer_region.gif "Changer de région sur MIUI")
 
-***Note :** Je me suis arrêté à la version 12.5.14, car je n'arrivais pas à voir la dernière 12.5.15. **Le principal, c'est d'être sur une version 12.5**.*
+**\*Note :** Je me suis arrêté à la version 12.5.14, car je n'arrivais pas à voir la dernière 12.5.15. **Le principal, c'est d'être sur une version 12.5**.*
 
 ### Depuis les liens
 
@@ -66,7 +66,7 @@ Il va falloir récupérer la 12.0.6.0.QGGEUXM via ce [lien](https://xiaomifirmwa
 
 Faites de même avec la dernière version 12.5.15.0.RGGEUXM (2.4Go) récupérable [ici](https://xiaomifirmwareupdater.com/miui/begonia/stable/V12.5.15.0.RGGEUXM/).
 
-***Note :** Cette méthode n'a pas marché chez moi, les Roms ne passaient pas le check, je me suis donc arrêté à la version 12.5.14. Mais je n'avais pas de carte SIM dans le téléphone, peut-être est-ce lié à ça. **Le principal, c'est d'être sur une version 12.5**.*
+**\*Note :** Cette méthode n'a pas marché chez moi, les Roms ne passaient pas le check, je me suis donc arrêté à la version 12.5.14. Mais je n'avais pas de carte SIM dans le téléphone, peut-être est-ce lié à ça. **Le principal, c'est d'être sur une version 12.5**.*
 
 Ensuite, allez dans `Paramètres -> A propos du téléphone` puis cliquez sur `Version MIUI` (carré image en haut à gauche).
 Une fois affiché, **appuyez sept fois** sur le logo. Un popup doit vous afficher : *des fonctionnalités de mise à jour supplémentaires sont disponibles*.
@@ -94,9 +94,9 @@ Cliquez maintenant sur les trois petits points en haut à droite puis `Sélectio
 
 Maintenant, pour lancer les commandes suivantes, il vous faut ADB et Fastboot sur votre machine.
 
-### Installer BRP (Begonia Recovery Project)
+### Installer BRP (Begonia Recovery Project) ou PRBP (Pitch Black Recovery Project)
 
-Dans le dossier `platform-tools`, copiez le fichier `vbmeta.img` (remplacez celui existant) et le fichier `BRP3.5.2v3.1.img` de votre version de MIUI et lancez les commandes suivantes dans un Terminal depuis le dossier `platform-tools`.
+Dans le dossier `platform-tools`(dossier contenant ADB et Fastboot), copiez le fichier `vbmeta.img` (remplacez celui existant) et le fichier `BRP3.5.2v3.1.img` de votre version de MIUI et lancez les commandes suivantes dans un Terminal depuis le dossier `platform-tools`.
 
 ```bash
 adb reboot bootloader
@@ -131,17 +131,15 @@ Votre smartphone redémarre sur un TWRP modifié
 
 Passons à l'installation d'une Rom personnalisée.
 
-
-
 ## Installer Android 14 (crDroid)
 
 Nous allons installer crDroid pour Xiaomi Redmi Note 8 Pro. La dernière version de cette Rom personnalisée apporte Android 14 sur ce smartphone abandonné par Xiaomi ainsi que les derniers patchs de sécurité Android.
 
 ### Via le Recovery (TWRP)
 
-***ATTENTION :** Comme mentionné au début de l'article, le Xiaomi Redmi Note 8 Pro nécessite l'installation d'un Recovery différent, c'est pour cela qu'elle ne fonctionnera pas si vous utilisez un TWRP officiel.*
+**\*ATTENTION :** Comme mentionné au début de l'article, le Xiaomi Redmi Note 8 Pro nécessite l'installation d'un Recovery différent, c'est pour cela qu'elle ne fonctionnera pas si vous utilisez un TWRP officiel.*
 
-***Note :** L'installation d'une Rom personnalisée est via TWRP ou autre Recovery est quasi similaire.*
+**\*Note :** L'installation d'une Rom personnalisée est via TWRP ou autre Recovery est quasi similaire.*
 
 **crDroid** apporte la version Android 14 à votre Xiaomi Redmi Note 8 Pro, il lui faudra donc un Recovery compatible Android 14 qui est récupérable via le site de crDroid.
 
@@ -152,7 +150,7 @@ Nous allons installer crDroid pour Xiaomi Redmi Note 8 Pro. La dernière version
 1. Ensuite, faites glisser la barre en bas vers la droite pour `autoriser les modifications`,
 2. Sélectionnez `Formater (Wipe)-> Formater les données (format data)` puis validez avec `yes`,
 
-   ***ATTENTION :** Toutes vos données seront supprimées et c'est **irréversible**.*
+   **\*ATTENTION :** Toutes vos données seront supprimées et c'est **irréversible**.*
 3. Ensuite, faites `Retour (Return)` puis cliquez deux fois sur la flèche `<` pour revenir au menu principal,
 4. Allez dans `Montage partitions (Mount)` puis sélectionnez `Systéme (System)` et `Données (data)`,
    Cliquez sur `Sélect. l'emplacement (Select Storage)` puis sur `mémoire interne (Internal Storage)` et sur `OK`, vous devriez avoir votre smartphone reconnu sous Linux (ou Windaub).
@@ -187,14 +185,17 @@ anthony@Bureau:~/platform-tools$ adb sideload roms/crDroidAndroid-14.0-20240112-
 serving: 'roms/crDroidAndroid-14.0-20240112-begonia-v10.1.zip'  (~15%)    
 ```
 
-Une fois le flash terminé, redémarrez le smartphone.
+Une fois le flash terminé, redémarrez le smartphone et profitez d'un smartphone sous Android 14 à jour des derniers patchs de sécurité.
 
-S'il redémarre sur TWRP, ????????????????Revenir sur la rom MIUI
+## Revenir sur la rom MIUI
 
-Pour revenir à la Rom d'origine, il vous suffit soit de passer par la méthode TWRP et copier-coller la dernière version de la rom Xiaomi pour votre smartphone ou alors via la méthode ADB.
+Il se peut que vous souhaitiez revenir à la Rom d'origine pour des raisons qui vous sont propres. Pour revenir à la Rom d'origine, il vous suffit soit de passer par la méthode TWRP et copier-coller la dernière version de la rom Xiaomi pour votre smartphone ou alors via la méthode ADB.
 
 ### Sources
 
 * https://xdaforums.com/t/recovery-unofficial-begonia-recovery-project-themed-twrp-3-5-0-v2-unified-begonia-begoniain.4242717/
 * https://www.phonandroid.com/forum/threads/probleme-mise-a-jour-miui-sur-redmi-note-8-pro.214881/
 * https://android-mt.ouest-france.fr/tutoriel/astuces/liste-des-commandes-adb-et-fastboot-loutil-indispensable-du-super-utilisateur-android/74897/
+* https://fr.linux-console.net/?p=31359
+* https://sourceforge.net/projects/begonianon-cfw/
+* https://xdaforums.com/f/redmi-note-8-pro-roms-kernels-recoveries-othe.9295/
