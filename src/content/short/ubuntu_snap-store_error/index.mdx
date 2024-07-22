@@ -1,0 +1,32 @@
+---
+draft: false
+dossier: ubuntu_snap-store_error
+title: Ubuntu - Echec lors de la mise a jour du Snap Store
+description: "Corriger l'erreur : Impossible de mettre à jour \"Snap Store\":
+  (null): cannot refresh \"snap-store\": snap \"snap-store\" hasrunning apps
+  (ubuntu-software), pids: 3745"
+pubDate: 07.22.2024
+authors:
+  - mcfly
+categories:
+  - shorts
+tags:
+  - ubuntu
+  - snap-store
+  - update
+affiliateLink: false
+---
+***Tuto réalisé avec :** Ubuntu 22.04*
+
+Sur Ubuntu, j'ai plusieurs fois rencontré ce message d'erreur lors de la mise à jour via l'UI.
+```
+Erreur : Impossible de mettre à jour "Snap Store": (null): cannot refresh "snap-store": snap "snap-store" hasrunning apps (ubuntu-software), pids: 3745
+```
+En gros, Snap-Store étant déjà en route, il n'arrive pas à le mettre à jour, il faut alors tuer le processus de snap-store et forcer la mise à jour.
+
+Voici la commande :
+```bash
+sudo killall snap-store && sudo snap refresh snap-store
+```
+
+Bonne mise à jour ;)
