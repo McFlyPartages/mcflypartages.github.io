@@ -1,14 +1,14 @@
 ---
 draft: false
 dossier: /vmware_windows_server_2019
-title: VMware - Installer Windows Server 2019
+title: VMware - Installer Windows Server 2019 ou 2022
 description: >-
-  L'installation d'une VM Windows Server 2019 sur VMware offre une plateforme
-  idéale pour tester, déployer et gérer Active Directory, permettant aux
-  administrateurs en herbes de créer un environnement de test ou de mettre en
-  place une infrastructure complète de gestion d'identités.
+  L'installation d'une VM Windows Server 2019 ou 2022 sur VMware offre une
+  plateforme idéale pour tester, déployer et gérer Active Directory, permettant
+  aux administrateurs en herbes de créer un environnement de test ou de mettre
+  en place une infrastructure complète de gestion d'identités.
 
-  Cet article vous guidera à travers le processus d'installation d'une machine virtuelle Windows Server 2019 sur VMware.
+  Cet article vous guidera à travers le processus d'installation d'une machine virtuelle Windows Server sur VMware.
 pubDate: 07.17.2024
 heroImage: .img/vmware_windows_server.png
 authors:
@@ -26,9 +26,9 @@ Quand on parle de serveur en entreprise, on parle souvent de Windows Server, le 
 
 Un des atouts majeurs de Windows Server est son Active Directory (AD), le service d'annuaire de Microsoft. Active Directory joue un rôle crucial dans la gestion centralisée des identités, des accès et des politiques au sein d'un réseau d'entreprise. 
 
-L'installation d'une VM Windows Server 2019 sur VMware offre une plateforme idéale pour tester, déployer et gérer Active Directory, permettant aux administrateurs en herbes de créer un environnement de test ou de mettre en place une infrastructure complète de gestion d'identités.
+L'installation d'une VM Windows Server sur VMware offre une plateforme idéale pour tester, déployer et gérer Active Directory, permettant aux administrateurs en herbes de créer un environnement de test ou de mettre en place une infrastructure complète de gestion d'identités.
 
-Cet article vous guidera à travers le processus d'installation d'une machine virtuelle Windows Server 2019 sur VMware.
+Cet article vous guidera à travers le processus d'installation d'une machine virtuelle Windows Server sur VMware.
 
 ## Installation
 
@@ -46,7 +46,7 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 4. Sélectionnez votre image de Windows Server 2019,
 
    ![Sélection de l'image ISO de Windows Server](.img/vmware_new_machine_os.png "Sélection de l'image ISO de Windows Server")
-5. Saisir une clé de licence, sélectionnez la version Windows Server 2019 Standard, puis le nom de la machine et un mot de passe,
+5. Saisir une clé de licence, sélectionnez la version Windows Server 2019 ou 2022 Standard, puis le nom de la machine et un mot de passe,
 
    > Vous pouvez récuperer une licence de test depuis le [site de Microsoft](https://learn.microsoft.com/fr-fr/windows-server/get-started/kms-client-activation-keys?tabs=server2019%2Cwindows10ltsc%2Cversion1803%2Cwindows81#windows-server-ltsc) 
    >
@@ -66,7 +66,7 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 9. Créez un nouveau disque virtuel avec `Create a new virtual disk`, sélectionnez une taille pour ce dernier et sélectionnez `Store virtual disk as a single` file et finissez par lui donner un nom
 
    ![Configuration du disque de la VM](.img/vmware_new_machine_disk_multi.png "Configuration du disque de la VM")
-10. Vérifiez les paramètres puis cliquez sur `Finish` pour lancer l'installation.
+10. Vérifiez les paramètres, puis cliquez sur `Finish` pour lancer l'installation.
 
     ![Récapitulatif de la configuration de la VM](.img/vmware_new_machine_infos.png "Récapitulatif de la configuration de la VM")
 
@@ -77,7 +77,5 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 ![Windows Server est installé avec VMwareTools](.img/windows_server_2019_vmware_tool.png "Windows Server est installé avec VMwareTools")
 
 L'installation de Windows Server est terminé et VMware a installé VMware Tool permettant quelques manipulations entre les VMs et l'hôte.
-
-
 
 D'autres articles viendrons comme l'installation de l'Active Directory et l'ajout d'un serveur DNS.
