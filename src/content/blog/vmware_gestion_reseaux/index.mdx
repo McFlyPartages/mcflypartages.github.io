@@ -1,11 +1,12 @@
 ---
-draft: true
+draft: false
 dossier: /vmware_gestion_reseaux
 title: VMware - La gestion des réseaux
-description: Le but de cet article est d'approfondir ces notions depuis VMware,
-  mais qui seront aussi valables sur VirtualBox ou autres logiciels de
-  virtualisation.
-pubDate: 07.24.2024
+description: Le but de cet article est d'approfondir les notions simples du
+  réseau depuis VMware, mais elles seront aussi valables sur VirtualBox ou
+  autres logiciels de virtualisation.
+pubDate: 07.29.2024
+heroImage: .img/vmware_network.png
 authors:
   - mcfly
 categories:
@@ -19,6 +20,8 @@ affiliateLink: false
 Dans l'article [Installation de Windows Server avec VMware](/blog/vmware_windows_server_2019/), nous avons connecté notre Windows Server sur la NAT, mais qu'est-ce que c'est et quels sont les différents réseaux présents et/ou configurable dans VMware.
 
 Le but de cet article est d'approfondir ces notions depuis VMware, mais qui seront aussi valables sur VirtualBox ou autres logiciels de virtualisation.
+
+<Alert type="info"> Ceci est un article rapide, je lui ajouterais des images, pour augmenter la compréhension, une fois que j'aurais trouvé les bonnes </Alert>
 
 ## Les types de Réseaux
 
@@ -63,6 +66,6 @@ Permet de connecter des VMs entre elles sans passer par un switch virtuel. Utile
 
 Similaire au réseau host-only, mais sans connexion à l'hôte. Les VMs peuvent communiquer entre elles, mais sont entièrement isolées de l'hôte et de l'extérieur. À vous de configurer les adresses IP de vos VMs de manière statique.
 
+## Conclusion
 
-
-Il est intéressant de créer vos VMs en mode NAT pour les connecter à internet et bénéficier des mises à jour. Ensuite, il vous suffit de créer un LAN-Segment pour simuler votre propre réseau en y ajoutant vos VMs client, serveurs, routeurs ou autres.
+Il est intéressant de créer vos VMs en mode NAT pour les connecter à internet et bénéficier des mises à jour. Ensuite, il vous suffit de créer un LAN-Segment pour simuler votre propre réseau en y ajoutant vos VMs clientes, serveurs, routeurs ou autres.
