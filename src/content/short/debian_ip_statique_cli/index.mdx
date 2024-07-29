@@ -26,10 +26,18 @@ Voilà le fichier d'origine :
 
 Ensuite, il va falloir remplacer la dernière ligne par `static` à la place de `dhcp` et ajouter les informations d'adresse, de masque réseau et de passerelle comme l'exemple ci-dessous.
 
-```bash
+```shell
 iface ens33 inet static
 address xxx.xxx.xxx.xxx
 netmask 255.255.255.0
+gateway xxx.xxx.xxx.xxx
+```
+
+Ou avec le CIDR
+
+```shell
+iface ens33 inet static
+address xxx.xxx.xxx.xxx/xx
 gateway xxx.xxx.xxx.xxx
 ```
 
