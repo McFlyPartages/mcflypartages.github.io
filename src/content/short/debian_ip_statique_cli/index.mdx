@@ -1,0 +1,38 @@
+---
+draft: false
+dossier: /debian_ip_statique_cli
+title: Debian 12 - Configurer un IP statique en ligne de commande
+description: Nous allons voir rapidement comment fixer une IP statique sur une
+  Debian en version serveur, donc en ligne de commande (cli)
+pubDate: 07.29.2024
+heroImage: .img/debian12_network_interfaces.png
+authors:
+  - mcfly
+categories:
+  - shorts
+tags:
+  - debian
+  - cli
+  - reseaux
+  - proxmox
+affiliateLink: false
+---
+Pour configurer une adresse IP statique sur Debian 12, (marche aussi sous Proxmox), il va falloir éditer le fichier `interfaces` dans `/etc/network/` avec la commande `nano /etc/network/interfaces` avec les droits `root` bien sûr. (`su -`).
+Voilà le fichier d'origine :
+
+![Configuration par défaut du fichier interfaces dans Debian 12](.img/interfaces_defaut.png "Configuration par défaut du fichier interfaces dans Debian 12")
+
+Ensuite, il va falloir remplacer la dernière ligne par `static` à la place de `dhcp` et ajouter les informations d'adresse, de masque réseau et de passerelle comme l'exemple ci-dessous.
+
+```bash
+iface ens33 inet static
+address xxx.xxx.xxx.xxx
+netmask 255.255.255.0
+gateway xxx.xxx.xxx.xxx
+```
+
+<Alert type="info">Bien entendu, c'est à vous de saisir les IPs que vous souhaitez et ajouter une Passerelle (Gateway) si nécessaire.</Alert>
+
+Validez vos changements avec`CTRL + X` et relancez avec `systemctl restart networking` ou `systemctl restart NetworkManager` et vérifiez avec la commande suivante `ip addr show <interface_name>`.
+
+Voilà le rapide tuto pour changer l'adresse IP de votre serveur Debian ou Proxmox. Il se peut que pour ce dernier, un redémarrage soit nécessaire.
