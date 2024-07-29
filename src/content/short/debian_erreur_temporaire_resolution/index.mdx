@@ -1,0 +1,36 @@
+---
+draft: true
+dossier: /debian_erreur_temporaire_resolution
+title: Debian - Erreur temporaire de résolution deb.debian.org
+description: Comment régler Erreur temporaire de résolution de « deb.debian.org
+  » ou autre source
+pubDate: 07.29.2024
+heroImage: .img/debian_erreur_resolution.png
+authors:
+  - mcfly
+categories:
+  - shorts
+tags:
+  - debian
+  - linux
+  - erreur
+  - dns
+affiliateLink: false
+---
+Avec plusieurs personnes de ma formation, nous avons été confrontés à l'erreur suivante `Erreur temporaire de résolution de « deb.debian.org »` lors de la configuration d'un serveur Debian 12 (donc en CLI).
+
+
+
+Lors du lancement de la commande `apt update`, il y avait une erreur de résolution. La commande `ping 8.8.8.8` renvoie bien des infos, mais la commande `ping google.fr` ne renvoie rien. 
+
+
+
+Le problème se situe donc au niveau de la résolution DNS. Nous avons donc ajouté un `dns-nameserver` dans notre fichier interface, mais cela n'a pas résolu le problème.
+
+
+
+Après une recherche sur internet, la [solution nous est donnée ici](https://forums.commentcamarche.net/forum/affich-36731732-erreur-temporaire-de-resolution-de-deb-debian-org). Il s'agit d'un problème avec le fichier `resolv.conf` qui se trouve dans `/etc/resolv.conf` et qui avait comme `nameserver 192.168.0.1` qui n'était pas notre passerelle. Il a donc fallu changer cette adresse par celle de notre passerelle puis redémarrer le serveur avec la commande `reboot`.
+
+
+
+Encore un problème de plus en moins dans le monde merveilleux de Linux.
