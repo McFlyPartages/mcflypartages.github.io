@@ -55,6 +55,20 @@ Cette configuration créée un réseau isolé entre la machine hôte et les VMs.
 
 Ça permet de tester des configurations de réseaux isolés.
 
+#### Configurer sont Host-Only
+
+Pour configurer une machine avec Host Only, il faut verifier l'IP et le masque utilisé par VMware. Pour cela :
+
+1. Dans VMware, cliquez sur `Edit -> Virtual Network Editor...`
+2. Vérifiez le `Subnet Address` de l'interface `VMnet1` (Host-only) (ici 20.20.20.0)
+
+   ![Confguration du Host-only dans VMware](.img/vmware_host_only_configuration.png "Configuration du Host-only dans VMware")
+3. Si vous souhaitez modifier le sous-réseau, il vous suffit de cliquer sur `Change Settings` en bas de la fenêtre,
+
+   ![Changer le sous-réseau dans VMware en Host-only](.img/vmware_host_only_changer_subnet_address.png "Changer le sous-réseau dans VMware en Host-only")
+4. Appliquez avec `Apply` puis `OK`,
+5. Configurez vos serveurs avec une IP statique avec [ce court tutoriel](/short/debian_ip_statique_cli/).
+
 ### Réseau personnalisé (Custom)
 
 Cette configuration permet de créer des configurations réseau avancées pour simuler des topologies réseau complexes.
