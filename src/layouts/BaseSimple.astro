@@ -93,9 +93,9 @@ const ogImage = createOgImage({
       content={description ? description : config.metadata.meta_description}
     />
     <!-- og-image -->
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={image ? Astro.url.origin + image.src : Astro.url.origin + config.site.backgroundDefault} />
     <!-- twitter-image -->
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={image ? Astro.url.origin + image.src : Astro.url.origin + config.site.backgroundDefault} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script is:inline src="/registerSW.js"></script>
