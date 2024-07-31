@@ -53,6 +53,7 @@ export default defineConfig({
         registerType: 'autoUpdate',
         manifest,
         workbox: {
+          maximumFileSizeToCacheInBytes: 10000000, // 10 MB
           globDirectory: 'dist',
           globPatterns: ['**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}'],
           navigateFallback: null,
