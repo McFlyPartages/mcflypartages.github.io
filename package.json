@@ -1,6 +1,6 @@
 {
   "name": "ev0-astro-theme",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript.",
   "license": "MIT",
   "private": true,
@@ -44,13 +44,13 @@
     "@astrojs/tailwind": "5.1.0",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/typography": "0.5.13",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
-    "astro": "^4.12.3",
+    "@typescript-eslint/eslint-plugin": "8.0.1",
+    "@typescript-eslint/parser": "8.0.1",
+    "astro": "^4.13.1",
     "astro-md-generator": "1.0.0",
     "astro-robots-txt": "1.0.0",
     "dotenv": "16.4.5",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-astro": "1.2.3",
     "eslint-plugin-jsx-a11y": "6.9.0",
     "googleapis": "140.0.1",
@@ -61,11 +61,14 @@
     "vite-plugin-pwa": "0.20.1"
   },
   "resolutions": {
-    "astro/sharp": "0.33.1",
+    "astro/sharp": "0.33.",
     "astro-compress/sharp": "0.33.1"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.1",
+    "@astrojs/svelte": "^5.7.0",
     "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@redux-devtools/extension": "^3.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -74,5 +77,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rehype-external-links": "^3.0.0"
+  },
+  "overrides": {
+    "eslint": "^8.57.0",
+    "react": "^18.3.1"
   }
 }
