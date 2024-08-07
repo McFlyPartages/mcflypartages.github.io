@@ -55,6 +55,8 @@ Votre Windows Server redémarré, nous allons passer à la création d'un domain
 
 ### Ajouter le rôle AD DS (Active Directory Domain Service)
 
+> Connectez-vous avec le compte Administrateur de Windows Server et le compte créé lors de l'installation
+
 Dans le Gestionnaire de serveur, cliquez sur le `2 Ajouter des rôles et des fonctionnalités`, puis :
 
 1. La première page est une explication, cliquez sur le bouton `Suivant`,
@@ -74,7 +76,24 @@ Ce Triangle orange nous indique qu'il y a une configuration nécessaire (suite �
 
 ![Avertissement de configuration post install du rôle AD DS de Windows Server](.img/windows_server_adds_warning.png "Avertissement de configuration post install du rôle AD DS de Windows Server")
 
-Cliquez sur `Promouvoir ce serveur en contrôleur de domaine`, 
+Cliquez sur `Promouvoir ce serveur en contrôleur de domaine`, une fenêtre s'ouvre nous permettant de configurer le rôle AD DS.
+
+1. Sélectionnez `Ajouter une nouvelle forêt`,
+2. Saisir le nom de votre domaine racine (ici mcflypartages.tuto)
+3. Dans la fenêtre suivante, laissez Windows Server 2016 (pour notre utilisation), laissez cocher `Serveur DNS` et saisissez un mot de passe de restauration.
+
+> Ce choix doit se faire en fonction des versions de Windows Server que vous avez dans votre domaine en s'adaptant a la version la plus basse disponnible dans votre domaine. Nous avons une seule installation de Windows Server (celle-ci) qui est en 2022 ou 2019.
+
+
+
+1. La fenêtre suivante vous affiche une erreur de DNS, mais c'est normale, cliquez sur `Suivant`,
+2. Donnez un nom NetBIOS (un nom court, ici MFP), puis Suivant,
+3. Laissez les fenêtres suivantes par défaut jusqu'à la `Vérification de la configuration requise`,
+4. Il y a quelques Warnings, mais vous pouvez passer à l'installation.
+
+> ATTENTION : Nous ne l'avons pas vu, mais par défaut, le compte Administrateur de Windows Server n'a pas de mot de passe (la sécurité sous Windows ;)). Si vous n'avez pas défini de mot de passe pour ce dernier, il vous refusera la configuration d'AD DS et donc son installation.
+
+Pendant l'installation, il va vous déconnecter puis procéder a l'installation de l'AD.
 
 ### Ajouter notre serveur au domaine
 
