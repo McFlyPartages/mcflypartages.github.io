@@ -80,11 +80,45 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 
 L'installation de Windows Server est terminé et VMware a installé VMware Tool permettant quelques manipulations entre les VMs et l'hôte. Il vous reste à effectuer les mises à jour de votre Windows Server (possible, car nous sommes en NAT).
 
-## Préparons le futur
-Pour nos prochains articles sur Windows Server, nous allons travailler dans un réseau isolé. Pour cela, nous allons passer notre serveur sur un LAN Segment (je vous laisse regarder l'[article sur les réseaux avec VMware](/blog/vmware_gestion_reseaux/)) que l'on va appeler `mcflytuto` et nous allons fixer l'IP de notre serveur Windows en `10.10.10.100`.
-### Fixer l'IP de Windows Server
+<Alert type="info">Sous VMware, pour acceder a la combinaison de touche `CTRL+ALT+SUP`, il faut se rendre sur l'onglet de votre VM et faire clic-droit et `Send Ctrl+Alt+Del`. ![Envoyer la commande CTRL ALT SUPP sur une VM VMware](.img/acces_ctrl_alt_sup.png)</Alert>
 
+## Préparons le futur
+Pour nos prochains articles sur Windows Server, nous allons travailler dans un réseau isolé. Pour cela, nous allons passer notre serveur sur un LAN Segment (je vous laisse regarder l'[article sur les réseaux avec VMware](/blog/vmware_gestion_reseaux/)) que l'on va appeler `McFlyTuto` et nous allons fixer l'IP de notre serveur Windows en `10.10.10.100`.
+
+### Fixer l'IP de Windows Server
+Pour fixer l'adresse IP de votre Windows Server, il y a deux méthodes :
+* Via les paramètres de la carte réseau,
+* Depuis le Gestionnaire de serveur.
+
+#### Via les paramètres de la carte réseau
+1. Allez dans les `Pramètres Windows -> Réseaux et Internet -> Ethernet -> Modifier les options d'adaptateur`,
+1. Faites un `Clic-droit -> Propriétés` sur votre carte réseau,
+1. Cliquez sur `Protocole Internet version 4 (TCP/IPv4)` puis sur le bouton `Propriétés`,
+1. Sélectionnez `Utiliser l'adresse IP suivante` puis remplir les informations demandées (*Adresse IP : 10.10.10.100, Masque : 255.255.255.0*, laissez le reste vide et cochez `Validez les paramètres en quittant`),
+1. Faites un `Clic-droit -> Désactiver` sur votre carte réseau puis `Activer`.
+![Fixer une IP V4 sous Windows depuis les paramètres de la carte réseau](.img/fixer_ipv4_windows_via_carte_reseau.png)
+
+Vérifiez que votre carte a bien pris en compte les changements via un `clic-droit -> Statut', puis, dans la nouvelle fenêtre, cliquez sur `Détails...`
+![Vérifier les valeurs de la carte réseau](.img/valeur_carte_reseau_via_proprietes.png)
+
+#### Via le Gestionnaire de serveur
+Depuis le gestionnaire de serveur :
+1. Cliquez sur `Serveur local` dans le menu à gauche,
+1. Vérifiez la ligne Ethernet0 qui doit être `Adresse IPv4 attribuée par DHCP, Compatiible IPv6` et cliquez sur cette dernière,
+![Vérifier les valeurs de la carte réseau](.img/fixer_ipv4_windows_via_gestionnaire_serveur.png)
+1. Faites un `Clic-droit -> Propriétés` sur votre carte réseau,
+1. Cliquez sur `Protocole Internet version 4 (TCP/IPv4)` puis sur le bouton `Propriétés`,
+1. Sélectionnez `Utiliser l'adresse IP suivante` puis remplir les informations demandées (*Adresse IP : 10.10.10.100, Masque : 255.255.255.0*, laissez le reste vide et cochez `Validez les paramètres en quittant`),
+1. Faites un `Clic-droit -> Désactiver` sur votre carte réseau puis `Activer`.
+![Fixer une IP V4 sous Windows depuis les paramètres de la carte réseau](.img/fixer_ipv4_windows_via_carte_reseau.png)
+
+Vérifiez que votre carte a bien pris en compte les changements via un `clic-droit -> Statut', puis, dans la nouvelle fenêtre, cliquez sur `Détails...`
+![Vérifier les valeurs de la carte réseau](.img/valeur_carte_reseau_via_proprietes.png)
 
 ## Conclusion
-D'autres articles viendrons comme la création d'un domains, l'installation de l'Active Directory, l'ajout de GPO, l'ajout d'un serveur DNS, etc etc.
 
+Même si je ne suis pas un adepte de Windows, Windows Server est malheureusement très présent en entreprise, car il facilite la gestion d'un Domaine, la configuration de partages, la configuration de poste client, la mise en place de GPO, l'ajout d'un serveur DNS et plein d'autre chose.
+
+Nous venons de voir comment installer Windows Server 2019 ou 2022, de l'ajouter à un réseau cloisonné et de fixer son adresse IP. **Je ne suis pas expert en Windows Server que je découvre avec ma formation actuelle**. N'hésitez pas à me partager vos astuces et recommandations sur les réseaux sociaux.
+
+Les prochains articles, comme la création d'un Domaine, l'installation de l'Active Directory, l'ajout de GPO, l'ajout d'un serveur DNS, etc, vont arriver au fur et à mesure.
