@@ -1,7 +1,7 @@
 ---
 draft: true
 dossier: /windows_server_ajouter_domain
-title: Windows Server - Ajouter un Domaine pour un controle centralisé
+title: Windows Server - Ajouter un Domaine Ative Directory pour un controle centralisé
 description: sflkjdskj
 pubDate: 08.07.2024
 authors:
@@ -13,7 +13,7 @@ tags:
   - ""
 affiliateLink: false
 ---
-Comme dit dans l'article précédent sur l'installation de Windows Server, je ne suis pas un grand fan des outils des GAFAM, mais Microsoft avec Windows Server a su réunir et faciliter la gestion d'un parc informatique pour une entreprise ou une organisation via l'utilisation d'un **Domaine**.
+Comme dit dans l'article précédent sur l'installation de Windows Server, je ne suis pas un grand fan des outils des GAFAM, mais Microsoft avec Windows Server a su réunir et faciliter la gestion d'un parc informatique pour une entreprise ou une organisation via l'utilisation d'un **Domaine Active Directory**.
 
 Voici les **principaux avantages** de travailler en **domaine** avec Windows :
 
@@ -25,7 +25,9 @@ Voici les **principaux avantages** de travailler en **domaine** avec Windows :
 * *Sauvegarde facilitée :* Politiques de sauvegarde centralisées pour tous les postes.
 * *Support technique amélioré :* Prise en main à distance et résolution de problèmes facilitées.
 
-Nous allons commencer par donner un nom plus parlant à notre serveur et créer un domaine pour ce dernier. 
+Je ne vais pas vous expliquer ce qu'est un Active Directory ici, car je découvre seulement tout ça et iI y a de très bons tutos et très complet sur [IT-Connect](https://www.it-connect.fr/cours/notions-de-base-de-lactive-directory/) ou sur YouTube avec les vidéos d['IT-Connect](https://www.youtube.com/watch?v=fzZzpLD9EJM&list=PLSuzYIVSEUT4VSB0m0NdiML2V0PDWQyAN), [Cookie Connecté](https://www.youtube.com/watch?v=nhW-0qZzjy4) ou [FormIP](https://www.youtube.com/watch?v=AOv9wBPsu2s).
+
+Nous allons commencer par ajouter le rôle Domaine AD, donner un nom plus parlant à notre serveur et ajouter le domaine à notre serveur. 
 
 Actuellement le **nom** de notre machine est `WIN-F0S5E4L7FGC` avec le **groupe de travail** `WORKGROUP`.
 
@@ -45,6 +47,35 @@ Pour changer le nom de notre serveur, depuis le Gestionnaire de serveur, vous de
 
 ![Changer le nom de WIndows Server](.img/gestionnaire_serveur_changer_nome.png "Changer le nom de Windows Server")
 
-1. Validez puis redémarrez.
+4. Validez puis redémarrez.
 
 ![Demande de redémarrage de Windows Server](.img/gestionnaire_serveur_changer_nom_redemarrer.png "Demande de redémarrage de Windows Server")
+
+Votre Windows Server redémarré, nous allons passer à la création d'un domaine Active Directory.
+
+### Ajouter le rôle AD DS (Active Directory Domain Service)
+
+Dans le Gestionnaire de serveur, cliquez sur le `2 Ajouter des rôles et des fonctionnalités`, puis :
+
+1. La première page est une explication, cliquez sur le bouton `Suivant`,
+2. Choisir `Installation basée sur un rôle ou une fonctionnalité`, puis suivant,
+3. Choisir `Sélectionnez un serveur du pool de serveurs`, puis suivant,
+4. Dans la fenêtre suivante, sélectionnez `AD DS`, cliquez sur `Ajouter des fonctionnalités` depuis la nouvelle fenêtre qui s'affiche, puis sur suivant,
+5. Dans la fenêtre Sélectionner des fonctionnalités, cliquez sur suivant et faites de même pour la fenêtre suivante,
+6. Dans la fenêtre Confirmer les sélections d'installation, vous pouvez cocher la case `Redémarrer automatiquement le serveur de destination, si nécessaire` (on n'est pas sur une installation sensible) puis sur le bouton  `Installer`.
+
+![Etapes d'installation du rôle AD DS de Windows Server](.img/windows_server_installation_role_adds.png "Etapes d'installation du rôle AD DS de Windows Server")
+
+Une fois l'installation terminée, vous devez avoir un nouveau rôle dans le gestionnaire de serveur.
+
+![Rôle ADDS activé dans Windows Server](.img/windows_server_gestionnaire_serveur_adds_active.png "Rôle ADDS activé dans Windows Server")
+
+### Ajouter notre serveur au domaine
+
+Nous arrivons au bout de ce tutoriel, mais il nous reste le principal, l'ajout de notre serveur au Domaine que nous venons de créer, car pour le moment, il est toujours dans `WORKGROUP`.
+
+Nous retournons donc dans le Gestionnaire de serveur, puis Serveur local. Ensuite vous devez :
+
+1. Cliquez sur `WORKGROUP`,
+2. Cliquez sur le bouton `Modifier...`,
+3. Saisir le nom de l'ordinateur que vous souhaitez (ici `srvwin`)
