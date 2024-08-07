@@ -20,6 +20,8 @@ tags:
   - windows_server
 affiliateLink: false
 ---
+import Alert from "@components/mdx/Alert.astro";
+
 L'utilisation de machines virtuelles est devenue incontournable dans le monde informatique moderne, offrant flexibilité, économies et facilité de gestion. Parmi les solutions les plus populaires, on trouve VMware, un leader dans le domaine de la virtualisation.
 
 Quand on parle de serveur en entreprise, on parle souvent de Windows Server, le système d'exploitation serveur de Microsoft
@@ -47,10 +49,9 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 
    ![Sélection de l'image ISO de Windows Server](.img/vmware_new_machine_os.png "Sélection de l'image ISO de Windows Server")
 5. Saisir une clé de licence, sélectionnez la version Windows Server 2019 ou 2022 Standard, puis le nom de la machine et un mot de passe,
+  <Alert type="info">Vous pouvez récuperer une licence de test depuis le [site de Microsoft](https://learn.microsoft.com/fr-fr/windows-server/get-started/kms-client-activation-keys?tabs=server2019%2Cwindows10ltsc%2Cversion1803%2Cwindows81#windows-server-ltsc)</Alert>
 
-   > Vous pouvez récuperer une licence de test depuis le [site de Microsoft](https://learn.microsoft.com/fr-fr/windows-server/get-started/kms-client-activation-keys?tabs=server2019%2Cwindows10ltsc%2Cversion1803%2Cwindows81#windows-server-ltsc) 
-   >
-   > Il existe deux versions de Windows Server, une verison **Core** qui installe une version en PowerShell de Windows Server (sans UI) et une **classique avec une interface graphique,** nous utiliserons cette derniere.
+  <Alert type="info">Il existe deux versions de Windows Server, une verison **Core** qui installe une version en PowerShell de Windows Server (sans UI) et une **classique avec une interface graphique,** nous utiliserons cette derniere.</Alert>
 
 ![Configuration de Windows Server depuis VMware](.img/vmware_new_machine_key.png "Configuration de Windows Server depuis VMware")
 
