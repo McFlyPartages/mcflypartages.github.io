@@ -78,10 +78,20 @@ Cette configuration permet de créer des configurations réseau avancées pour s
 
 Permet de connecter des VMs entre elles sans passer par un switch virtuel. Utile pour isoler un groupe de VMs. C'est cette configuration que nous utiliserons pour simuler un parc informatique complet.
 
+#### Créer un LAN segment 
+Dans l'interface de VMware, allez sur votre VM Windows Server puis :
+1. `Clic-droit -> Settings...`,
+1. Dans `Network Adapter`, cliquez sur le bouton `LAN Segment...`,
+1. Dans la nouvelle fenêtre, cliquez sur `Add`, nommez votre réseau (ici `McFlyTuto`) et cliquez sur `OK` pour le valider,
+1. Sélectionnez `LAN segment` puis choisir votre réseau nouvellement créé,
+1. Validez le tout.
+![Ajouter et sélectionner un réseau Lan segment avec VMware](.img/vmware_lan_segment_add.png)
+
 ### Réseau interne
 
 Similaire au réseau **host-only**, mais sans connexion à l'hôte. Les VMs peuvent communiquer entre elles, mais sont entièrement isolées de l'hôte et de l'extérieur. À vous de configurer les adresses IP de vos VMs de manière statique.
 
 ## Conclusion
 
-Il est intéressant de créer vos VMs en mode NAT pour les connecter à internet et bénéficier des mises à jour. Ensuite, il vous suffit de créer un LAN-Segment pour simuler votre propre réseau en y ajoutant vos VMs clientes, serveurs, routeurs ou autres.
+Il est intéressant de créer vos VMs en mode NAT pour les connecter à internet et bénéficier des mises à jour. Ensuite, il vous suffit de créer un LAN-Segment pour simuler votre propre réseau en y ajoutant vos VMs clientes, serveurs, routeurs ou autres.import type { servicemanagement } from "googleapis/build/src/apis/servicemanagement";
+

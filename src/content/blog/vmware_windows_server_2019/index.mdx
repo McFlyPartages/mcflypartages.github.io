@@ -18,7 +18,7 @@ categories:
   - TSSR
 tags:
   - vmware
-  - windows_server
+  - windows-server
 affiliateLink: false
 ---
 import Alert from "@components/mdx/Alert.astro";
@@ -81,7 +81,10 @@ Nous allons installer Windows Server avec VMware. Pour cela :
 L'installation de Windows Server est terminé et VMware a installé VMware Tool permettant quelques manipulations entre les VMs et l'hôte. Il vous reste à effectuer les mises à jour de votre Windows Server (possible, car nous sommes en NAT).
 
 ## Préparons le futur
-Pour nos prochains articles sur Windows Server, nous allons travailler dans un réseau isolé. Pour cela, nous allons passer notre serveur sur un LAN Segment (je vous laisse regarder l'[article sur les réseaux avec VMware](/blog/vmware_gestion_reseaux/)).
+Pour nos prochains articles sur Windows Server, nous allons travailler dans un réseau isolé. Pour cela, nous allons passer notre serveur sur un LAN Segment (je vous laisse regarder l'[article sur les réseaux avec VMware](/blog/vmware_gestion_reseaux/)) que l'on va appeler `mcflytuto` et nous allons fixer l'IP de notre serveur Windows en `10.10.10.100`.
+### Fixer l'IP de Windows Server
 
+
+## Conclusion
 D'autres articles viendrons comme la création d'un domains, l'installation de l'Active Directory, l'ajout de GPO, l'ajout d'un serveur DNS, etc etc.
 
