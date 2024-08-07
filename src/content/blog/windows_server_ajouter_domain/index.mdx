@@ -13,6 +13,8 @@ tags:
   - ""
 affiliateLink: false
 ---
+import Alert from "@components/mdx/Alert.astro";
+
 Comme dit dans l'article précédent sur l'installation de Windows Server, je ne suis pas un grand fan des outils des GAFAM, mais Microsoft avec Windows Server a su réunir et faciliter la gestion d'un parc informatique pour une entreprise ou une organisation via l'utilisation d'un **Domaine Active Directory**.
 
 Voici les **principaux avantages** de travailler en **domaine** avec Windows :
@@ -25,7 +27,9 @@ Voici les **principaux avantages** de travailler en **domaine** avec Windows :
 * *Sauvegarde facilitée :* Politiques de sauvegarde centralisées pour tous les postes.
 * *Support technique amélioré :* Prise en main à distance et résolution de problèmes facilitées.
 
-Je ne vais pas vous expliquer ce qu'est un Active Directory ici, car je découvre seulement tout ça et il y a de très bons tutos et très complet sur [IT-Connect](https://www.it-connect.fr/cours/notions-de-base-de-lactive-directory/) ou sur YouTube avec les vidéos d['IT-Connect](https://www.youtube.com/watch?v=fzZzpLD9EJM&list=PLSuzYIVSEUT4VSB0m0NdiML2V0PDWQyAN), [Cookie Connecté](https://www.youtube.com/watch?v=nhW-0qZzjy4) ou [FormIP](https://www.youtube.com/watch?v=AOv9wBPsu2s).
+
+
+<Alert type="info">Je ne vais pas vous expliquer ce qu'est un Active Directory ici, car je découvre seulement tout ça et il y a de très bons tutos et très complet sur [IT-Connect](https://www.it-connect.fr/cours/notions-de-base-de-lactive-directory/) ou sur YouTube avec les vidéos d['IT-Connect](https://www.youtube.com/watch?v=fzZzpLD9EJM&list=PLSuzYIVSEUT4VSB0m0NdiML2V0PDWQyAN), [Cookie Connecté](https://www.youtube.com/watch?v=nhW-0qZzjy4) ou [FormIP](https://www.youtube.com/watch?v=AOv9wBPsu2s).</Alert>
 
 Nous allons commencer par ajouter le rôle Domaine AD, donner un nom plus parlant à notre serveur et ajouter le domaine à notre serveur. 
 
@@ -55,8 +59,6 @@ Votre Windows Server redémarré, nous allons passer à la création d'un domain
 
 ### Ajouter le rôle AD DS (Active Directory Domain Service)
 
-> Connectez-vous avec le compte Administrateur de Windows Server et le compte créé lors de l'installation
-
 Dans le Gestionnaire de serveur, cliquez sur le `2 Ajouter des rôles et des fonctionnalités`, puis :
 
 1. La première page est une explication, cliquez sur le bouton `Suivant`,
@@ -82,16 +84,14 @@ Cliquez sur `Promouvoir ce serveur en contrôleur de domaine`, une fenêtre s'ou
 2. Saisir le nom de votre domaine racine (ici mcflypartages.tuto)
 3. Dans la fenêtre suivante, laissez Windows Server 2016 (pour notre utilisation), laissez cocher `Serveur DNS` et saisissez un mot de passe de restauration.
 
-> Ce choix doit se faire en fonction des versions de Windows Server que vous avez dans votre domaine en s'adaptant a la version la plus basse disponnible dans votre domaine. Nous avons une seule installation de Windows Server (celle-ci) qui est en 2022 ou 2019.
-
-
+<Alert type="info">Ce choix doit se faire en fonction des versions de Windows Server que vous avez dans votre domaine en s'adaptant a la version la plus basse disponnible dans votre domaine. Nous avons une seule installation de Windows Server (celle-ci) qui est en 2022 ou 2019.</Alert>
 
 1. La fenêtre suivante vous affiche une erreur de DNS, mais c'est normale, cliquez sur `Suivant`,
 2. Donnez un nom NetBIOS (un nom court, ici MFP), puis Suivant,
 3. Laissez les fenêtres suivantes par défaut jusqu'à la `Vérification de la configuration requise`,
 4. Il y a quelques Warnings, mais vous pouvez passer à l'installation.
 
-> ATTENTION : Nous ne l'avons pas vu, mais par défaut, le compte Administrateur de Windows Server n'a pas de mot de passe (la sécurité sous Windows ;)). Si vous n'avez pas défini de mot de passe pour ce dernier, il vous refusera la configuration d'AD DS et donc son installation.
+<Alert type="warning">ATTENTION : Nous ne l'avons pas vu, mais par défaut, le compte Administrateur de Windows Server n'a pas de mot de passe (la sécurité sous Windows ;)). Si vous n'avez pas défini de mot de passe pour ce dernier, il vous refusera la configuration d'AD DS et donc son installation.</Alert>
 
 ![Etapes de configuration du rôle AD DS](.img/adds_configuration.png "Etapes de configuration du rôle AD DS")
 
