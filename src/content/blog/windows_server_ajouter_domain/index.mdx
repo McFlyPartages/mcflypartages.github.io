@@ -1,0 +1,127 @@
+---
+draft: false
+dossier: /windows_server_ajouter_domain
+title: Windows Server - Ajouter un Domaine Ative Directory pour un controle centralisé
+description: >-
+  Active Directory (AD) est un service d'annuaire développé par Microsoft pour
+  les réseaux Windows. Son installation est une étape cruciale pour les
+  entreprises souhaitant centraliser la gestion de leurs ressources
+  informatiques.
+
+  Cet article vous guidera à travers les étapes essentielles de l'installation d'un domaine AD
+pubDate: 08.08.2024
+heroImage: .img/windows_server_installation_adds.png
+authors:
+  - mcfly
+categories:
+  - TSSR
+tags:
+  - windows-server
+  - active-directory
+  - ""
+affiliateLink: false
+---
+import Alert from "@components/mdx/Alert.astro";
+
+Comme dit dans l'article précédent sur l'installation de Windows Server, je ne suis pas un grand fan des outils des GAFAM, mais Microsoft avec Windows Server a su réunir et faciliter la gestion d'un parc informatique pour une entreprise ou une organisation via l'utilisation d'un **Domaine Active Directory**.
+
+Voici les **principaux avantages** de travailler en **domaine** avec Windows :
+
+* *Gestion centralisée :* Permet d'administrer facilement un grand nombre d'ordinateurs depuis un point central.
+* *Sécurité renforcée :* Politiques de groupe, authentification centralisée, contrôle d'accès plus fin.
+* *Partage de ressources simplifié :* Fichiers, imprimantes et autres ressources partagées plus simplement.
+* *Profils itinérants :* Les utilisateurs retrouvent leur environnement sur n'importe quel poste du domaine.
+* *Mises à jour centralisées :* Déploiement de mises à jour et de logiciels plus efficace.
+* *Sauvegarde facilitée :* Politiques de sauvegarde centralisées pour tous les postes.
+* *Support technique amélioré :* Prise en main à distance et résolution de problèmes facilitées.
+
+
+
+<Alert type="info">Je ne vais pas vous expliquer ce qu'est un Active Directory ici, car je découvre seulement tout ça et il y a de très bons tutos et très complets sur [IT-Connect](https://www.it-connect.fr/cours/notions-de-base-de-lactive-directory/) ou sur YouTube avec les vidéos d['IT-Connect](https://www.youtube.com/watch?v=fzZzpLD9EJM&list=PLSuzYIVSEUT4VSB0m0NdiML2V0PDWQyAN), [Cookie Connecté](https://www.youtube.com/watch?v=nhW-0qZzjy4) ou [FormIP](https://www.youtube.com/watch?v=AOv9wBPsu2s).</Alert>
+
+Nous allons commencer par ajouter le rôle Domaine AD, donner un nom plus parlant à notre serveur et ajouter le domaine à notre serveur. 
+
+Actuellement, le **nom** de notre machine est `WIN-F0S5E4L7FGC` avec le **groupe de travail** `WORKGROUP`.
+
+![Interface du Gestionnaire de serveur par défaut](.img/gestionnaire_serveur_defaut.png "Interface du Gestionnaire de serveur par défaut")
+
+## Ajouter un Domaine
+
+Comme je l'ai dit plus haut, nous allons d'abord changer le nom de notre serveur.
+
+### Changer le nom du serveur
+
+Pour changer le nom de notre serveur, depuis le Gestionnaire de serveur, vous devez :
+
+1. Cliquez sur le Nom de l'ordinateur,
+2. Cliquez sur le bouton `Modifier...`,
+3. Saisir le nom de l'ordinateur que vous souhaitez (ici `srvwin`),
+
+![Changer le nom de Windows Server](.img/gestionnaire_serveur_changer_nome.png "Changer le nom de Windows Server")
+
+4. Validez puis redémarrez.
+
+![Demande de redémarrage de Windows Server](.img/gestionnaire_serveur_changer_nom_redemarrer.png "Demande de redémarrage de Windows Server")
+
+Votre Windows Server redémarré, nous allons passer à la création d'un domaine Active Directory.
+
+### Ajouter le rôle AD DS (Active Directory Domain Service)
+
+Dans le Gestionnaire de serveur, cliquez sur le `2 Ajouter des rôles et des fonctionnalités`, puis :
+
+1. La première page est une explication, cliquez sur le bouton `Suivant`,
+2. Choisir `Installation basée sur un rôle ou une fonctionnalité`, puis suivant,
+3. Choisir `Sélectionnez un serveur du pool de serveurs`, puis suivant,
+4. Dans la fenêtre suivante, sélectionnez `AD DS`, cliquez sur `Ajouter des fonctionnalités` depuis la nouvelle fenêtre qui s'affiche, puis sur suivant,
+5. Dans la fenêtre Sélectionner des fonctionnalités, cliquez sur suivant et faites de même pour la fenêtre suivante,
+6. Dans la fenêtre Confirmer les sélections d'installation, vous pouvez cocher la case `Redémarrer automatiquement le serveur de destination, si nécessaire` (on n'est pas sur une installation sensible) puis sur le bouton  `Installer`.
+
+![Étapes d'installation du rôle AD DS de Windows Server](.img/windows_server_installation_role_adds.png "Étapes d'installation du rôle AD DS de Windows Server")
+
+Une fois l'installation terminée, vous devez avoir un nouveau rôle dans le Gestionnaire de serveur et un petit triangle orange en haut à droite du Gestionnaire de serveur.
+
+![Rôle ADDS activé dans Windows Server](.img/windows_server_gestionnaire_serveur_adds_active.png "Rôle ADDS activé dans Windows Server")
+
+Ce Triangle orange nous indique qu'il y a une configuration nécessaire (suite à l'installation de AD DS).
+
+![Avertissement de configuration post install du rôle AD DS de Windows Server](.img/windows_server_adds_warning.png "Avertissement de configuration post install du rôle AD DS de Windows Server")
+
+Cliquez sur `Promouvoir ce serveur en contrôleur de domaine`, une fenêtre s'ouvre nous permettant de configurer le rôle AD DS.
+
+1. Sélectionnez `Ajouter une nouvelle forêt`,
+2. Saisir le nom de votre domaine racine (ici mcflypartages.tuto)
+3. Dans la fenêtre suivante, laissez Windows Server 2016 (pour notre utilisation), laissez cocher `Serveur DNS` et saisissez un mot de passe de restauration.
+
+<Alert type="info">Ce choix doit se faire en fonction des versions de Windows Server que vous avez dans votre domaine en s'adaptant à la version la plus basse disponible dans votre domaine. Nous avons une seule installation de Windows Server (celle-ci) qui est en 2022 ou 2019.</Alert>
+
+1. La fenêtre suivante vous affiche une erreur de DNS, mais c'est normale, cliquez sur `Suivant`,
+2. Donnez un nom NetBIOS (un nom court, ici MFP), puis Suivant,
+3. Laissez les fenêtres suivantes par défaut jusqu'à la `Vérification de la configuration requise`,
+4. Il y a quelques Warnings, mais vous pouvez passer à l'installation.
+
+<Alert type="warning">ATTENTION : Nous ne l'avons pas vu, mais par défaut, le compte Administrateur de Windows Server n'a pas de mot de passe (la sécurité sous Windows ;)). Si vous n'avez pas défini de mot de passe pour ce dernier, il vous refusera la configuration d'AD DS et donc son installation.</Alert>
+
+![Étapes de configuration du rôle AD DS](.img/adds_configuration.png "Étapes de configuration du rôle AD DS")
+
+Pendant l'installation, il va vous déconnecter puis procéder à l'installation de l'AD.
+
+Reconnectez-vous et vous devriez avoir votre serveur directement configuré dans votre domaine (vérifiez-le dans le Serveur local depuis le Gestionnaire de serveur).
+
+
+## Conclusion
+
+Nous venons de voir comment changer le nom de notre serveur Windows Server et comment créer et ajouter un Domaine Active Directory.
+
+Mes articles sur le sujet sont plus des notes personnelles, plutôt que des vrais tutoriels professionnels, je ne peux que vous encourager à suivre les articles de IT-Connect, Coockie Connectée ou FormIP qui sont plus légitimes que moi dans le domaine.
+
+
+À bientôt pour d'autres notes sur Windows Server.
+
+
+## Sources
+
+Chaîne YouTube
+
+* [Cookie Connecté](https://www.youtube.com/c/Cookieconnect%C3%A9)
+* [IT-Connect](https://www.youtube.com/@IT-Connect) && Playlist [Active Directory](https://www.youtube.com/watch?v=K8j4LuOG8X0&list=PLSuzYIVSEUT5ZXGVVP8LBw2B7GS2uaNhJ) && Articles écrits sur [Active Directory](https://www.it-connect.fr/tag/active-directory/)
+* [FormIP](https://www.youtube.com/@Formip)
