@@ -28,7 +28,7 @@ Commençons par la base que nous connaissons tous le calcul en base décimale.
 
 Le calcul décimal se réfère aux opérations mathématiques effectuées dans le système de numération décimal, qui est le système de numération le plus utilisé au quotidien. Ce système est basé sur dix chiffres (0 à 9) et fonctionne en base 10. Chaque chiffre dans un nombre a une position qui représente une puissance de 10.
 
-Principes de base du système décimal
+### Principes de base du système décimal
 
 Base 10 : Le système décimal est un système de numération en base 10, ce qui signifie qu'il utilise dix chiffres différents (0, 1, 2, 3, 4, 5, 6, 7, 8, 9).
 
@@ -50,7 +50,7 @@ Le calcul binaire est une méthode de calcul dans laquelle les nombres sont repr
 
 
 
-Principes de base du système binaire
+### Principes de base du système binaire
 
 Base 2 : Le système binaire utilise deux chiffres : 0 et 1.
 
@@ -100,19 +100,171 @@ Voici un tableau de conversion :
 
 15 = 1111 = 1\*2^3 + 1\*2^2 + 1\*2^1 + 1\*2^0
 
+### Conversion entre le binaire et le décimal
 
+**Décimal à Binaire :** Divisez le nombre décimal par 2, notez le reste, et continuez jusqu'à ce que le quotient soit 0. Les restes lus à l'envers donnent le nombre binaire.
+
+**Binaire à Décimal :** Multipliez chaque bit par sa puissance de 2 correspondante et additionnez les résultats.
+
+### Utilisation du système binaire
+
+Le système binaire est crucial pour l'informatique, car les ordinateurs utilisent des bits (0 et 1) pour représenter et manipuler toutes sortes d'informations, des données numériques aux instructions de traitement.
+
+En résumé, le calcul binaire est simple en termes de règles, mais extrêmement puissant, car il constitue la base du fonctionnement des systèmes informatiques.
 
 ## La base 8 (Octale)
 
-Il faudra multiplier chaque chiffre par 8^N en fonction de son emplacement pour le passer en décimal.
+La base octale est un système de numération en base 8, ce qui signifie qu'il utilise huit chiffres distincts : 0, 1, 2, 3, 4, 5, 6, et 7. Chaque chiffre en position dans un nombre octal représente une puissance de 8. Le système octal est moins couramment utilisé que les systèmes décimal ou binaire, mais il a une importance historique en informatique et en électronique, notamment pour représenter de manière compacte les nombres binaires.
 
-56 en base 8 = 5\*8^1+6\*8^0 = 40+6 = 46 en base 10
+### Principes de base du système octal
 
-56 en base 8 = 100 110 en base 2
+Base 8 : Le système octal utilise les chiffres de 0 à 7.
 
+Position des chiffres : Comme dans d'autres systèmes de numération, chaque position dans un nombre octal correspond à une puissance de la base, ici 8. Par exemple, dans le nombre octal 745₈ :
 
+Le chiffre 5 est en position des unités (8^0),
+
+Le chiffre 4 est en position des huitièmes (8^1),
+
+Le chiffre 7 est en position des soixante-quatrièmes (8^2).
+
+Le nombre 745₈ peut donc être décomposé en :
+
+745 en base 8 =7×8^2+4×8^1+5×8^0= 485 en base 10
+
+### Conversion entre octal et d'autres systèmes
+
+Octal à Binaire : Chaque chiffre octal peut être directement converti en un groupe de trois bits (par exemple, 7₈ = 111₂).
+
+Exemple : 745₈ = 111100101₂
+
+Binaire à Octal : Regroupez les bits par trois, en commençant par la droite, et convertissez chaque groupe en un chiffre octal.
+
+Exemple : 110101₂ = 65₈
+
+Octal à Décimal : Multipliez chaque chiffre octal par la puissance de 8 correspondante et additionnez les résultats.
+
+Exemple : 57₈ = 5×8 + 7×1 = 47₁₀
+
+Décimal à Octal : Divisez le nombre décimal par 8, en notant les restes. Lisez les restes de bas en haut pour obtenir le nombre octal.
+
+Exemple : 485₁₀ = 745₈
+
+**Utilisation du système octal**
+
+Le système octal a été utilisé historiquement en informatique pour représenter les nombres binaires de manière plus compacte, surtout à une époque où les calculatrices et les ordinateurs utilisaient des groupes de 3 bits. Bien qu'il soit moins utilisé aujourd'hui, il reste utile pour certaines applications en électronique et en programmation bas niveau.
+
+En résumé, la base octale est un système de numération pratique qui permet une représentation plus concise des nombres binaires et simplifie certaines opérations informatiques.
 
 ## La base 16 (Hexadécimale)
+
+La base hexadécimale est un système de numération en base 16, ce qui signifie qu'elle utilise seize symboles différents pour représenter les valeurs. Ces symboles sont les chiffres de 0 à 9 et les lettres de A à F, où A représente 10, B représente 11, et ainsi de suite jusqu'à F, qui représente 15. Ce système est très utilisé en informatique et en électronique, car il offre une manière compacte de représenter les nombres binaires.
+
+
+
+Principes de base du système hexadécimal
+
+Base 16 : Les chiffres utilisés sont 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A (10), B (11), C (12), D (13), E (14), et F (15).
+
+Position des chiffres : Chaque chiffre dans un nombre hexadécimal représente une puissance de 16. Par exemple, dans le nombre hexadécimal 3A7F₁₆ :
+
+Le chiffre F représente 15 et est à la position des unités (16^0),
+
+Le chiffre 7 est à la position des seizièmes (16^1),
+
+Le chiffre A (10 en décimal) est à la position des deux-cent-cinquante-sixièmes (16^2),
+
+Le chiffre 3 est à la position des quatre-mille-quatre-vingt-seizièmes (16^3).
+
+Le nombre 3A7F₁₆ peut être converti en décimal comme suit :
+
+3
+
+𝐴
+
+7
+
+𝐹
+
+16
+
+\=
+
+3
+
+×
+
+4096
+
++
+
+10
+
+×
+
+256
+
++
+
+7
+
+×
+
+16
+
++
+
+15
+
+×
+
+1
+
+\=
+
+1497
+
+5
+
+10
+
+3A7F 
+
+16
+
+​
+
+\=3×4096+10×256+7×16+15×1=14975 en base 10
+
+​
+
+Conversion entre hexadécimal et d'autres systèmes
+
+Hexadécimal à Binaire : Chaque chiffre hexadécimal correspond à un groupe de quatre bits (par exemple, F₁₆ = 1111₂).
+
+Exemple : 3A7F₁₆ = 0011101001111111₂
+
+Binaire à Hexadécimal : Regroupez les bits en groupes de quatre, en commençant par la droite, et convertissez chaque groupe en un chiffre hexadécimal.
+
+Exemple : 110101111₂ = 1AF₁₆
+
+Hexadécimal à Décimal : Multipliez chaque chiffre hexadécimal par la puissance de 16 correspondante et additionnez les résultats.
+
+Exemple : 1C3₁₆ = 1×256 + 12×16 + 3×1 = 451₁₀
+
+Décimal à Hexadécimal : Divisez le nombre décimal par 16, en notant les restes. Lisez les restes de bas en haut pour obtenir le nombre hexadécimal.
+
+Exemple : 451₁₀ = 1C3₁₆
+
+Utilisation du système hexadécimal
+
+Le système hexadécimal est couramment utilisé en informatique pour représenter les adresses mémoire, les couleurs en CSS (par exemple, #FFFFFF pour le blanc), et d'autres données compactes. Sa principale utilité vient du fait qu'il est beaucoup plus compact que le binaire et plus facile à convertir directement en binaire que le système décimal.
+
+
+
+En résumé, la base hexadécimale est un système de numération efficace et pratique pour représenter des informations binaires de manière condensée et lisible. Elle est essentielle dans le domaine de l'informatique et des technologies numériques.
+
+
 
 Il faudra multiplier chaque chiffre par 16^N en fonction de son emplacement pour le passer en décimal.
 
