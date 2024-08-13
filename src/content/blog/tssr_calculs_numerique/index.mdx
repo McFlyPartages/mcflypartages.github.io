@@ -1,0 +1,33 @@
+---
+draft: true
+dossier: /tssr_calculs_numerique
+title: Calculs Nulerique - Decimal, Binaire, Octal, Hexadécimal
+description: ghryur
+pubDate: 08/13/2024
+authors:
+  - mcfly
+categories:
+  - TSSR
+affiliateLink: false
+---
+import Alert from "@components/mdx/Alert.astro";
+
+Comme vous le savez, un ordinateur fonctionne en binaire, ça veut dire une suite de 0 et de 1. Parfois, certains matériels peuvent travailler en Hexadécimal ou en Octal.
+
+Pour la bonne compréhension des prochains articles sur les adresses IP V4 et V6, nous allons revoir les bases du calcul numérique (c'est surtout pour me faire une note écrite ;)). Le calcul décimal, binaire, octal ou hexadécimal et le passage de l'un a l'autre n'aura plus de secret pour vous.
+
+Que l'on soit dans n'import quelle base, il faudra additionner chaque chiffre par la base B exposant N en fonction de sa position, en partant de la droite vers la gauche. Sachez aussi que le premier exposant sera 0 puis 1,2,3,4,5, etc.
+
+Exemple général : 246 en base B donne 2\*B^2 + 4\*B^1 + 6*B^0.
+
+<Alert type="info">^0 revient à multiplier par 1</Alert>
+
+Commençons par la base que nous connaissons tous le calcul en base décimale.
+
+
+
+## La base 10 (décimale)
+
+Euh, qu'est-ce que la base décimale ? Celle que l'on utilise tous les jours pour les chiffres.
+
+Si on prend le chiffre 246, c'est égale à 6\*10^0 + 4\*10^1 + 2*10^2
