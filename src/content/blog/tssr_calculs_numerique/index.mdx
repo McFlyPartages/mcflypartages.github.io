@@ -24,10 +24,74 @@ Exemple général : 246 en base B donne 2\*B^2 + 4\*B^1 + 6*B^0.
 
 Commençons par la base que nous connaissons tous le calcul en base décimale.
 
-
-
 ## La base 10 (décimale)
 
 Euh, qu'est-ce que la base décimale ? Celle que l'on utilise tous les jours pour les chiffres.
 
-Si on prend le chiffre 246, c'est égale à 6\*10^0 + 4\*10^1 + 2*10^2
+Si on prend le chiffre 246, c'est égale à 6*10^0 **+** 4*10^1 **+** 2*10^2 = 6+40+200 = 246
+
+Jusque-là, rien de compliqué.
+
+
+
+## La base 2 (Binaire)
+
+La base binaire est une suite de 0 et de 1. Quand vous avez 1, il faudra le multiplier par 2^N en fonction de son emplacement.
+
+Maintenant voyons un tableau de conversion de décimale à binaire.
+
+00 = 0000 = 0*2^0
+
+01 = 0001 = 1*2^0
+
+02 = 0010 = 1\*2^1 + 0\*2^0
+
+03 = 0011 = 1\*2^1 + 1\*2^0
+
+04 = 0100 = 1\*2^2 + 0\*2^1 + 0*2^0
+
+05 = 0101 = 1\*2^2 + 0\*2^1 + 1*2^0
+
+06 = 0110 = 1\*2^2 + 1\*2^1 + 0*2^0
+
+07 = 0111 = 1\*2^2 + 1\*2^1 + 1*2^0
+
+08 = 1000 = 1\*2^3 + 0\*2^2 + 0\*2^1 + 0\*2^0
+
+09 = 1001 = 1\*2^3 + 0\*2^2 + 0\*2^1 + 1\*2^0
+
+10 = 1010 = 1\*2^3 + 0\*2^2 + 1\*2^1 + 0\*2^0
+
+11 = 1011 = 1\*2^3 + 0\*2^2 + 1\*2^1 + 1\*2^0
+
+12 = 1100 = 1\*2^3 + 1\*2^2 + 0\*2^1 + 0\*2^0
+
+13 = 1101 = 1\*2^3 + 1\*2^2 + 0\*2^1 + 1\*2^0
+
+14 = 1110 = 1\*2^3 + 1\*2^2 + 1\*2^1 + 0\*2^0
+
+15 = 1111 = 1\*2^3 + 1\*2^2 + 1\*2^1 + 1\*2^0
+
+
+
+## La base 8 (Octale)
+
+Il faudra multiplier chaque chiffre par 8^N en fonction de son emplacement pour le passer en décimal.
+
+56 en base 8 = 5\*8^1+6\*8^0 = 40+6 = 46 en base 10
+
+56 en base 8 = 100 110 en base 2
+
+
+
+## La base 16 (Hexadécimale)
+
+Il faudra multiplier chaque chiffre par 16^N en fonction de son emplacement pour le passer en décimal.
+
+Attention la base 
+
+56 en base 16 = 5\*16^1+6\*16^0 = 80+6 = 86 en base 10
+
+Pour passer de base 16 a binaire, il est préférable de passer par le décimal.
+
+56 en base 16 = 1000 0110 en base 2
