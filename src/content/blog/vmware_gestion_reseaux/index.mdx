@@ -43,11 +43,15 @@ La machine virtuelle est connectée directement au réseau physique. Elle obtien
 
 Votre VM est visible par n'importe qu'elle machine de votre réseau.
 
+![Réseau Bridge (src : OpenClassRooms)](.img/reseaux_bridge.png "Réseau Bridge (src: OpenClassRooms)")
+
 ### NAT (Network Address Translation) :
 
 La VM utilise l'adresse IP de l'hôte pour communiquer avec l'extérieur. C'est complètement transparent pour vous. La machine hôte fait office de routeur pour la VM.
 
 Permet d'accéder à Internet depuis la VM sans configuration réseau supplémentaire.
+
+![Réseau NAT (src : OpenClassRooms)](.img/reseaux_nat.png "Réseaux NAT (src :  OpenClassRooms)")
 
 ### Réseau privé hôte (Host-only)
 
@@ -78,13 +82,17 @@ Cette configuration permet de créer des configurations réseau avancées pour s
 
 Permet de connecter des VMs entre elles sans passer par un switch virtuel. Utile pour isoler un groupe de VMs. C'est cette configuration que nous utiliserons pour simuler un parc informatique complet.
 
-#### Créer un LAN segment 
+![Réseau LAN Segment (src : OpenClassRooms)](.img/reseaux_lan_segment.png "Réseau LAN Segment (src : OpenClassRooms)")
+
+#### Créer un LAN segment
+
 Dans l'interface de VMware, allez sur votre VM Windows Server puis :
+
 1. `Clic-droit -> Settings...`,
-1. Dans `Network Adapter`, cliquez sur le bouton `LAN Segment...`,
-1. Dans la nouvelle fenêtre, cliquez sur `Add`, nommez votre réseau (ici `McFlyTuto`) et cliquez sur `OK` pour le valider,
-1. Sélectionnez `LAN segment` puis choisir votre réseau nouvellement créé,
-1. Validez le tout.
+2. Dans `Network Adapter`, cliquez sur le bouton `LAN Segment...`,
+3. Dans la nouvelle fenêtre, cliquez sur `Add`, nommez votre réseau (ici `McFlyTuto`) et cliquez sur `OK` pour le valider,
+4. Sélectionnez `LAN segment` puis choisir votre réseau nouvellement créé,
+5. Validez le tout.
 
 ![Ajouter et sélectionner un réseau Lan segment avec VMware](.img/vmware_lan_segment_add.png)
 
@@ -95,3 +103,9 @@ Similaire au réseau **host-only**, mais sans connexion à l'hôte. Les VMs peuv
 ## Conclusion
 
 Il est intéressant de créer vos VMs en mode NAT pour les connecter à internet et bénéficier des mises à jour. Ensuite, il vous suffit de créer un LAN-Segment pour simuler votre propre réseau en y ajoutant vos VMs clientes, serveurs, routeurs ou autres.
+
+
+
+#### Source
+
+* https://openclassrooms.com/fr/courses/2035806-virtualisez-votre-architecture-et-vos-environnements-de-travail/6313956-faites-communiquer-vos-machines-entre-elles
