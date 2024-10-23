@@ -8,7 +8,7 @@ description: Vous cherchez un NAS  4 baies et pas cher (moins de 200 euros),
   voir ensemble comment réaliser cela avec un HP MicroServer Gen 8, Proxmox ou
   pas et OpenMediaVault.
 pubDate: 10/23/2024
-heroImage: ""
+heroImage: .img/hp_gen_8_proxmox_omv.png
 authors:
   - mcfly
 categories:
@@ -46,6 +46,8 @@ OpenMediaVault (OMV) est un système d'exploitation basé sur Debian, conçu pou
 3. Pour une installation Barre Métal, suivez le tuto sur l'[installation d'un OS sur le HP Gen 8](/blog/hp_gen_8_mise_en_place/) ou suivez celui de l'[ajout d'une VM dans Proxmox](/blog/proxmox_installation/).
 
 L'installation de OMV se déroule comme n'importe quelle [installation de Debian](/blog/linux_debian_12_installation/) dont vous avez un exemple [ici](/blog/linux_debian_12_installation/).
+
+Ensuite, rendez-vous sur l'adresse IP de votre OpenMediaVault et connectez-vous avec le couple login/mot de passe par défaut **admin/openmediavault**.
 
 ### Ajouter vos disques dur en "Passthrought" (Uniquement sur Proxmox)
 
@@ -113,33 +115,7 @@ Vérifiez en vous rendant dans le menu Hardware (Matériel) de votre VM comme l'
 
 ![Menu hardware de Proxmox 8](.img/proxmox_passthrought_disque.png "Menu Hardware de Proxmox 8")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Appuyer sur <kbd>F11</kbd>,
-
-* Sélectionner le numéro de votre clé (Attention le pavé numérique ne fonctionne pas, il faut utiliser la <kbd>MAJ</kbd>+<kbd>1,2,3,4,...</kbd>,
-* Sélectionnez votre distribution (ici OpenMediaVault),
-* Suivez les étapes **ATTENTION** de bien sélectionner le bon disque dur et de mettre un mot de passe `root` solide (*il sert pour la connexion SSH en root*).
-
-Une fois l'installation terminée, débrancher la clé USB et redémarrer.
-
-Ensuite, rendez-vous sur l'adresse IP de votre serveur (pas celle de l'iLO) et connectez-vous avec le couple login/mot de passe par défaut **admin/openmediavault**.
+Vos disques sont maintenant directement associés à votre VM OpenMediaVault.
 
 ## Conclusion
 
