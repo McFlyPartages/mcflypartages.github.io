@@ -41,11 +41,8 @@ OpenMediaVault (OMV) est un système d'exploitation basé sur Debian, conçu pou
 
 *Dans cet article, je vais installer la solution OpenMediaVault en tant que machine virtuelle Proxmox, mais le principe reste le même pour une installation en barre métal.*
 
-
 1. Récupérer la dernière version de [OpenMediaVault](https://www.openmediavault.org/download.html),
-
 2. Importer l'ISO dans les ISOs Proxmox ou ajouter l'ISO sur [votre clé Ventoy](/blog/ventoy_installation_update/) (pour une installation sans Proxmox)
-
 3. Pour une installation Barre Métal, suivez le tuto sur l'[installation d'un OS sur le HP Gen 8](/blog/hp_gen_8_mise_en_place/) ou suivez celui de l'[ajout d'une VM dans Proxmox](/blog/proxmox_installation/).
 
 L'installation de OMV se déroule comme n'importe quelle [installation de Debian](/blog/linux_debian_12_installation/) dont vous avez un exemple [ici](/blog/linux_debian_12_installation/).
@@ -59,21 +56,28 @@ Pour les installations Barre Metal, vous devez voir les disques directement depu
 Nous allons commencer par lister les disques présents sur le système.
 
 1. Rendez-vous dans l'interface de votre nœud Proxmox puis dans le Shell.
-
 2. Lancer la commande `fdisk -l` pour lister tous les disques présents et récupérer les chemins `/dev/sdx` des disques à attribuer à votre OMV.
 
 <Alert type="danger">Il y a votre disque système alors ne vous trompez pas</Alert>
 
-3. Nous allons récupérer lUUID des disques avec la commande suivant `lsblk -l -o NAME,PARTUUID /dev/sdaX` qui doit vous retourner quelques chose comme ça.
+3. Nous allons récupérer l'UUID des disques avec la commande suivant `lsblk -l -o NAME,PARTUUID /dev/sdaX` qui doit vous retourner quelques chose comme ça.
 
-* Appuyer sur <span><kbd>F11</kbd><span>,
-* Sélectionner le numéro de votre clé (Attention le pavé numérique ne fonctionne pas, il faut utiliser la <span><kbd>MAJ</kbd></span>+<span><kbd>1,2,3,4,...</kbd></span>,
+
+
+
+
+* Appuyer sur <kbd>F11</kbd>,
+* Sélectionner le numéro de votre clé (Attention le pavé numérique ne fonctionne pas, il faut utiliser la <kbd>MAJ</kbd>+<kbd>1,2,3,4,...</kbd>,
 * Sélectionnez votre distribution (ici OpenMediaVault),
 * Suivez les étapes **ATTENTION** de bien sélectionner le bon disque dur et de mettre un mot de passe `root` solide (*il sert pour la connexion SSH en root*).
 
 Une fois l'installation terminée, débrancher la clé USB et redémarrer.
 
 Ensuite, rendez-vous sur l'adresse IP de votre serveur (pas celle de l'iLO) et connectez-vous avec le couple login/mot de passe par défaut **admin/openmediavault**.
+
+
+
+
 
 ## Conclusion
 
