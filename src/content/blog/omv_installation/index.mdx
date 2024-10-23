@@ -1,0 +1,120 @@
+---
+draft: true
+dossier: /hp_gen_8_omv_nas_diy
+title: HP MicroServer Gen8 - Proxmox (ou pas) et OpenMediaVault pour un NAS au
+  top et pas cher
+description: Vous cherchez un NAS  4 baies et pas cher (moins de 200 euros),
+  mais évolutif, permettant de faire un peu de Docker voir des VMs. Nous allons
+  voir ensemble comment réaliser cela avec un HP MicroServer Gen 8, Proxmox ou
+  pas et OpenMediaVault.
+pubDate: 10/23/2024
+heroImage: .img/hp_gen_8_proxmox_omv.png
+authors:
+  - mcfly
+categories:
+  - hp gen 8
+  - proxmox
+tags:
+  - HP Gen 8
+  - OpenMediaVault
+  - NAS
+  - Proxmox
+affiliateLink: true
+---
+import Alert from "@components/mdx/Alert.astro";
+
+Cela fait quelques années que j'utilise un NAS fait maison. Au début, c'était un PC sous Debian avec une installation en bare metal des différents services. Puis j'ai voulu réduire la place que prenait ce PC, j'ai donc acheté un boîtier format NAS, le [Fractal Design Node 804](https://amzn.to/4ffGbi9).
+
+Ensuite, pour maitriser au mieux la consommation électrique, je suis repassé sur un NAS à base de Raspberry Pi avec le boitier [Argon EON Pi NAS](https://amzn.to/4hcGZWR) et une [Raspberry Pi 4](https://amzn.to/48fFXW9) avec [OpenMediaVault](https://www.openmediavault.org/). Le tout marchait très bien.
+
+Actuellement, mon NAS est sur un HP MicroServer Gen 8 qui se trouve d'occasion à moins de 200 euros avec quelques disques. Ce qui est génial avec ce MicroServer, c'est que vous n'aurez jamais besoin de brancher un écran dessus, même pour installer un OS, grâce au système iLO de HP.
+
+Pour en savoir plus sur le HP MicroServer Gen 8, j'ai fait un [article sur l'installation d'un OS avec une présentation et quelques explications](/blog/hp_gen_8_mise_en_place/).
+
+Passons maintenant à [OpenMediaVault](https://www.openmediavault.org/).
+
+## OpenMediaVault ?
+
+OpenMediaVault (OMV) est un système d'exploitation basé sur Debian, conçu pour créer et gérer un serveur de stockage en réseau (NAS). Il vous permet de partager et de sauvegarder vos fichiers, avec des protocoles comme SMB/CIFS, FTP, NFS et SSH. Cette solution offre une interface web intuitive pour la gestion des disques, des utilisateurs, des permissions et des services réseau. Il supporte les plugins pour ajouter des fonctionnalités et aussi la conteneurisation avec Docker. OMV est facile à installer et à configurer sans nécessiter de grandes compétences techniques.
+
+### Installation d'OMV
+
+<Alert type="info">Dans cet article, je vais installer la solution OpenMediaVault en tant que machine virtuelle Proxmox, mais le principe reste le même pour une installation en barre métal.</Alert>
+
+1. Récupérer la dernière version de [OpenMediaVault](https://www.openmediavault.org/download.html),
+2. Importer l'ISO dans les ISOs Proxmox ou ajouter l'ISO sur [votre clé Ventoy](/blog/ventoy_installation_update/) (pour une installation sans Proxmox)
+3. Pour une installation Barre Métal, suivez le tuto sur l'[installation d'un OS sur le HP Gen 8](/blog/hp_gen_8_mise_en_place/) ou suivez celui de l'[ajout d'une VM dans Proxmox](/blog/proxmox_installation/).
+
+L'installation de OMV se déroule comme n'importe quelle [installation de Debian](/blog/linux_debian_12_installation/) dont vous avez un exemple [ici](/blog/linux_debian_12_installation/).
+
+Ensuite, rendez-vous sur l'adresse IP de votre OpenMediaVault et connectez-vous avec le couple login/mot de passe par défaut **admin/openmediavault**.
+
+### Ajouter vos disques dur en "Passthrought" (Uniquement sur Proxmox)
+
+Si vous avez installé OMV depuis une VM Proxmox, vous ne voyez pas les disques dur et c'est normale. Nous allons attribuer les disques à OMV sans passer par Proxmox. Cela s'appelle faire un Passthrough (passer au travers).
+
+Pour les installations Bare Metal, vous devez voir les disques directement depuis OMV.
+
+Nous allons commencer par lister les disques présents sur le système.
+
+1. Rendez-vous dans l'interface de votre nœud Proxmox puis dans le Shell.
+2. Lancer la commande `fdisk -l` pour lister tous les disques présents et récupérer les chemins `/dev/sdx` des disques à attribuer à votre OMV.
+
+<Alert type="danger">Il y a votre disque système alors ne vous trompez pas</Alert>
+
+3. Nous allons récupérer l'UUID des disques avec la commande suivant `lsblk -l -o NAME,PARTUUID /dev/sdaX` qui doit vous retourner quelques chose comme ça.
+
+```shell
+root@pve:~# lsblk -l -o NAME,PARTUUID /dev/sda
+NAME PARTUUID
+sda  
+sda1 a8d0f94d-c351-7c45-924d-84f19df1fa64
+```
+
+Une fois les UUID récupérés, nous allons déclarer les disques dans notre VM avec la commande `qm set <VMID> --scsi0 /dev/disk/by-id/<ton-disque>`.
+
+* `<VMID>` : Correspond à l'ID de la VM concernée.
+* `<ton-disque>` :  Correspond à `sdaX`, `sdbX`, etc.
+* `--scsiX` : doit être incrémenté en fonction du nombre de disques (pas deux fois le même nombre).
+
+<Alert type="info">
+
+\* `--scsiX` : Plus flexible et recommandé, il permet le hot-plug, par exemple, mais limité à 15 par VM.
+
+\*  `--sataX` : Simple à utiliser, mais limité à 5 par VMs,
+
+\*  `--ideX` : Utilisé pour la compatibilité avec les systèmes plus anciens.
+
+\*  `--virtioX` : Recommandé pour des performances optimales dans des environnements virtualisés.
+
+\*  `--usbX` : Pour attacher des périphériques USB physiques.
+
+</Alert>
+
+```
+## Exemple de retour
+root@pve:~# qm set 140 --scsi1 /dev/disk/by-partuuid/c0e9247f-0e04-fe4b-8ce5-128892f60487
+update VM 140: -scsi1 /dev/disk/by-partuuid/c0e9247f-0e04-fe4b-8ce5-128892f60487
+root@pve:~# qm set 140 --scsi2 /dev/disk/by-partuuid/52e87a7a-01
+update VM 140: -scsi2 /dev/disk/by-partuuid/52e87a7a-01
+```
+
+Vérifiez en vous rendant dans le menu Hardware (Matériel) de votre VM comme l'image ci-dessous.
+
+![Menu Hardware de Proxmox 8](.img/proxmox_passthrought_disque.png "Menu Hardware de Proxmox 8")
+
+Vos disques sont maintenant directement associés à votre VM OpenMediaVault.
+
+## Conclusion
+
+Je vais m'arrêter là pour cet article, mais un article sur les premières choses à faire sur OMV est en cours de rédaction.
+
+Comme vous pouvez le voir, l'installation n'est pas compliquée et si vous êtes passé par Proxmox, vous pourrez associer d'autres services comme Jellyfin, Kodi ou toute autre chose.
+
+ Nous en verrons au fil des articles.
+
+L'interface de OpenMediaVault est accessible au débutant et en plus, vous faites de vraies économies, car un NAS quatre baies avec les solutions propriétaires (Synology, QNAP, Asustore, etc), c'est minimum 100 euros par baie de disque dur et bien sûr sans disque pour des performances bien moindres.
+
+Alors pour ma part quand c'est moins cher, gratuit et Open source et que ce n'est pas moi le produit, c'est juste génial.
+
+Au prochain article !!!
