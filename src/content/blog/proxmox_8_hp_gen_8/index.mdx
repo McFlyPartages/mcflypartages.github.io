@@ -1,0 +1,45 @@
+---
+draft: true
+dossier: /proxmox_8_hp_gen_8
+title: HP Gen 8 - Problème de lenteur depuis iLO lors de l'installation de Proxmox 8.
+description: Modifier le GRUB et remédier au problème de lenteur de l'interface
+  iLO sur HP MicroServer Gen 8. L'installation de Proxmox 8 sur le MicroServer
+  HP Gen 8 via iLO m'a posé quelques problèmes, surtout à cause de la lenteur
+  dans l'interface iLO qui semble venir d'un noyau Linux supérieur à 5.4. Nous
+  allons voir comment y remédier en modifiant la commande du GRUB.
+pubDate: 10/23/2024
+heroImage: .img/hp_gen8_ilo_lent.png
+authors:
+  - mcfly
+categories:
+  - hp gen 8
+  - proxmox
+tags:
+  - HPGen8
+  - iLO
+  - Proxmox
+affiliateLink: false
+---
+Salut à tous.
+
+Un petit short pour garder une trace de ce problème de lenteur sur l'installation d'un OS récent sur un MicroServer HP Gen 8.
+
+Lors de l'installation de Proxmox 8 sur le MicroServer HP Gen 8 via iLO, j'ai eu des gros problèmes de lenteur rendant l'utilisation de l'interface iLO très compliquée voir quasi inutilisable. Après avoir cherché sur le web, il semble que je ne sois pas le seul et que cela semble venir de la mise à jour du noyau Linux supérieur à 5.4.
+
+Afin de garder une note et de vous partager la solution, nous allons voir comment y remédier en modifiant la commande du GRUB.
+
+Au lancement de l'installation de Proxmox, lorsque vous arrivez sur la première page. Vous avez le choix entre les différents types d'installation. Mais si vous faites un peu plus attention, vous pouvez voir qu'il y a un autre menu accessible via les touches **`e`** pour **`edit`**.
+
+Nous allons donc choisir cette option afin de modifier la ligne de commande de demarrage.
+
+![Interface d'installation Proxmox 8](.img/ecran_install_proxmox_8.png "Interface d'installation Proxmox 8")
+
+Dans le terminal qui s'affiche, nous allons ajouter deux choses `intremap=off` et `intel_iommu=off` puis soit `CTRL+x` ou `F10` pour valider et lancer l'installation.
+
+<Alert type="info"> l'antislash \ et mis automatiquement pour signaler que la ligne continue.</Alert>
+
+<Alert type="warning"> ATTENTION les touches sont en QWERTY donc le `a=q`, `m = ;` et `_ = MAJ+°`</Alert>
+
+![Personalisation du GRUB dans Proxmox 8](.img/modification_grub_proxmox_8.png "Personalisation du GRUB dans Proxmox 8")
+
+Ensuite, il ne vous reste à poursuivre [l'installation de Proxmox](/blog/proxmox_installation/).
