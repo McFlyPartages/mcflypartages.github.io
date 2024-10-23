@@ -62,11 +62,56 @@ Nous allons commencer par lister les disques présents sur le système.
 
 3. Nous allons récupérer l'UUID des disques avec la commande suivant `lsblk -l -o NAME,PARTUUID /dev/sdaX` qui doit vous retourner quelques chose comme ça.
 
+```shell
+root@pve:~# lsblk -l -o NAME,PARTUUID /dev/sda
+NAME PARTUUID
+sda  
+sda1 a8d0f94d-c351-7c45-924d-84f19df1fa64
+root@pve:~# lsblk -l -o NAME,PARTUUID /dev/sdb
+NAME PARTUUID
+sdb  
+sdb1 b33d9831-01
+root@pve:~# lsblk -l -o NAME,PARTUUID /dev/sdc
+NAME PARTUUID
+sdc  
+sdc1 4108a20d-9f6c-2f41-92f4-3c956e37c6d3
+root@pve:~# lsblk -l -o NAME,PARTUUID /dev/sdd
+NAME PARTUUID
+sdd  
+sdd1 f554a53d-01
+```
 
+Une fois les UUID récupérés, nous allons déclarer les disques dans notre VMs avec la commande `qm set <VMID> --scsi0 /dev/disk/by-id/<ton-disque>`.
 
+* `<VMID>` : Correspond à l'ID de la VM concernée.
+* `<ton-disque>` :  Correspond à `sdaX`, `sdbX`, etc.
+* `--scsiX` : doit être incrémenté en fonction du nombre de disques (pas deux fois le même nombre).
 
+<Alert type="info">
 
-* Appuyer sur <kbd>F11</kbd>,
+\* `--scsiX` : Plus flexible et recommandé, il permet le hot-plug, par exemple, mais limité à 15 par VM.
+
+\*  `--sataX` : Simple à utiliser, mais limité à 5 par VMs,
+
+\*  `--ideX` : Utilisé pour la compatibilité avec les systèmes plus anciens.
+
+\*  `--virtioX` : Recommandé pour des performances optimales dans des environnements virtualisés.
+
+\*  `--usbX` : Pour attacher des périphériques USB physiques.
+
+</Alert>
+
+```
+qm set <VMID> --scsi1 /dev/disk/by-id/a8d0f94d-c351-7c45-924d-84f19df1fa64
+qm set <VMID> --scsi2 /dev/disk/by-id/b33d9831-01
+qm set <VMID> --scsi3 /dev/disk/by-id/4108a20d-9f6c-2f41-92f4-3c956e37c6d3
+qm set <VMID> --scsi4 /dev/disk/by-id/f554a53d-01
+```
+
+Vérifiez en vous rendant dans 
+
+Appuyer sur <kbd>F11</kbd>,
+
 * Sélectionner le numéro de votre clé (Attention le pavé numérique ne fonctionne pas, il faut utiliser la <kbd>MAJ</kbd>+<kbd>1,2,3,4,...</kbd>,
 * Sélectionnez votre distribution (ici OpenMediaVault),
 * Suivez les étapes **ATTENTION** de bien sélectionner le bon disque dur et de mettre un mot de passe `root` solide (*il sert pour la connexion SSH en root*).
@@ -74,10 +119,6 @@ Nous allons commencer par lister les disques présents sur le système.
 Une fois l'installation terminée, débrancher la clé USB et redémarrer.
 
 Ensuite, rendez-vous sur l'adresse IP de votre serveur (pas celle de l'iLO) et connectez-vous avec le couple login/mot de passe par défaut **admin/openmediavault**.
-
-
-
-
 
 ## Conclusion
 
