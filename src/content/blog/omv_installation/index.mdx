@@ -50,9 +50,17 @@ L'installation de OMV se déroule comme n'importe quelle [installation de Debian
 
 
 
-Ajouter vos disque dur en passtrough
+### Ajouter vos disques dur en "Passthrought" (Uniquement sur Proxmox)
 
-Démarrez votre serveur, puis sur l'écran d'accueil (sur les HP Gen 8) 
+Si vous avez installé OMV depuis une VM Proxmox, vous ne voyez pas les disques dur et c'est normale. Nous allons attribuer les disques à OMV sans passer par Proxmox. Cela s'appelle faire un Passthrough (passer au travers).
+
+Pour les installations Barre Metal, vous devez voir les disques directement depuis OMV.
+
+Nous allons commencer par lister les disque present sur le systeme.
+
+1. Rendez vous dans l'interface de votre noeud Proxmox,
+
+2. 
 
 * Appuyer sur <span><kbd>F11</kbd><span>,
 * Sélectionner le numéro de votre clé (Attention le pavé numérique ne fonctionne pas, il faut utiliser la <span><kbd>MAJ</kbd></span>+<span><kbd>1,2,3,4,...</kbd></span>,
