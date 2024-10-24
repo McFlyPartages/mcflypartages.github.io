@@ -1,0 +1,181 @@
+---
+draft: true
+dossier: /cisco_packet_tracer_insallation_ubuntu_24
+title: Cisco Packet Tracer - Simuler vos architectures réseaux Cisco -
+  Installation sur Ubuntu 24
+description: Cisco Packet Tracer est une application permettant de simuler des
+  architectures IT pour entreprise et de comprendre la circulation des paquets
+  IP être les différents appareils. Il est, cependant orienté matériels
+  routeurs, switchs Cisco uniquement. Nous allons voir ici son installation sous
+  Ubuntu 24 qui nécessite une manipulation supplémentaire autre que le simple
+  dpkg -i pour l'installer..
+pubDate: 10/24/2024
+authors:
+  - mcfly
+categories:
+  - linux
+  - TSSR
+tags:
+  - Ubuntu 24
+  - Cisco Packet Tracer
+affiliateLink: false
+---
+Cisco Packet Tracer est un outil de simulation réseau développé par Cisco Systems, principalement destiné aux étudiants, formateurs et professionnels du réseau. Il permet de concevoir, configurer, simuler et dépanner des réseaux informatiques de manière virtuelle, sans avoir besoin de matériel physique. Voici un résumé de ses principales caractéristiques :
+
+* **Simulation de réseaux :** Packet Tracer permet de simuler des réseaux complexes en créant des topologies avec des routeurs, des commutateurs, des ordinateurs, des serveurs, des appareils IoT, etc.
+* **Environnement d'apprentissage :** L'outil est largement utilisé dans les programmes d'apprentissage Cisco (comme les certifications CCNA) pour permettre aux étudiants de se familiariser avec les concepts et la configuration des réseaux.
+* **Interface visuelle intuitive :** L'interface permet aux utilisateurs de glisser-déposer des appareils, de configurer leurs interfaces et de visualiser les paquets réseau circulant dans la topologie.
+* **Outils de simulation :** Packet Tracer permet d'observer le comportement des réseaux en temps réel et de simuler des scénarios de défaillance, facilitant ainsi la compréhension des concepts tels que le routage, le commutateur, le VLAN, le NAT, etc.
+* **Prise en charge des commandes Cisco IOS :** Il offre la possibilité d'utiliser des commandes Cisco IOS pour configurer et gérer les appareils réseau, fournissant ainsi une expérience proche de celle de l'utilisation de matériel réel.
+* **Support des technologies IoT :** La version moderne de Packet Tracer prend également en charge la simulation des appareils IoT, ce qui permet de configurer et de gérer les objets connectés dans des environnements simulés.
+
+En résumé, Cisco Packet Tracer est un outil puissant pour l'apprentissage, la simulation et la pratique des concepts réseau dans un environnement virtuel, idéal pour les étudiants en réseau et les professionnels souhaitant se perfectionner.
+
+Je ne vais pas vous parler de son fonctionnement, mais de son installation sous Ubuntu 24 qui nécessite l'installation d'une librairie d'Ubuntu 23 pour fonctionner.
+
+Pour apprendre à l'utiliser, je vous recommande le [cours OpenClassRooms dédié](https://openclassrooms.com/fr/courses/7192261-simulez-le-schema-de-votre-reseau-avec-cisco-packet-tracer) qui est très complet et accessible aux débutants.
+
+
+
+## Installer Cisco Packet Tracer sur Ubuntu 24.
+
+L'installation de Cisco Packet Tracer tient dans l'exécution d'un fichier `.deb` donc un simple `dpkg -i monfichier.deb` suffit, mais sur Ubuntu 24, il manque la librairie `libgl1-mesa-glx`.
+
+Voici donc la procédure :
+
+1. Récupérez Cisco Packet Tracer sur le [site de Cisco](https://legacy.netacad.com/portal/resources/packet-tracer) (il vous faudra un compte).
+2. Récupérez la librairie `libgl1-mesa-glx` a [cette adresse](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/), pour la [version amd64](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb),
+3. Ouvrez un Terminal dans le dossier Téléchargements,
+4. Lancer la commande suivante pour installer la librairie manquante `sudo dpkg -i libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb`,
+
+   ```
+   nthony@Client-Ubuntu:~/Téléchargements$ sudo dpkg -i libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb 
+   Sélection du paquet libgl1-mesa-glx:amd64 précédemment désélectionné.
+   (Lecture de la base de données... 156164 fichiers et répertoires déjà installés.)
+   Préparation du dépaquetage de libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb ...
+   Dépaquetage de libgl1-mesa-glx:amd64 (23.0.4-0ubuntu1~23.04.1) ...
+   Paramétrage de libgl1-mesa-glx:amd64 (23.0.4-0ubuntu1~23.04.1) ...
+   ```
+5. Ensuite, lancer la commande pour installer Cisco Packet Tracer `sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb`, il devrait vous retourner d'autres dépendances manquantes
+
+   ```
+   anthony@Client-Ubuntu:~/Téléchargements$ sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb 
+   (Lecture de la base de données... 156170 fichiers et répertoires déjà installés.)
+   Préparation du dépaquetage de CiscoPacketTracer822_amd64_signed.deb ...
+   Dépaquetage de packettracer (8.2.2) sur (8.2.2) ...
+   gtk-update-icon-cache: No theme index file.
+   dpkg: des problèmes de dépendances empêchent la configuration de packettracer :
+    packettracer dépend de dialog; cependant :
+     Le paquet dialog n'est pas installé.
+    packettracer dépend de libxcb-xinerama0-dev; cependant :
+     Le paquet libxcb-xinerama0-dev n'est pas installé.
+
+   dpkg: erreur de traitement du paquet packettracer (--install) :
+    problèmes de dépendances - laissé non configuré
+   Traitement des actions différées (« triggers ») pour shared-mime-info (2.4-4) ...
+   Des erreurs ont été rencontrées pendant l'exécution :
+    packettracer
+   ```
+
+
+
+1. Fixer les dépendances manquantes avec la commande `sudo apt install libxcb-xinerama0-dev`,
+
+   ```
+   anthony@Client-Ubuntu:~/Téléchargements$ sudo apt install libxcb-xinerama0-dev
+   Lecture des listes de paquets... Fait
+   Construction de l'arbre des dépendances... Fait
+   Lecture des informations d'état... Fait      
+   Vous pouvez lancer « apt --fix-broken install » pour corriger ces problèmes.
+   Les paquets suivants contiennent des dépendances non satisfaites :
+    libxcb-xinerama0-dev : Dépend: libxcb-xinerama0 (= 1.15-1ubuntu2) mais ne sera pas installé
+                           Dépend: libxcb1-dev mais ne sera pas installé
+    packettracer : Dépend: dialog mais ne sera pas installé
+   E: Dépendances non satisfaites. Essayez « apt --fix-broken install » sans paquet
+      (ou indiquez une solution).
+   ```
+2. Et ensuite, on termine en fixant les dernières dépendances avec `sudo apt --fix-broken install`,
+
+   ```
+   anthony@Client-Ubuntu:~/Téléchargements$ sudo apt --fix-broken install
+   Lecture des listes de paquets... Fait
+   Construction de l'arbre des dépendances... Fait
+   Lecture des informations d'état... Fait      
+   Correction des dépendances... Fait
+   Les paquets supplémentaires suivants seront installés : 
+     dialog libpthread-stubs0-dev libxau-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb1-dev libxdmcp-dev x11proto-dev
+     xorg-sgml-doctools
+   Paquets suggérés :
+     libxcb-doc
+   Les NOUVEAUX paquets suivants seront installés :
+     dialog libpthread-stubs0-dev libxau-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb1-dev libxdmcp-dev x11proto-dev
+     xorg-sgml-doctools
+   0 mis à jour, 9 nouvellement installés, 0 à enlever et 10 non mis à jour.
+   1 partiellement installés ou enlevés.
+   Il est nécessaire de prendre 1 054 ko dans les archives.
+   Après cette opération, 3 968 ko d'espace disque supplémentaires seront utilisés.
+   Souhaitez-vous continuer ? [O/n] o
+   Réception de :1 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 dialog amd64 1.3-20240101-1 [303 kB]
+   Réception de :2 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libxcb-xinerama0 amd64 1.15-1ubuntu2 [5 410 B]
+   Réception de :3 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libpthread-stubs0-dev amd64 0.4-1build3 [4 746 B]
+   Réception de :4 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 xorg-sgml-doctools all 1:1.11-1.1 [10,9 kB]
+   Réception de :5 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 x11proto-dev all 2023.2-1 [602 kB]
+   Réception de :6 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libxau-dev amd64 1:1.0.9-1build6 [9 570 B]
+   Réception de :7 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libxdmcp-dev amd64 1:1.1.3-0ubuntu6 [26,5 kB]
+   Réception de :8 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libxcb1-dev amd64 1.15-1ubuntu2 [85,8 kB]
+   Réception de :9 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libxcb-xinerama0-dev amd64 1.15-1ubuntu2 [6 034 B]
+   1 054 ko réceptionnés en 0s (3 714 ko/s)     
+   Sélection du paquet dialog précédemment désélectionné.
+   (Lecture de la base de données... 156170 fichiers et répertoires déjà installés.)
+   Préparation du dépaquetage de .../0-dialog_1.3-20240101-1_amd64.deb ...
+   Dépaquetage de dialog (1.3-20240101-1) ...
+   Sélection du paquet libxcb-xinerama0:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../1-libxcb-xinerama0_1.15-1ubuntu2_amd64.deb ...
+   Dépaquetage de libxcb-xinerama0:amd64 (1.15-1ubuntu2) ...
+   Sélection du paquet libpthread-stubs0-dev:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../2-libpthread-stubs0-dev_0.4-1build3_amd64.deb ...
+   Dépaquetage de libpthread-stubs0-dev:amd64 (0.4-1build3) ...
+   Sélection du paquet xorg-sgml-doctools précédemment désélectionné.
+   Préparation du dépaquetage de .../3-xorg-sgml-doctools_1%3a1.11-1.1_all.deb ...
+   Dépaquetage de xorg-sgml-doctools (1:1.11-1.1) ...
+   Sélection du paquet x11proto-dev précédemment désélectionné.
+   Préparation du dépaquetage de .../4-x11proto-dev_2023.2-1_all.deb ...
+   Dépaquetage de x11proto-dev (2023.2-1) ...
+   Sélection du paquet libxau-dev:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../5-libxau-dev_1%3a1.0.9-1build6_amd64.deb ...
+   Dépaquetage de libxau-dev:amd64 (1:1.0.9-1build6) ...
+   Sélection du paquet libxdmcp-dev:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../6-libxdmcp-dev_1%3a1.1.3-0ubuntu6_amd64.deb ...
+   Dépaquetage de libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...
+   Sélection du paquet libxcb1-dev:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../7-libxcb1-dev_1.15-1ubuntu2_amd64.deb ...
+   Dépaquetage de libxcb1-dev:amd64 (1.15-1ubuntu2) ...
+   Sélection du paquet libxcb-xinerama0-dev:amd64 précédemment désélectionné.
+   Préparation du dépaquetage de .../8-libxcb-xinerama0-dev_1.15-1ubuntu2_amd64.deb ...
+   Dépaquetage de libxcb-xinerama0-dev:amd64 (1.15-1ubuntu2) ...
+   Paramétrage de libpthread-stubs0-dev:amd64 (0.4-1build3) ...
+   Paramétrage de libxcb-xinerama0:amd64 (1.15-1ubuntu2) ...
+   Paramétrage de dialog (1.3-20240101-1) ...
+   Paramétrage de xorg-sgml-doctools (1:1.11-1.1) ...
+   Traitement des actions différées (« triggers ») pour libc-bin (2.39-0ubuntu8.3) ...
+   Traitement des actions différées (« triggers ») pour man-db (2.12.0-4build2) ...
+   Traitement des actions différées (« triggers ») pour sgml-base (1.31) ...
+   Paramétrage de x11proto-dev (2023.2-1) ...
+   Paramétrage de libxau-dev:amd64 (1:1.0.9-1build6) ...
+   Paramétrage de libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...
+   Paramétrage de libxcb1-dev:amd64 (1.15-1ubuntu2) ...
+   Paramétrage de libxcb-xinerama0-dev:amd64 (1.15-1ubuntu2) ...
+   Paramétrage de packettracer (8.2.2) ...
+   gtk-update-icon-cache: No theme index file.
+   ```
+3. gfbhgf
+
+
+
+
+
+
+
+Sources :
+
+* http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/
