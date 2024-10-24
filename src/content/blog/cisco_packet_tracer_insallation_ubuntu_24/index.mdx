@@ -35,17 +35,15 @@ Je ne vais pas vous parler de son fonctionnement, mais de son installation sous 
 
 Pour apprendre à l'utiliser, je vous recommande le [cours OpenClassRooms dédié](https://openclassrooms.com/fr/courses/7192261-simulez-le-schema-de-votre-reseau-avec-cisco-packet-tracer) qui est très complet et accessible aux débutants.
 
-
-
 ## Installer Cisco Packet Tracer sur Ubuntu 24.
 
 L'installation de Cisco Packet Tracer tient dans l'exécution d'un fichier `.deb` donc un simple `dpkg -i monfichier.deb` suffit, mais sur Ubuntu 24, il manque la librairie `libgl1-mesa-glx`.
 
 Voici donc la procédure :
 
-1. Récupérez Cisco Packet Tracer sur le [site de Cisco](https://legacy.netacad.com/portal/resources/packet-tracer) (il vous faudra un compte).
-2. Récupérez la librairie `libgl1-mesa-glx` a [cette adresse](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/), pour la [version amd64](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb),
-3. Ouvrez un Terminal dans le dossier Téléchargements,
+1. Récupérer Cisco Packet Tracer sur le [site de Cisco](https://legacy.netacad.com/portal/resources/packet-tracer) (il vous faudra un compte).
+2. Récupérer la librairie `libgl1-mesa-glx` à [cette adresse](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/), pour la [version amd64](http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb),
+3. Ouvrir un Terminal dans le dossier Téléchargements,
 4. Lancer la commande suivante pour installer la librairie manquante `sudo dpkg -i libgl1-mesa-glx_23.0.4-0ubuntu1~23.04.1_amd64.deb`,
 
    ```
@@ -56,9 +54,11 @@ Voici donc la procédure :
    Dépaquetage de libgl1-mesa-glx:amd64 (23.0.4-0ubuntu1~23.04.1) ...
    Paramétrage de libgl1-mesa-glx:amd64 (23.0.4-0ubuntu1~23.04.1) ...
    ```
-5. Ensuite, lancer la commande pour installer Cisco Packet Tracer `sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb`, il devrait vous retourner d'autres dépendances manquantes
+5. Ensuite, lancer la commande pour installer Cisco Packet Tracer `sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb`, 
 
-   ```
+   * Il faut accepter les conditions,
+   * Il vous informe qu'il manque d'autres dépendances,
+6. ```
    anthony@Client-Ubuntu:~/Téléchargements$ sudo dpkg -i CiscoPacketTracer822_amd64_signed.deb 
    (Lecture de la base de données... 156170 fichiers et répertoires déjà installés.)
    Préparation du dépaquetage de CiscoPacketTracer822_amd64_signed.deb ...
@@ -76,10 +76,7 @@ Voici donc la procédure :
    Des erreurs ont été rencontrées pendant l'exécution :
     packettracer
    ```
-
-
-
-1. Fixer les dépendances manquantes avec la commande `sudo apt install libxcb-xinerama0-dev`,
+7. Fixer les dépendances manquantes avec la commande `sudo apt install libxcb-xinerama0-dev`,
 
    ```
    anthony@Client-Ubuntu:~/Téléchargements$ sudo apt install libxcb-xinerama0-dev
@@ -94,7 +91,7 @@ Voici donc la procédure :
    E: Dépendances non satisfaites. Essayez « apt --fix-broken install » sans paquet
       (ou indiquez une solution).
    ```
-2. Et ensuite, on termine en fixant les dernières dépendances avec `sudo apt --fix-broken install`,
+8. Et ensuite, on termine en fixant les dernières dépendances avec `sudo apt --fix-broken install`,
 
    ```
    anthony@Client-Ubuntu:~/Téléchargements$ sudo apt --fix-broken install
@@ -168,14 +165,16 @@ Voici donc la procédure :
    Paramétrage de packettracer (8.2.2) ...
    gtk-update-icon-cache: No theme index file.
    ```
-3. gfbhgf
+9. On teste le lancement de Cisco Packet Tracer avec la commande `packettracer`.
 
+## Conclusion.
 
+Vous avez de quoi vous familiariser avec Cisco Packet Tracer et l'utilisation de ses commandes depuis un terminal. Il n'est pas le seul outil dans le domaine, mais est très demandé en entreprise.
 
+Il existe un outil Open Source qui se nomme [GNS3](https://www.gns3.com/). Je n'ai pas encore eu le temps de l'essayer, mais il y a aussi un cours sur [OpenClassRooms](https://openclassrooms.com/fr/courses/2581701-simulez-des-architectures-reseaux-avec-gns3).
 
-
-
-
-Sources :
+### Sources :
 
 * http://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/
+* https://community.cisco.com/t5/cisco-software-discussions/unable-to-install-packet-tracer-on-ubuntu-24-04-lts/td-p/5079326
+* https://openclassrooms.com/fr/courses/7192261-simulez-le-schema-de-votre-reseau-avec-cisco-packet-tracer
