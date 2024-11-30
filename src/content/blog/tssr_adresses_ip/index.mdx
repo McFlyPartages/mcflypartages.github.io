@@ -1,0 +1,95 @@
+---
+draft: true
+dossier: /tssr_adresses_ip
+title: Les adresses IP
+description: dfgvged
+pubDate: 08/13/2024
+authors:
+  - mcfly
+categories:
+  - TSSR
+affiliateLink: false
+---
+Les adresses IP sont réparties en différentes classes en fonction de la plage d'adresses, ce qui permet de déterminer le nombre d'adresses disponibles pour les réseaux et les hôtes dans chaque classe. Voici un résumé des classes d'adresse IP selon la norme IPv4 :
+
+
+
+Classe A
+
+Plage d'adresses : 0.0.0.0 à 127.255.255.255
+
+Premier octet (binaire) : 0XXXXXXX
+
+Nombre de réseaux possibles : 128 (mais 0 et 127 sont réservés, donc 126 utilisables)
+
+Nombre d'adresses hôte par réseau : 16 777 214 (2³² - 2, car les adresses de réseau et de diffusion sont réservées)
+
+Utilisation typique : Grands réseaux avec un grand nombre d'hôtes (ex : grandes entreprises, ISP)
+
+Classe B
+
+Plage d'adresses : 128.0.0.0 à 191.255.255.255
+
+Premier octet (binaire) : 10XXXXXX
+
+Nombre de réseaux possibles : 16 384
+
+Nombre d'adresses hôte par réseau : 65 534
+
+Utilisation typique : Réseaux de taille moyenne à grande
+
+Classe C
+
+Plage d'adresses : 192.0.0.0 à 223.255.255.255
+
+Premier octet (binaire) : 110XXXXX
+
+Nombre de réseaux possibles : 2 097 152
+
+Nombre d'adresses hôte par réseau : 254
+
+Utilisation typique : Petits réseaux (ex : petites entreprises, réseaux domestiques)
+
+Classe D (Multicast)
+
+Plage d'adresses : 224.0.0.0 à 239.255.255.255
+
+Premier octet (binaire) : 1110XXXX
+
+Utilisation : Diffusion de paquets IP à un groupe d'hôtes (multicast).
+
+Classe E (Expérimentale)
+
+Plage d'adresses : 240.0.0.0 à 255.255.255.255
+
+Premier octet (binaire) : 1111XXXX
+
+Utilisation : Réservé pour des expérimentations et des recherches futures.
+
+Ces classes sont définies principalement dans le contexte de la norme IPv4, qui attribue des adresses sur 32 bits. La segmentation en classes A, B et C permettait une répartition plus efficace des adresses IP. Cependant, avec l'épuisement des adresses IPv4, ces classes sont devenues moins pertinentes, notamment avec l'introduction du CIDR (Classless Inter-Domain Routing), qui permet une allocation plus flexible des adresses IP.
+
+
+
+La norme que vous recherchez concernant les classes d'adresses IP est définie dans plusieurs documents standards, principalement les RFC (Request for Comments) publiés par l'IETF (Internet Engineering Task Force). Les principales RFCs qui définissent la norme des adresses IP et leur classification en classes sont les suivantes :
+
+
+
+1. RFC 791 - "Internet Protocol" (1981)
+
+Description : Ce document est la base du protocole IPv4. Il décrit le format des adresses IPv4 et introduit la notion de classes d'adresses IP (A, B, C, D, et E).
+
+Lien : RFC 791
+
+2. RFC 950 - "Internet Standard Subnetting Procedure" (1985)
+
+Description : Ce document introduit le concept de sous-réseaux (subnetting) pour permettre une gestion plus efficace des adresses IP à l'intérieur d'un réseau.
+
+Lien : RFC 950
+
+3. RFC 1166 - "Internet Numbers" (1990)
+
+Description : Ce document définit les numéros de réseau et leur attribution en fonction des classes d'adresses IP.
+
+Lien : RFC 1166
+
+Ces documents définissent les règles pour l'attribution des adresses IP dans différentes classes, les plages d'adresses associées à chaque classe, et les aspects techniques de leur utilisation dans les réseaux informatiques. Notez que ces normes s'appliquent principalement à l'IPv4, tandis que l'IPv6, introduit par la RFC 2460, utilise un schéma d'adressage complètement différent sans la notion de classes.
